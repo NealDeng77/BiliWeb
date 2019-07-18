@@ -13,9 +13,10 @@ namespace BiliWeb.Controllers
         /// Show all the data
         /// </summary>
         /// <returns></returns>
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var data = new List<ExampleModel>();
+            return View(data);
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace BiliWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
             [Bind("" +
-            "ExampleID,"+
+            "ID,"+
             "Name,"+
             "")] ExampleModel data)
         {
@@ -71,7 +72,7 @@ namespace BiliWeb.Controllers
             }
 
             // Todo Save Change
-            //data.ExampleID;
+            //data.ID;
             //await SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
@@ -97,7 +98,7 @@ namespace BiliWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(
             [Bind("" +
-            "ExampleID,"+
+            "ID,"+
             "Name,"+
             "")] ExampleModel data)
         {
@@ -107,7 +108,7 @@ namespace BiliWeb.Controllers
             }
 
             // Todo Save Change
-            //data.ExampleID;
+            //data.ID;
             //await SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
