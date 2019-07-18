@@ -77,6 +77,41 @@ namespace BiliWeb.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        /// <summary>
+        /// Returns a blank Update page with a pre-populated guid for the record
+        /// </summary>
+        /// <returns>new data model</returns>
+        [HttpGet]
+        public IActionResult Update()
+        {
+            var data = new ExampleModel();
+            return View(data);
+        }
+
+        /// <summary>
+        /// Receive a post for a new record
+        /// </summary>
+        /// <param name="data">The data to Update</param>
+        /// <returns>Redirects to Index page</returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(
+            [Bind("" +
+            "ExampleID,"+
+            "Name,"+
+            "")] ExampleModel data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+
+            // Todo Save Change
+            //data.ExampleID;
+            //await SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
 
         /// <summary>
         /// Delete Method, is like Read where it returns the data
@@ -141,7 +176,6 @@ namespace BiliWeb.Controllers
             }
 
             return RedirectToAction(nameof(Index));
-
         }
     }
 }
