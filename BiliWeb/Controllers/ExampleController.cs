@@ -76,5 +76,72 @@ namespace BiliWeb.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+
+        /// <summary>
+        /// Delete Method, is like Read where it returns the data
+        /// Delete Confirm is where it is deleted.
+        /// </summary>
+        /// <param name="id">the guid of the item to delete</param>
+        /// <param name="saveChangesError">Shows error message of failed delete</param>
+        /// <returns></returns>
+        public async Task<IActionResult> Delete(string id, bool? saveChangesError = false)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            /// Find the data
+            var data = new ExampleModel();
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewData["ErrorMessage"] =
+                    "Delete failed. Try again, and if the problem persists " +
+                    "see your system administrator.";
+            }
+
+            return View(data);
+        }
+
+        /// <summary>
+        /// Confirm the Delete does the action
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Redirects to Index on success</returns>
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return NotFound();
+            }
+
+            var data = new ExampleModel();
+
+            // Check to see if it Exists
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            // Try to Delete it
+            var result = true;
+            if (result == false)
+            {
+                //Log the error (uncomment ex variable name and write a log.)
+                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
+            }
+
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }
