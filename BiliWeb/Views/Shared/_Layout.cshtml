@@ -49,6 +49,19 @@
         </footer>
     </div>
 
+
+    @{
+        // Add tags to the current view to identify the route
+       var myAreaID = "Area-" + ViewContext.RouteData.DataTokens["Area"];
+        var myControllerID = "Controller-" + ViewContext.RouteData.DataTokens["Controller"];
+        var myActionID = "View-" + ViewContext.RouteData.Values["Action"];
+        <div id="TagDone"></div>
+        <div id="@myAreaID"></div>
+        <div id="@myControllerID"></div>
+        <div id="@myActionID"></div>
+    }
+
+
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
