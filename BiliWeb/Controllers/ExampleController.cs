@@ -4,18 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BiliWeb.Models;
+using BiliWeb.Backend;
 
 namespace BiliWeb.Controllers
 {
     public class ExampleController : Controller
     {
+        ExampleBackend Backend = ExampleBackend.Instance;
+
         /// <summary>
         /// Show all the data
         /// </summary>
         /// <returns></returns>
         public async Task<IActionResult> Index()
         {
-            var data = new List<ExampleModel>();
+            var data = Backend.Index();
             return View(data);
         }
 
