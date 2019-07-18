@@ -88,9 +88,14 @@ namespace BiliWeb.Controllers
         /// </summary>
         /// <returns>new data model</returns>
         [HttpGet]
-        public IActionResult Update()
+        public IActionResult Update(string id)
         {
-            var data = new ExampleModel();
+            //Look up the ID
+            var data = Backend.Read(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
             return View(data);
         }
 
@@ -101,7 +106,7 @@ namespace BiliWeb.Controllers
         /// <returns>Redirects to Index page</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(
+        public IActionResult Update(
             [Bind("" +
             "ID,"+
             "Name,"+
@@ -112,9 +117,18 @@ namespace BiliWeb.Controllers
                 return RedirectToAction("Error", "Home");
             }
 
-            // Todo Save Change
-            //data.ID;
-            //await SaveChangesAsync();
+            //Look up the ID
+            var dataExist = Backend.Read(data.ID);
+            if (dataExist == null)
+            {
+                return NotFound();
+            }
+
+            var dataResult = Backend.Update(data);
+            if (dataResult == null)
+            {
+                return NotFound();
+            }
 
             return RedirectToAction(nameof(Index));
         }
