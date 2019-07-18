@@ -1,0 +1,55 @@
+﻿@model BiliWeb.Models.ExampleModel
+
+@{
+    ViewData["Title"] = "Read";
+}
+
+<h2>Read</h2>
+
+<h4>Example record</h4>
+
+<br />
+<hr />
+<div class="row">
+    <div class="col">
+        <br />
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-1 text-right">
+                    @Html.DisplayNameFor(model=>model.ExampleID)
+                </div>
+                <div class="col">
+                    @Html.DisplayFor(model=>model.ExampleID)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-1 text-right">
+                    @Html.DisplayNameFor(model=>model.Name)
+                </div>
+                <div class="col">
+                    @Html.DisplayFor(model=>model.Name)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <br />
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col">
+                    <a asp-action="Index" class="btn btn-info">Back</a>
+                    <a asp-action="Update" class="btn btn-secondary">Update</a>
+                    <a asp-action="Delete" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
