@@ -5,7 +5,7 @@ using BiliWeb.Controllers;
 namespace UnitTests.Views
 {
     [TestClass]
-    public class ExampleViewTest
+    public class IndexViewTest
     {
         [TestMethod]
         public void Example_Index_Default_Should_Pass()
