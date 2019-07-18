@@ -52,9 +52,10 @@
 
     @{
         // Add tags to the current view to identify the route
-       var myAreaID = "Area-" + ViewContext.RouteData.DataTokens["Area"];
-        var myControllerID = "Controller-" + ViewContext.RouteData.DataTokens["Controller"];
+        var myAreaID = "Area-" + ViewContext.RouteData.Values["Area"];
+        var myControllerID = "Controller-" + ViewContext.RouteData.Values["Controller"];
         var myActionID = "View-" + ViewContext.RouteData.Values["Action"];
+
         <div id="TagDone"></div>
         <div id="@myAreaID"></div>
         <div id="@myControllerID"></div>
