@@ -14,7 +14,7 @@ namespace UnitTests.Views
             var myController = new ExampleController();
 
             // Act
-            var myTest = myController.Update();
+            var myTest = myController.Update("abc");
 
             // Assert
             Assert.IsNotNull(myTest);
