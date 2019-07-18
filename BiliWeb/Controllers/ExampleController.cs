@@ -34,9 +34,8 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
-            //TODO Look up the ID
-            var data = new ExampleModel();
-
+            //Look up the ID
+            var data = Backend.Read(id);
             if (data == null)
             {
                 return NotFound();
@@ -75,8 +74,11 @@ namespace BiliWeb.Controllers
             }
 
             // Todo Save Change
-            //data.ID;
-            //await SaveChangesAsync();
+            var result = Backend.Create(data);
+            if (result == null)
+            {
+                return RedirectToAction("Error", "Home");
+            }
 
             return RedirectToAction(nameof(Index));
         }
