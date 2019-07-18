@@ -7,6 +7,7 @@ namespace UnitTests.Controllers
     [TestClass]
     public class ExampleControlerTests
     {
+        #region IndexTests
         /// <summary>
         /// Ensure the Default Index page on the controller returns and is not null
         /// </summary>
@@ -24,46 +25,8 @@ namespace UnitTests.Controllers
             // Assert
             Assert.IsNotNull(myTest);
         }
+        #endregion IndexTests
 
-        #region UpdateTests
-        /// <summary>
-        /// Ensure the Update Method on the controller returns and is not null
-        /// </summary>
-        [TestMethod]
-        public void Example_Update_Get_Default_Should_Pass()
-        {
-            // Arrange
-            var myController = new ExampleController();
-
-            // Act
-            var myTest = myController.Update();
-
-            // Reset
-
-            // Assert
-            Assert.IsNotNull(myTest);
-        }
-
-        /// <summary>
-        /// Ensure the Update Method Post on the controller returns and is not null
-        /// </summary>
-        [TestMethod]
-        public void Example_Update_Post_Default_Should_Pass()
-        {
-            // Arrange
-            var myController = new ExampleController();
-            var myData = new ExampleModel();
-
-            // Act
-            var myTest = myController.Update(myData);
-
-            // Reset
-
-            // Assert
-            Assert.IsNotNull(myTest);
-        }
-        #endregion UpdateTests
-        
         #region CreateTests
 
         /// <summary>
@@ -141,6 +104,45 @@ namespace UnitTests.Controllers
             Assert.IsNotNull(myTest);
         }
         #endregion ReadTests
+
+        #region UpdateTests
+        /// <summary>
+        /// Ensure the Update Method on the controller returns and is not null
+        /// </summary>
+        [TestMethod]
+        public void Example_Update_Get_Default_Should_Pass()
+        {
+            // Arrange
+            var myController = new ExampleController();
+
+            // Act
+            var myTest = myController.Update();
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(myTest);
+        }
+
+        /// <summary>
+        /// Ensure the Update Method Post on the controller returns and is not null
+        /// </summary>
+        [TestMethod]
+        public void Example_Update_Post_Default_Should_Pass()
+        {
+            // Arrange
+            var myController = new ExampleController();
+            var myData = new ExampleModel();
+
+            // Act
+            var myTest = myController.Update(myData);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(myTest);
+        }
+        #endregion UpdateTests
 
         #region DeleteTests
         /// <summary>
