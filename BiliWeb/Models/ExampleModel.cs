@@ -13,6 +13,8 @@ namespace BiliWeb.Models
         // The ID for this data record as a guid
         public string ExampleID { get; set; } = new Guid().ToString();
 
+        // Just a field to show how to use it...
+        public string Name { get; set; }
 
     }
 }
