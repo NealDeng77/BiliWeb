@@ -15,6 +15,24 @@ namespace BiliWeb.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// Simple Constructor
+        /// </summary>
+        /// <param name="data"></param>
+        public ExampleModel()
+        {
+        }
+
+        /// <summary>
+        /// Makes a copy of the data
+        /// </summary>
+        /// <param name="data"></param>
+        public ExampleModel(ExampleModel data)
+        {
+            // Because this is a copy, let it have a new ID
+            Update(data);
+        }
+
+        /// <summary>
         /// Update fields passed in
         /// Updates all fields to be the values passed in
         /// Does NOT update the ID field, this allows for the method to be used as part of a copy.
