@@ -110,13 +110,13 @@ namespace UnitTests.Controllers
         /// Ensure the Update Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Get_Default_Should_Pass()
+        public void Example_Update_Get_InValid_ID_Bogus_Should_Fail()
         {
             // Arrange
             var myController = new ExampleController();
 
             // Act
-            var myTest = myController.Update();
+            var myTest = myController.Update("abc");
 
             // Reset
 
