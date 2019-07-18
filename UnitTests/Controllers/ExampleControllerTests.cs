@@ -61,5 +61,41 @@ namespace UnitTests.Controllers
             // Assert
             Assert.IsNotNull(myTest);
         }
+
+        /// <summary>
+        /// Ensure the Read Method with no data should fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Read_Get_Data_Null_Should_Fail()
+        {
+            // Arrange
+            var myController = new ExampleController();
+
+            // Act
+            var myTest = myController.Read(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(myTest);
+        }
+
+        /// <summary>
+        /// Ensure the Read Method with no data should fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Read_Get_Data_In_Valid_Should_Fail()
+        {
+            // Arrange
+            var myController = new ExampleController();
+
+            // Act
+            var myTest = myController.Read("bogus");
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(myTest);
+        }
     }
 }
