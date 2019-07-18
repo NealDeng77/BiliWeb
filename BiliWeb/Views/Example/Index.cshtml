@@ -1,6 +1,48 @@
-﻿
+﻿@model List<BiliWeb.Models.ExampleModel>
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Example Index</h2>
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+                    |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

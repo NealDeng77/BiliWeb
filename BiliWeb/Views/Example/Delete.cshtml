@@ -18,10 +18,10 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model=>model.ExampleID)
+                    @Html.DisplayNameFor(model=>model.ID)
                 </div>
                 <div class="col">
-                    @Html.DisplayFor(model=>model.ExampleID)
+                    @Html.DisplayFor(model=>model.ID)
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
 
         <form asp-action="Delete">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="ExampleID" hidden />
+            <input asp-for="ID" hidden />
 
             <div class="form-group">
                 <br />
