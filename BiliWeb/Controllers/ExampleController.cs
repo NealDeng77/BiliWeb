@@ -62,7 +62,7 @@ namespace BiliWeb.Controllers
         /// <returns>Redirects to Index page</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(
+        public IActionResult Create(
             [Bind("" +
             "ID,"+
             "Name,"+
