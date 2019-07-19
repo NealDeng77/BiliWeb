@@ -75,6 +75,11 @@ namespace BiliWeb.Backend
         /// <returns>AvatarItem Passed In</returns>
         public ExampleModel Create(ExampleModel data, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
         {
+            if (data == null)
+            {
+                return null;
+            }
+
             dataset.Add(data);
 
             // Add to Storage
@@ -96,8 +101,15 @@ namespace BiliWeb.Backend
                 return null;
             }
 
-            var myReturn = dataset.Find(n => n.ID == id);
-            return myReturn;
+            // Get the first instance of the record
+            var myData = dataset.FirstOrDefault(m => m.ID == id);
+            if (myData == null)
+            {
+                return null;
+            }
+
+            // Found what was looking for, so all OK
+            return myData;
         }
 
         /// <summary>
