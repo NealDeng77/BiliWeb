@@ -2,10 +2,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BiliWeb.Models;
 using BiliWeb.Controllers;
 
-namespace UnitTests.Views
+namespace UnitTests.Views.Example
 {
     [TestClass]
-    public class IndexViewTest
+    public class ExampleIndexViewTest
     {
         [TestMethod]
         public void Example_Index_Default_Should_Pass()

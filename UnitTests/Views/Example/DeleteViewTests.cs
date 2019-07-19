@@ -2,10 +2,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BiliWeb.Models;
 using BiliWeb.Controllers;
 
-namespace UnitTests.Views
+namespace UnitTests.Views.Example
 {
     [TestClass]
-    public class DeleteViewTest
+    public class ExampleDeleteViewTest
     {
         [TestMethod]
         public void Example_Delete_InValid_Data_Bogus_Should_Fail()

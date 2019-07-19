@@ -2,10 +2,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BiliWeb.Models;
 using BiliWeb.Controllers;
 
-namespace UnitTests.Views
+namespace UnitTests.Views.Example
 {
     [TestClass]
-    public class ReadViewTest
+    public class ExampleReadViewTest
     {
         /// <summary>
         /// Read Invalid Data should Fail
