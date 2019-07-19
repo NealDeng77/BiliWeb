@@ -192,6 +192,12 @@ namespace BiliWeb.Backend
         public ExampleModel Update(ExampleModel data)
         {
             // Get the first instance of the record
+
+            if (data == null)
+            {
+                return null;
+            }
+
             var myData = Read(data.ID);
             if (myData == null)
             {

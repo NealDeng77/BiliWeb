@@ -126,8 +126,7 @@ namespace UnitTests.Backend
             myTest.Name = "New3";
 
             // Act
-            myBackend.Update(myTest);
-            var result = myBackend.Read(myData.ID);
+            var result = myBackend.Update(myTest);
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
@@ -135,6 +134,48 @@ namespace UnitTests.Backend
             // Assert
             Assert.AreEqual("New3",result.Name);
             
+        }
+
+        /// <summary>
+        /// Updating a Null record, shoudl Fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Update_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+
+            // Act
+            var result = myBackend.Update(null);
+
+            // Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        /// <summary>
+        /// Updating a bogus record, should Fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Update_InValid_Bogus_Should_Fail()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+            var myTest = new ExampleModel
+            {
+                ID = "bogus"
+            };
+
+            // Act
+            var result = myBackend.Update(myTest);
+
+            // Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+
+            // Assert
+            Assert.AreEqual(null, result);
         }
         #endregion UpdateTests
 
