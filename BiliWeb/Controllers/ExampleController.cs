@@ -96,6 +96,7 @@ namespace BiliWeb.Controllers
             {
                 return NotFound();
             }
+
             return View(data);
         }
 
@@ -174,9 +175,14 @@ namespace BiliWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(string id)
         {
-            if (string.IsNullOrEmpty(id))
+            if (!ModelState.IsValid)
             {
                 return NotFound();
+            }
+
+            if (string.IsNullOrEmpty(id))
+            {
+                return RedirectToAction("Error", "Home");
             }
 
             // Check to see if it Exists
