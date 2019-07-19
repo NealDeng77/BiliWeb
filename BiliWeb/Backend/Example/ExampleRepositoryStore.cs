@@ -159,10 +159,8 @@ namespace BiliWeb.Backend
                     return false;
                 }
 
-                if (dataset.Remove(data) == false)
-                {
-                    return false;
-                }
+                // Just Remove it from the list.
+                dataset.Remove(data);
             }
 
             // Storage Delete
