@@ -240,7 +240,7 @@ namespace UnitTests.Controllers
         /// <summary>
         /// Update of Null Data should Fail
         /// 
-        /// Success on Update Jups to Index page
+        /// Success on Update Jumps to Index page
         /// </summary>
         [TestMethod]
         public void Example_Update_Post_Valid_Data_Should_Pass()
@@ -256,6 +256,9 @@ namespace UnitTests.Controllers
 
             // Act
             var result = myController.Update(myTestData) as RedirectToActionResult;
+
+            //Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
             Assert.AreEqual("Index", result.ActionName);
