@@ -4,7 +4,6 @@ using BiliWeb.Models;
 
 namespace BiliWeb.Backend
 {
-
     /// <summary>
     /// Define an interface which contains the methods for the Example repository.
     /// All CRUDi aspects
