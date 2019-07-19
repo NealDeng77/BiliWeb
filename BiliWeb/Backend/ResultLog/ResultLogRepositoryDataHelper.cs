@@ -52,10 +52,10 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new ResultLogModel { Name = "Mike" }); // Default
-            DataList.Add(new ResultLogModel { Name = "Doug" }); 
-            DataList.Add(new ResultLogModel { Name = "Jea" }); 
-            DataList.Add(new ResultLogModel { Name = "Sue" }); 
+            DataList.Add(new ResultLogModel { Name = "Mike", BilirubinValue=1 }); // Default
+            DataList.Add(new ResultLogModel { Name = "Doug", BilirubinValue = 2 }); 
+            DataList.Add(new ResultLogModel { Name = "Jea", BilirubinValue = 3.5 }); 
+            DataList.Add(new ResultLogModel { Name = "Sue", BilirubinValue = 10 }); 
 
             return DataList;
         }
