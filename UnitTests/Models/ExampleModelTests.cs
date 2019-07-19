@@ -20,5 +20,92 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(myTest);
         }
+
+        /// <summary>
+        /// Instantiate Model with Data
+        /// </summary>
+        [TestMethod]
+        public void Example_Constructor_Data_Valid_Should_Pass()
+        {
+            // Arrange
+            var myData = new ExampleModel
+            {
+                Name = "New"
+            };
+
+            // Act
+            var myNewData = new ExampleModel(myData);
+
+            // Assert
+            Assert.AreEqual("New", myNewData.Name);
+        }
+
+        /// <summary>
+        /// Update Model with bogus data should Fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Update_InValid_Data_Null_Should_Fail()
+        {
+            // Arrange
+            var myData = new ExampleModel();
+
+            // Act
+            var result = myData.Update(null);
+
+            // Assert
+            Assert.AreEqual(false,result);
+        }
+
+        /// <summary>
+        /// Update Model with bogus data should Fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Update_Valid_Data_Good_Should_Pass()
+        {
+            // Arrange
+            var myData = new ExampleModel();
+            var myDataNew = new ExampleModel
+            {
+                Name = "New",
+                ID = myData.ID
+            };
+
+            // Act
+            myData.Update(myDataNew);
+
+            // Assert
+            Assert.AreEqual("New", myData.Name);
+        }
+
+        /// <summary>
+        /// Get test for Model
+        /// </summary>
+        [TestMethod]
+        public void Example_Get_Should_Pass()
+        {
+            // Arrange
+            var myData = new ExampleModel();
+
+            // Act
+
+            // Assert
+            Assert.IsNull(myData.Name);
+        }
+
+        /// <summary>
+        /// Set test for Model
+        /// </summary>
+        [TestMethod]
+        public void Example_Set_Should_Pass()
+        {
+            // Arrange
+            var myData = new ExampleModel();
+
+            // Act
+            myData.Name = "New";
+
+            // Assert
+            Assert.AreEqual("New", myData.Name);
+        }
     }
 }
