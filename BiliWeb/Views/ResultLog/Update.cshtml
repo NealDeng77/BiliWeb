@@ -16,7 +16,7 @@
         <form asp-action="Update">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="ID" hidden />
-            
+
             <div class="form-group">
                 <div class="row">
                     <div class="col-1 text-right">
@@ -28,6 +28,67 @@
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1 text-right">
+                        <label asp-for="BilirubinValue" class="control-label"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="BilirubinValue" class="form-control" />
+                        <span asp-validation-for="BilirubinValue" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1 text-right">
+                        <label asp-for="ClinicID" class="control-label"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="ClinicID" class="form-control" />
+                        <span asp-validation-for="ClinicID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1 text-right">
+                        <label asp-for="PhoneID" class="control-label"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="PhoneID" class="form-control" />
+                        <span asp-validation-for="PhoneID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1 text-right">
+                        <label asp-for="UserID" class="control-label"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="UserID" class="form-control" />
+                        <span asp-validation-for="UserID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1 text-right">
+                        <label asp-for="PhotoID" class="control-label"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="PhotoID" class="form-control" />
+                        <span asp-validation-for="PhotoID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="form-group">
                 <br />
