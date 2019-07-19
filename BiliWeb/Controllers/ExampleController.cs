@@ -65,8 +65,9 @@ namespace BiliWeb.Controllers
         public IActionResult Create(
             [Bind("" +
             "ID,"+
-            "Name,"+
+            "Date,"+
 
+            "Name,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] ExampleModel data)
@@ -113,8 +114,9 @@ namespace BiliWeb.Controllers
         public IActionResult Update(
             [Bind("" +
             "ID,"+
-            "Name,"+
+            "Date,"+
 
+            "Name,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] ExampleModel data)
