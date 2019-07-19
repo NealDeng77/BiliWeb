@@ -33,8 +33,8 @@ namespace BiliWeb.Backend
         }
         #endregion SingletonPattern
 
-        // Get the Datasource to use
-        private static IExampleRepository DataSource;
+        // Hook up the Repositry
+        private static IExampleRepository repository = ExampleRepositoryMock.Instance;
 
         /// <summary>
         /// Sets the Datasource to be Mock or SQL
@@ -51,19 +51,17 @@ namespace BiliWeb.Backend
                 case DataSourceEnum.ServerLive:
                 case DataSourceEnum.ServerTest:
                     DataSourceBackendTable.Instance.SetDataSourceServerMode(dataSourceEnum);
-                    DataSource = ExampleRepositoryStore.Instance;
+                    repository = ExampleRepositoryStore.Instance;
                     break;
 
                 case DataSourceEnum.Mock:
                 default:
                     // Default is to use the Mock
-                    DataSource = ExampleRepositoryMock.Instance;
+                    repository = ExampleRepositoryMock.Instance;
                     break;
             }
 
         }
-        // Hook up the Repositry
-        private IExampleRepository repository = ExampleRepositoryMock.Instance;
 
         /// <summary>
         /// Switch the data set between Demo, Default and Unit Test
@@ -71,7 +69,7 @@ namespace BiliWeb.Backend
         /// <param name="SetEnum"></param>
         public static void SetDataSourceDataSet(DataSourceDataSetEnum SetEnum)
         {
-            DataSource.LoadDataSet(SetEnum);
+            repository.LoadDataSet(SetEnum);
         }
 
         /// <summary>
@@ -79,7 +77,7 @@ namespace BiliWeb.Backend
         /// </summary>
         public void Reset()
         {
-            DataSource.Reset();
+            repository.Reset();
         }
 
         /// <summary>
