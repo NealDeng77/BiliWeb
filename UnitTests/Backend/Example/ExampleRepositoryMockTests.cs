@@ -221,5 +221,52 @@ namespace UnitTests.Backend
             Assert.IsTrue(result);
         }
         #endregion BackupDataTests
+
+        #region Set_DataSetTests
+        /// <summary>
+        /// Call for The Demo Data Set
+        /// Then reset to the Default
+        /// Return True, because no different currently
+        /// If different sets are implemented, then verify the sets
+        /// </summary>
+        [TestMethod]
+        public void Example_DataSetDemo_Data_Valid_Should_Pass()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+
+            // Act
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Demo);
+
+            // Reset
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        /// <summary>
+        /// Call for The Demo Data Unit Test Set
+        /// Then reset to the Default
+        /// Return True, because no different currently
+        /// If different sets are implemented, then verify the sets
+        /// </summary>
+        [TestMethod]
+        public void Example_DataSetUnitTest_Data_Valid_Should_Pass()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+
+            // Act
+            myBackend.LoadDataSet(DataSourceDataSetEnum.UnitTest);
+
+            // Reset
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        #endregion Set_DataSetTests
     }
 }
