@@ -115,7 +115,7 @@ namespace BiliWeb.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("Error", "Home");
+                return NotFound();
             }
 
             //Look up the ID
