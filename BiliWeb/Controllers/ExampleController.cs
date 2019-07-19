@@ -16,7 +16,7 @@ namespace BiliWeb.Controllers
         /// Show all the data
         /// </summary>
         /// <returns></returns>
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var data = Backend.Index();
             return View(data);
