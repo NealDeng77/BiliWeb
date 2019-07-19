@@ -65,7 +65,7 @@ namespace BiliWeb.Controllers
         public IActionResult Create(
             [Bind("" +
             "ID,"+
-            "Name,"+
+            "Date,"+
 
             "BilirubinValue,"+
             "ClinicID,"+
@@ -117,7 +117,7 @@ namespace BiliWeb.Controllers
         public IActionResult Update(
             [Bind("" +
             "ID,"+
-            "Name,"+
+            "Date,"+
 
             "BilirubinValue,"+
             "ClinicID,"+
