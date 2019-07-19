@@ -140,7 +140,7 @@ namespace BiliWeb.Controllers
         /// <param name="id">the guid of the item to delete</param>
         /// <param name="saveChangesError">Shows error message of failed delete</param>
         /// <returns></returns>
-        public async Task<IActionResult> Delete(string id, bool? saveChangesError = false)
+        public IActionResult Delete(string id, bool? saveChangesError = false)
         {
             if (id == null)
             {
@@ -148,7 +148,7 @@ namespace BiliWeb.Controllers
             }
 
             /// Find the data
-            var data = new ExampleModel();
+            var data = Backend.Read(id);
             if (data == null)
             {
                 return NotFound();
@@ -172,27 +172,26 @@ namespace BiliWeb.Controllers
         /// <returns>Redirects to Index on success</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public IActionResult DeleteConfirmed(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
                 return NotFound();
             }
 
-            var data = new ExampleModel();
-
             // Check to see if it Exists
+            var data = Backend.Read(id);
             if (data == null)
             {
                 return NotFound();
             }
 
             // Try to Delete it
-            var result = true;
+            var result = Backend.Delete(id);
             if (result == false)
             {
                 //Log the error (uncomment ex variable name and write a log.)
-                return RedirectToAction(nameof(Delete), new { id = id, saveChangesError = true });
+                return RedirectToAction(nameof(Delete), new { id, saveChangesError = true });
             }
 
             return RedirectToAction(nameof(Index));
