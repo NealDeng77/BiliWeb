@@ -31,10 +31,10 @@ namespace UnitTests.Backend
 
         #region CreateTests
         /// <summary>
-        /// Ensure the Create Method Post on the controller returns and is not null
+        /// Ensure the Create Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Create_Post_Default_Should_Pass()
+        public void Example_Create_Default_Should_Pass()
         {
             // Arrange
             var myBackend = ExampleRepositoryMock.Instance;
@@ -111,10 +111,10 @@ namespace UnitTests.Backend
 
         #region UpdateTests
         /// <summary>
-        /// Ensure the Update Method Post on the controller returns and is not null
+        /// Ensure the Update Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Post_Default_Should_Pass()
+        public void Example_Update_Default_Should_Pass()
         {
             // Arrange
             var myBackend = ExampleRepositoryMock.Instance;
