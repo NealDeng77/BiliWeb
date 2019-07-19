@@ -39,7 +39,7 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Sets the Datasource to be Mock or SQL
         /// </summary>
-        /// <param name="dataSourceEnum"></param>
+        /// <param name="dataSourceEnum">The mock status.</param>
         public static void SetDataSource(DataSourceEnum dataSourceEnum)
         {
             switch (dataSourceEnum)
@@ -65,7 +65,7 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Switch the data set between Demo, Default and Unit Test
         /// </summary>
-        /// <param name="SetEnum"></param>
+        /// <param name="SetEnum">The type of data running.</param>
         public static void SetDataSourceDataSet(DataSourceDataSetEnum SetEnum)
         {
             repository.LoadDataSet(SetEnum);
@@ -91,8 +91,8 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Create
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">The record passed in.</param>
+        /// <returns>The record created for the result.</returns>
         public ResultLogModel Create(ResultLogModel data)
         {
             var myData = repository.Create(data);
@@ -102,19 +102,19 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Read
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The result id of a test.</param>
+        /// <returns>The record for the result.</returns>
         public ResultLogModel Read(string id)
         {
             var myData = repository.Read(id);
             return myData;
         }
-        
+
         /// <summary>
         /// Update
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">The record passed in.</param>
+        /// <returns>The updated record.</returns>
         public ResultLogModel Update(ResultLogModel data)
         {
             var myData = repository.Update(data);
@@ -124,8 +124,8 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Delete
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The result id of a test.</param>
+        /// <returns>True if the record was deleted, false otherwise.</returns>
         public bool Delete(string id)
         {
             var myData = repository.Delete(id);
@@ -135,7 +135,7 @@ namespace BiliWeb.Backend
         /// <summary>
         ///  Returns the List of ResultLogs
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The list of result logs.</returns>
         public List<ResultLogModel> Index()
         {
             var myData = repository.Index();
