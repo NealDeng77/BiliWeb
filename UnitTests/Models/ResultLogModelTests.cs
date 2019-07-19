@@ -30,14 +30,14 @@ namespace UnitTests.Models
             // Arrange
             var myData = new ResultLogModel
             {
-                Name = "New"
+                ClinicID = "New"
             };
 
             // Act
             var myNewData = new ResultLogModel(myData);
 
             // Assert
-            Assert.AreEqual("New", myNewData.Name);
+            Assert.AreEqual("New", myNewData.ClinicID);
         }
 
         /// <summary>
@@ -66,9 +66,8 @@ namespace UnitTests.Models
             var myData = new ResultLogModel();
             var myDataNew = new ResultLogModel
             {
-                Name = "New",
                 BilirubinValue = 2,
-                ClinicID = "Clinic",
+                ClinicID = "New",
                 PhoneID = "Phone",
                 UserID = "User",
                 PhotoID = "Photo",
@@ -79,7 +78,7 @@ namespace UnitTests.Models
             myData.Update(myDataNew);
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual("New", myData.ClinicID);
         }
 
         /// <summary>
@@ -94,7 +93,7 @@ namespace UnitTests.Models
             // Act
 
             // Assert
-            Assert.IsNull(myData.Name);
+            Assert.IsNull(myData.ClinicID);
         }
 
         /// <summary>
@@ -107,10 +106,10 @@ namespace UnitTests.Models
             var myData = new ResultLogModel();
 
             // Act
-            myData.Name = "New";
+            myData.ClinicID = "New";
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual("New", myData.ClinicID);
         }
     }
 }

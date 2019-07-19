@@ -141,7 +141,7 @@ namespace UnitTests.Backend
             // Make a Copy of the Data and update an aspect of it
             var myTest = new ResultLogModel(myData);
             myTest.ID = myData.ID; // Force the ID to match for this test.
-            myTest.Name = "New3";
+            myTest.ClinicID = "New3";
 
             // Act
             var result = myBackend.Update(myTest);
@@ -150,7 +150,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual("New3",result.Name);
+            Assert.AreEqual("New3",result.ClinicID);
             
         }
 
@@ -257,7 +257,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
+            Assert.AreEqual(dataOriginal.ClinicID, myBackend.Index().FirstOrDefault().ClinicID);
         }
         #endregion ResetTests
 

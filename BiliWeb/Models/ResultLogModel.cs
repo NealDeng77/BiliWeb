@@ -28,10 +28,7 @@ namespace BiliWeb.Models
 
         // The guid to the photo set for this record, created here and passed back to the phone, and thus used for storing the photos
         public string PhotoID { get; set; } = System.Guid.NewGuid().ToString("D");
-
-        // Just a field to show how to use it...
-        public string Name { get; set; }
-
+        
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -72,7 +69,6 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            Name = data.Name;
             BilirubinValue = data.BilirubinValue;
             ClinicID = data.ClinicID;
             PhoneID = data.PhoneID;

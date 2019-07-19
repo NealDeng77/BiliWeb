@@ -250,7 +250,7 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.ResultLogBackend.Instance.Index().FirstOrDefault();
             var myTestData = new ResultLogModel(myData)
             {
-                Name = "New",
+                ClinicID = "New",
                 ID = myData.ID
             };
 
