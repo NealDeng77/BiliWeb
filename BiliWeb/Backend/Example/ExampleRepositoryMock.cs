@@ -171,9 +171,13 @@ namespace BiliWeb.Backend
         /// <returns>the item from the datastore, or null</returns>
         public ExampleModel Read(String id)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return null;
+            }
+
             // Get the first instance of the record
             var myData = dataset.FirstOrDefault(m => m.ID == id);
-
             if (myData == null)
             {
                 return null;
@@ -217,6 +221,11 @@ namespace BiliWeb.Backend
         /// <returns>true if removed</returns>
         public Boolean Delete(String id, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
         {
+            if (string.IsNullOrEmpty(id))
+            {
+                return false;
+            }
+
             // Get the first instance of the record
             var myData = Read(id);
             if (myData == null)

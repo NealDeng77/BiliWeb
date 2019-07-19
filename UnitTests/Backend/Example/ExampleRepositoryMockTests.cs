@@ -107,6 +107,24 @@ namespace UnitTests.Backend
             // Assert
             Assert.IsNull(myTest);
         }
+
+        /// <summary>
+        /// Ensure the Read Method with empty string data should fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Read_Get_Data_InValid_Empty_Should_Fail()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+
+            // Act
+            var myTest = myBackend.Read("");
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(myTest);
+        }
         #endregion ReadTests
 
         #region UpdateTests
