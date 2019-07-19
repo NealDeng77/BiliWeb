@@ -66,6 +66,9 @@ namespace BiliWeb.Controllers
             [Bind("" +
             "ID,"+
             "Name,"+
+
+            // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
+            
             "")] ExampleModel data)
         {
             if (!ModelState.IsValid)
@@ -111,6 +114,9 @@ namespace BiliWeb.Controllers
             [Bind("" +
             "ID,"+
             "Name,"+
+
+            // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
+
             "")] ExampleModel data)
         {
             if (!ModelState.IsValid)
