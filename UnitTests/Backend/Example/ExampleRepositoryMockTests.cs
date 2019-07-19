@@ -49,6 +49,26 @@ namespace UnitTests.Backend
             // Assert
             Assert.IsNotNull(myTest);
         }
+
+        /// <summary>
+        /// Create with Null should Fail
+        /// </summary>
+        [TestMethod]
+        public void Example_Create_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+            var myData = new ExampleModel();
+
+            // Act
+            var myTest = myBackend.Create(null);
+
+            // Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+
+            // Assert
+            Assert.IsNull(myTest);
+        }
         #endregion CreateTests
 
         #region ReadTests
