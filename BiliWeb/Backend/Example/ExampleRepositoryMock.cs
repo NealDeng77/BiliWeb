@@ -41,7 +41,8 @@ namespace BiliWeb.Backend
         }
         #endregion Singleton
 
-        public List<ExampleModel> dataset = new List<ExampleModel>();
+        private List<ExampleModel> dataset = new List<ExampleModel>();
+        private string dataSourceString = "Mock";
         
         /// <summary>
         /// Clears the Data
@@ -49,6 +50,16 @@ namespace BiliWeb.Backend
         private void DataSetClear()
         {
             dataset.Clear();
+        }
+
+        /// <summary>
+        /// The Data Source String
+        /// Mock or Store
+        /// </summary>
+        /// <returns></returns>
+        public string GetDataSourceString()
+        {
+            return dataSourceString;
         }
 
         /// <summary>

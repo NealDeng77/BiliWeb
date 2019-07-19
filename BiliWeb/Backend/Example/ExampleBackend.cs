@@ -44,8 +44,6 @@ namespace BiliWeb.Backend
         {
             switch (dataSourceEnum)
             {
-                case DataSourceEnum.SQL:
-                    break;
 
                 case DataSourceEnum.Local:
                 case DataSourceEnum.ServerLive:
@@ -54,6 +52,7 @@ namespace BiliWeb.Backend
                     repository = ExampleRepositoryStore.Instance;
                     break;
 
+                case DataSourceEnum.SQL:
                 case DataSourceEnum.Mock:
                 default:
                     // Default is to use the Mock
@@ -78,6 +77,15 @@ namespace BiliWeb.Backend
         public void Reset()
         {
             repository.Reset();
+        }
+
+        /// <summary>
+        /// Helper function that resets the DataSource String, is it Mock or Store
+        /// </summary>
+        public string GetDataSourceString()
+        {
+            var data = repository.GetDataSourceString();
+            return data;
         }
 
         /// <summary>

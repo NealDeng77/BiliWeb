@@ -42,10 +42,11 @@ namespace BiliWeb.Backend
 
         #endregion Singleton
 
-        public List<ExampleModel> dataset = new List<ExampleModel>();
-
+        private List<ExampleModel> dataset = new List<ExampleModel>();
+        private string dataSourceString = "Store";
 
         public const string ClassName = "ExampleModel";
+        
         /// <summary>
         /// Table Name used for data storage
         /// </summary>
@@ -55,6 +56,17 @@ namespace BiliWeb.Backend
         /// Partition Key used for data storage
         /// </summary>
         private readonly string partitionKey = ClassName.ToLower();
+
+
+        /// <summary>
+        /// The Data Source String
+        /// Mock or Store
+        /// </summary>
+        /// <returns></returns>
+        public string GetDataSourceString()
+        {
+            return dataSourceString;
+        }
 
         /// <summary>
         /// Makes a new AvatarItem
