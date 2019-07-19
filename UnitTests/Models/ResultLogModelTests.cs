@@ -53,7 +53,7 @@ namespace UnitTests.Models
             var result = myData.Update(null);
 
             // Assert
-            Assert.AreEqual(false,result);
+            Assert.AreEqual(false, result);
         }
 
         /// <summary>
@@ -67,6 +67,11 @@ namespace UnitTests.Models
             var myDataNew = new ResultLogModel
             {
                 Name = "New",
+                BilirubinValue = 2,
+                ClinicID = "Clinic",
+                PhoneID = "Phone",
+                UserID = "User",
+                PhotoID = "Photo",
                 ID = myData.ID
             };
 

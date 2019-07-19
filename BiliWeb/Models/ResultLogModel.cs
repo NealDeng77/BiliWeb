@@ -14,20 +14,20 @@ namespace BiliWeb.Models
     /// </summary>
     public class ResultLogModel : BaseModel
     {
-        //// The Bilirubin result Value
-        //public double BilirubinValue { get; set; }
+        // The Bilirubin result Value
+        public double BilirubinValue { get; set; }
 
-        //// The guid to the Clinic where the value was recorded
-        //public string ClinicID { get; set; }
+        // The guid to the Clinic where the value was recorded
+        public string ClinicID { get; set; }
 
-        //// The guid to the Phone that took the picture
-        //public string PhoneID { get; set; }
+        // The guid to the Phone that took the picture
+        public string PhoneID { get; set; }
 
-        //// The guid to the User who took the pictures
-        //public string UserID { get; set; }
+        // The guid to the User who took the pictures
+        public string UserID { get; set; }
 
-        //// The guid to the photo set for this record, created here and passed back to the phone, and thus used for storing the photos
-        //public string PhotoID { get; set; } = new Guid().ToString();
+        // The guid to the photo set for this record, created here and passed back to the phone, and thus used for storing the photos
+        public string PhotoID { get; set; } = new Guid().ToString();
 
 
         // Just a field to show how to use it...
@@ -74,6 +74,11 @@ namespace BiliWeb.Models
 
             // Update all the other fields
             Name = data.Name;
+            BilirubinValue = data.BilirubinValue;
+            ClinicID = data.ClinicID;
+            PhoneID = data.PhoneID;
+            UserID = data.UserID;
+            PhotoID = data.PhotoID;
 
             return true;
         }
