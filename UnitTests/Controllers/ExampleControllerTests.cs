@@ -50,6 +50,23 @@ namespace UnitTests.Controllers
             Assert.IsNotNull(myTest);
         }
 
+        [TestMethod]
+        public void Example_Create_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        {
+            // Arrange
+            var controller = new ExampleController();
+            var data = new ExampleModel();
+
+            // Make ModelState Invalid
+            controller.ModelState.AddModelError("test", "test");
+
+            // Act
+            var result = controller.Create(data) as RedirectToActionResult;
+
+            // Assert
+            Assert.AreEqual("Error", result.ActionName);
+        }
+
         /// <summary>
         /// Ensure the Create Method Post on the controller returns and is not null
         /// </summary>
@@ -163,6 +180,23 @@ namespace UnitTests.Controllers
 
             // Assert
             Assert.IsNotNull(myTest);
+        }
+
+        [TestMethod]
+        public void Example_Update_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        {
+            // Arrange
+            var controller = new ExampleController();
+            var data = new ExampleModel();
+
+            // Make ModelState Invalid
+            controller.ModelState.AddModelError("test", "test");
+
+            // Act
+            var result = controller.Update(data) as NotFoundResult;
+
+            // Assert
+            Assert.AreEqual(404, result.StatusCode);
         }
 
         /// <summary>
@@ -307,11 +341,47 @@ namespace UnitTests.Controllers
             // Act
             ViewResult result = controller.Delete(id) as ViewResult;
 
-            // Reset BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            // Reset 
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void Example_Delete_Get_Default_Should_Return_Error_Message()
+        {
+            // Arrange
+            var controller = new ExampleController();
+
+            // Get default student
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+
+            // Act
+            var result = controller.Delete(data.ID, true) as ViewResult;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result.ViewData);
+        }
+
+        [TestMethod]
+        public void Example_Delete_Get_Default_Should_Return_Data()
+        {
+            // Arrange
+            var controller = new ExampleController();
+
+            // Get default student
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+
+            // Act
+            var result = controller.Delete(data.ID, true) as ViewResult;
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result.ViewData);
         }
         #endregion DeleteTests
 
@@ -330,7 +400,7 @@ namespace UnitTests.Controllers
             var result = controller.DeleteConfirmed(data.ID) as NotFoundResult;
 
             // Assert
-            Assert.AreEqual(404,result.StatusCode);
+            Assert.AreEqual(404, result.StatusCode);
         }
 
         [TestMethod]
@@ -401,6 +471,34 @@ namespace UnitTests.Controllers
 
             // Assert
             Assert.AreEqual(404, result.StatusCode);
+        }
+
+        /// <summary>
+        /// Delete the record
+        /// This will remove the record from the list,
+        /// So Get a record
+        /// Call for delete on the record ID
+        /// Then call for a read on the record ID
+        /// The read should fail if the data was deleted
+        /// </summary>
+        [TestMethod]
+        public void Example_Delete_Post_Valid_Should_Delete()
+        {
+            // Arrange
+            var controller = new ExampleController();
+
+            // Get default student
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+
+            // Act
+            var result = controller.DeleteConfirmed(data.ID) as ViewResult;
+            var dataExist = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Read(data.ID);
+
+            // Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+
+            // Assert
+            Assert.IsNull(dataExist);
         }
         #endregion DeletePostRegion
     }
