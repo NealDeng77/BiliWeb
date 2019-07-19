@@ -39,7 +39,7 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Sets the Datasource to be Mock or SQL
         /// </summary>
-        /// <param name="dataSourceEnum"></param>
+        /// <param name="dataSourceEnum">The mock status.</param>
         public static void SetDataSource(DataSourceEnum dataSourceEnum)
         {
             switch (dataSourceEnum)
@@ -69,7 +69,7 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Switch the data set between Demo, Default and Unit Test
         /// </summary>
-        /// <param name="SetEnum"></param>
+        /// <param name="SetEnum">The type of data running.</param>
         public static void SetDataSourceDataSet(DataSourceDataSetEnum SetEnum)
         {
             repository.LoadDataSet(SetEnum);
@@ -95,8 +95,8 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Create
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">The record passed in.</param>
+        /// <returns>The record created for the result.</returns>
         public ExampleModel Create(ExampleModel data)
         {
             var myData = repository.Create(data);
@@ -106,19 +106,19 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Read
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id of a record.</param>
+        /// <returns>The record associated with the id.</returns>
         public ExampleModel Read(string id)
         {
             var myData = repository.Read(id);
             return myData;
         }
-        
+
         /// <summary>
         /// Update
         /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
+        /// <param name="data">The record passed in.</param>
+        /// <returns>The updated record.</returns>
         public ExampleModel Update(ExampleModel data)
         {
             var myData = repository.Update(data);
@@ -128,8 +128,8 @@ namespace BiliWeb.Backend
         /// <summary>
         /// Delete
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The id of a record.</param>
+        /// <returns>True if the record was deleted, false otherwise.</returns>
         public bool Delete(string id)
         {
             var myData = repository.Delete(id);
@@ -139,7 +139,7 @@ namespace BiliWeb.Backend
         /// <summary>
         ///  Returns the List of Examples
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The list of examples.</returns>
         public List<ExampleModel> Index()
         {
             var myData = repository.Index();
