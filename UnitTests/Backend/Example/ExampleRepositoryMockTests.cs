@@ -266,7 +266,27 @@ namespace UnitTests.Backend
             // Assert
             Assert.IsTrue(true);
         }
-
         #endregion Set_DataSetTests
+
+        #region GetDataSourceStringTests
+        /// <summary>
+        /// String should Match the Mock or Store
+        /// </summary>
+        [TestMethod]
+        public void Example_GetDataSourceString_Data_Valid_Should_Pass()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+
+            // Act
+            var result = myBackend.GetDataSourceString();
+
+            // Reset
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+
+            // Assert
+            Assert.AreEqual("Mock", result);
+        }
+        #endregion GetDataSourceStringTests
     }
 }
