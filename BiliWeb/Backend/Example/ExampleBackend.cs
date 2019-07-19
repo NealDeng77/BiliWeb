@@ -44,7 +44,11 @@ namespace BiliWeb.Backend
         {
             switch (dataSourceEnum)
             {
-
+                /* 
+                 * These will all use a Table store as the backend.
+                 * Local is used when running azure local service
+                 * Live and Test point to azure instances
+                 */
                 case DataSourceEnum.Local:
                 case DataSourceEnum.ServerLive:
                 case DataSourceEnum.ServerTest:
@@ -52,7 +56,7 @@ namespace BiliWeb.Backend
                     repository = ExampleRepositoryStore.Instance;
                     break;
 
-                case DataSourceEnum.SQL:
+                case DataSourceEnum.SQL:    // Same as Mock because no sql backend for this version.
                 case DataSourceEnum.Mock:
                 default:
                     // Default is to use the Mock
