@@ -4,13 +4,13 @@ using BiliWeb.Models;
 namespace UnitTests.Models
 {
     [TestClass]
-    public class DataSourceDataSetEnumUnitTests
+    public class DataSourceDataSetEnumTests
     {
         public TestContext TestContext { get; set; }
 
         #region Instantiate
         [TestMethod]
-        public void Models_DataSourceDataSetEnumUnitTests_Values_Should_Pass()
+        public void DataSourceDataSetEnum_Values_Should_Pass()
         {
             // Assert
 

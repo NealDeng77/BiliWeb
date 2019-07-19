@@ -10,7 +10,7 @@ namespace UnitTests.Models
 
         #region Instantiate
         [TestMethod]
-        public void Models_DataSourceEnumUnitTests_Values_Should_Pass()
+        public void DataSourceEnum_Values_Should_Pass()
         {
             // Assert
 
