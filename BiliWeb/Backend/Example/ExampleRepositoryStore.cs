@@ -150,7 +150,7 @@ namespace BiliWeb.Backend
                 return false;
             }
 
-            // If using the defaul data source, use it, else just do the table operation
+            // If using the default data source, use it, else just do the table operation
             if (dataSourceEnum == DataSourceEnum.Unknown)
             {
                 var data = Read(Id);
