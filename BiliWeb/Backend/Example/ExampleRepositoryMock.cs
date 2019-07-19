@@ -11,15 +11,127 @@ namespace BiliWeb.Backend
     /// </summary>
     public class ExampleRepositoryMock : IExampleRepository
     {
+        #region Singleton
+        /// <summary>
+        /// Make into a Singleton
+        /// </summary>
+        private static volatile ExampleRepositoryMock instance;
+        private static readonly object syncRoot = new Object();
+
+        private ExampleRepositoryMock() { }
+
+        public static ExampleRepositoryMock Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new ExampleRepositoryMock();
+                            instance.Initialize();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+        #endregion Singleton
+
         public List<ExampleModel> dataset = new List<ExampleModel>();
+        
+        /// <summary>
+        /// Clears the Data
+        /// </summary>
+        private void DataSetClear()
+        {
+            dataset.Clear();
+        }
 
         /// <summary>
-        /// Constructor for Example Repository
+        /// The Defalt Data Set
         /// </summary>
-        public ExampleRepositoryMock()
+        private void DataSetDefault()
         {
-            // Call for Sead data to be created
+            DataSetClear();
+
+            var dataSet = ExampleRepositoryDataHelper.Instance.GetDefaultDataSet();
+            foreach (var item in dataSet)
+            {
+                Create(item);
+            }
+
+            // Order the set by TimeStamp
+            dataset = dataset.OrderBy(x => x.Date).ToList();
+        }
+
+        /// <summary>
+        /// Data set for demo
+        /// </summary>
+        private void DataSetDemo()
+        {
+            DataSetDefault();
+        }
+
+        /// <summary>
+        /// Unit Test data set
+        /// </summary>
+        private void DataSetUnitTest()
+        {
+            DataSetDefault();
+        }
+
+        /// <summary>
+        /// Set which data to load
+        /// </summary>
+        /// <param name="setEnum"></param>
+        public void LoadDataSet(DataSourceDataSetEnum setEnum)
+        {
+            switch (setEnum)
+            {
+                case DataSourceDataSetEnum.Demo:
+                    DataSetDemo();
+                    break;
+
+                case DataSourceDataSetEnum.UnitTest:
+                    DataSetUnitTest();
+                    break;
+
+                case DataSourceDataSetEnum.Default:
+                default:
+                    DataSetDefault();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Not implemented for Mock
+        /// </summary>
+        /// <param name="dataSourceSource"></param>
+        /// <param name="dataSourceDestination"></param>
+        /// <returns></returns>
+        public bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination)
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Reset the Data, and reload it
+        /// </summary>
+        public void Reset()
+        {
             Initialize();
+        }
+
+        /// <summary>
+        /// Create Placeholder Initial Data
+        /// </summary>
+        public void Initialize()
+        {
+            LoadDataSet(DataSourceDataSetEnum.Default);
         }
 
         /// <summary>
@@ -29,7 +141,7 @@ namespace BiliWeb.Backend
         /// The new Example item to add to the data store
         /// </param>
         /// <returns>return the passed in Example item</returns>
-        public ExampleModel Create(ExampleModel data)
+        public ExampleModel Create(ExampleModel data, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
         {
             if (data == null)
             {
@@ -86,7 +198,7 @@ namespace BiliWeb.Backend
         /// </summary>
         /// <param name="id">the item to remove by ID</param>
         /// <returns>true if removed</returns>
-        public Boolean Delete(String id)
+        public Boolean Delete(String id, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
         {
             // Get the first instance of the record
             var myData = Read(id);
@@ -106,17 +218,6 @@ namespace BiliWeb.Backend
         public List<ExampleModel> Index()
         {
             return dataset;
-        }
-
-        /// <summary>
-        /// Sets Initial Seed Data
-        /// </summary>
-        public void Initialize()
-        {
-            dataset.Add(new ExampleModel { Name = "Mike"});
-            dataset.Add(new ExampleModel { Name = "Doug" });
-            dataset.Add(new ExampleModel { Name = "Jea" });
-            dataset.Add(new ExampleModel { Name = "Sue" });
         }
     }
 }

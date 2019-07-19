@@ -13,10 +13,15 @@ namespace BiliWeb.Backend
     /// </summary>
     public interface IExampleRepository
     {
-        ExampleModel Create(ExampleModel data);
+        ExampleModel Create(ExampleModel data, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown);
         ExampleModel Read(String id);
         ExampleModel Update(ExampleModel data);
-        Boolean Delete(String id);
+        Boolean Delete(String id, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown);
         List<ExampleModel> Index();
+
+        void Reset();
+        void LoadDataSet(DataSourceDataSetEnum setEnum);
+        bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination);
+
     }
 }

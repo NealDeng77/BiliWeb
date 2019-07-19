@@ -11,25 +11,327 @@ namespace BiliWeb.Backend
     /// </summary>
     public class ExampleRepositoryStore : IExampleRepository
     {
+        #region Singleton
+        /// <summary>
+        /// Make into a Singleton
+        /// </summary>
+        private static volatile ExampleRepositoryStore instance;
+        private static readonly object syncRoot = new Object();
+
+        private ExampleRepositoryStore() { }
+
+        public static ExampleRepositoryStore Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new ExampleRepositoryStore();
+                            instance.Initialize();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        #endregion Singleton
+
         public List<ExampleModel> dataset = new List<ExampleModel>();
 
+
+        public const string ClassName = "ExampleModel";
         /// <summary>
-        /// Constructor for Example Repository
+        /// Table Name used for data storage
         /// </summary>
-        public ExampleRepositoryStore()
+        private readonly string tableName = ClassName.ToLower();
+
+        /// <summary>
+        /// Partition Key used for data storage
+        /// </summary>
+        private readonly string partitionKey = ClassName.ToLower();
+
+        /// <summary>
+        /// Makes a new AvatarItem
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>AvatarItem Passed In</returns>
+        public ExampleModel Create(ExampleModel data, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
         {
-            // Call for Sead data to be created
+            dataset.Add(data);
+
+            // Add to Storage
+            var myResult = DataSourceBackendTable.Instance.Create<ExampleModel>(tableName, partitionKey, data.ID, data, dataSourceEnum);
+
+            return data;
+        }
+
+        /// <summary>
+        /// Return the data for the id passed in
+        /// Does not access storage, just reads from memeory
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Null or valid data</returns>
+        public ExampleModel Read(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return null;
+            }
+
+            var myReturn = dataset.Find(n => n.ID == id);
+            return myReturn;
+        }
+
+        /// <summary>
+        /// Update all attributes to be what is passed in
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>Null or updated data</returns>
+        public ExampleModel Update(ExampleModel data)
+        {
+            if (data == null)
+            {
+                return null;
+            }
+
+            var myReturn = Read(data.ID);
+            if (myReturn == null)
+            {
+                return null;
+            }
+
+            myReturn.Update(data);
+
+            // Update Storage
+            var myResult = DataSourceBackendTable.Instance.Create<ExampleModel>(tableName, partitionKey, data.ID, data);
+
+            return data;
+        }
+
+        /// <summary>
+        /// Remove the Data item if it is in the list
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns>True for success, else false</returns>
+        public bool Delete(string Id, DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
+        {
+            if (string.IsNullOrEmpty(Id))
+            {
+                return false;
+            }
+
+            // If using the defaul data source, use it, else just do the table operation
+            if (dataSourceEnum == DataSourceEnum.Unknown)
+            {
+                var data = Read(Id);
+                if (data == null)
+                {
+                    return false;
+                }
+
+                if (dataset.Remove(data) == false)
+                {
+                    return false;
+                }
+            }
+
+            // Storage Delete
+            var myReturn = DataSourceBackendTable.Instance.Delete<ExampleModel>(tableName, partitionKey, Id, dataSourceEnum);
+
+            return myReturn;
+        }
+
+        /// <summary>
+        /// Return the full dataset
+        /// </summary>
+        /// <returns>List of AvatarItems</returns>
+        public List<ExampleModel> Index()
+        {
+            return dataset;
+        }
+
+        /// <summary>
+        /// Reset the Data, and reload it
+        /// </summary>
+        public void Reset()
+        {
             Initialize();
         }
 
         /// <summary>
-        /// Add the Example item to the data store
+        /// Create Placeholder Initial Data
         /// </summary>
-        /// <param name="data">
-        /// The new Example item to add to the data store
-        /// </param>
-        /// <returns>return the passed in Example item</returns>
-        public ExampleModel Create(ExampleModel data)
+        public void Initialize()
+        {
+            LoadDataSet(DataSourceDataSetEnum.Default);
+        }
+
+        /// <summary>
+        /// Clears the Data
+        /// </summary>
+        private void DataSetClear()
+        {
+            dataset.Clear();
+        }
+
+        /// <summary>
+        /// The Defalt Data Set
+        /// </summary>
+        private void DataSetDefault()
+        {
+            DataSetClear();
+            CreateDataSetDefaultData();
+        }
+
+        /// <summary>
+        /// Load the data from the server, and then default data if needed.
+        /// </summary>
+        public void CreateDataSetDefaultData()
+        {
+
+            // Storage Load all rows
+            var DataSetList = LoadAll();
+
+            foreach (var item in DataSetList)
+            {
+                dataset.Add(item);
+            }
+
+            // If Storage is Empty, then Create.
+            if (dataset.Count < 1)
+            {
+                CreateDataSetDefault();
+            }
+
+            // Order the set by Date
+            dataset = dataset.OrderBy(x => x.Date).ToList();
+        }
+
+
+        /// <summary>
+        /// Load all the records from the datasource
+        /// </summary>
+        /// <param name="dataSourceEnum"></param>
+        /// <returns></returns>
+        public List<ExampleModel> LoadAll(DataSourceEnum dataSourceEnum = DataSourceEnum.Unknown)
+        {
+            var DataSetList = DataSourceBackendTable.Instance.LoadAll<ExampleModel>(tableName, partitionKey, true, dataSourceEnum);
+
+            return DataSetList;
+        }
+
+        /// <summary>
+        /// Get the Default data set, and then add it to the current
+        /// </summary>
+        private void CreateDataSetDefault()
+        {
+            var dataSet = ExampleRepositoryDataHelper.Instance.GetDefaultDataSet();
+            foreach (var item in dataSet)
+            {
+                Create(item);
+            }
+        }
+
+        /// <summary>
+        /// Data set for demo
+        /// </summary>
+        private void DataSetDemo()
+        {
+            DataSetDefault();
+        }
+
+        /// <summary>
+        /// Unit Test data set
+        /// </summary>
+        private void DataSetUnitTest()
+        {
+            DataSetDefault();
+        }
+
+        /// <summary>
+        /// Set which data to load
+        /// </summary>
+        /// <param name="setEnum"></param>
+        public void LoadDataSet(DataSourceDataSetEnum setEnum)
+        {
+            switch (setEnum)
+            {
+                case DataSourceDataSetEnum.Demo:
+                    DataSetDemo();
+                    break;
+
+                case DataSourceDataSetEnum.UnitTest:
+                    DataSetUnitTest();
+                    break;
+
+                case DataSourceDataSetEnum.Default:
+                default:
+                    DataSetDefault();
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Backup the Data from Source to Destination
+        /// </summary>
+        /// <param name="dataSourceSource"></param>
+        /// <param name="dataSourceDestination"></param>
+        /// <returns></returns>
+        public bool BackupData(DataSourceEnum dataSourceSource, DataSourceEnum dataSourceDestination)
+        {
+            // Read all the records from the Source using current database defaults
+
+            var DataAllSource = LoadAll(dataSourceSource);
+            if (DataAllSource == null || !DataAllSource.Any())
+            {
+                return false;
+            }
+
+            // Empty out Destination Table
+            // Get all rows in the destination Table
+            // Walk and delete each item, because delete table takes too long...
+            var DataAllDestination = LoadAll(dataSourceDestination);
+            if (DataAllDestination == null)
+            {
+                return false;
+            }
+
+            foreach (var data in DataAllDestination)
+            {
+                Delete(data.ID, dataSourceDestination);
+            }
+
+            // Write the data to the destination
+            foreach (var data in DataAllSource)
+            {
+                Create(data, dataSourceDestination);
+            }
+
+            return true;
+        }
+    }
+}
+
+
+/*
+ * 
+
+
+
+/// <summary>
+/// Add the Example item to the data store
+/// </summary>
+/// <param name="data">
+/// The new Example item to add to the data store
+/// </param>
+/// <returns>return the passed in Example item</returns>
+public ExampleModel Create(ExampleModel data)
         {
             if (data == null)
             {
@@ -107,16 +409,6 @@ namespace BiliWeb.Backend
         {
             return dataset;
         }
-
-        /// <summary>
-        /// Sets Initial Seed Data
-        /// </summary>
-        public void Initialize()
-        {
-            dataset.Add(new ExampleModel { Name = "Mike" });
-            dataset.Add(new ExampleModel { Name = "Doug" });
-            dataset.Add(new ExampleModel { Name = "Jea" });
-            dataset.Add(new ExampleModel { Name = "Sue" });
-        }
     }
 }
+ */
