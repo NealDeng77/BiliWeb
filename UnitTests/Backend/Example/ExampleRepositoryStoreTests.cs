@@ -44,7 +44,7 @@ namespace UnitTests.Backend
             var myTest = myBackend.Create(myData);
 
             // Reset
-            ExampleRepositoryStore.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.IsNotNull(myTest);
@@ -64,7 +64,7 @@ namespace UnitTests.Backend
             var myTest = myBackend.Create(null);
 
             // Reset
-            ExampleRepositoryStore.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.IsNull(myTest);
@@ -129,7 +129,7 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myTest);
 
             // Reset
-            ExampleRepositoryStore.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual("New3", result.Name);
@@ -149,7 +149,7 @@ namespace UnitTests.Backend
             var result = myBackend.Update(null);
 
             // Reset
-            ExampleRepositoryStore.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual(null, result);
@@ -172,7 +172,7 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myTest);
 
             // Reset
-            ExampleRepositoryStore.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual(null, result);
@@ -236,7 +236,7 @@ namespace UnitTests.Backend
             myBackend.Delete(dataOriginal.ID);
 
             // Reset
-            ExampleRepositoryStore.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);

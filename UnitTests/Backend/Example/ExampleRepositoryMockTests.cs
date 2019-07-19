@@ -44,7 +44,7 @@ namespace UnitTests.Backend
             var myTest = myBackend.Create(myData);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.IsNotNull(myTest);
@@ -64,7 +64,7 @@ namespace UnitTests.Backend
             var myTest = myBackend.Create(null);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.IsNull(myTest);
@@ -147,11 +147,11 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myTest);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
-            Assert.AreEqual("New3",result.Name);
-            
+            Assert.AreEqual("New3", result.Name);
+
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace UnitTests.Backend
             var result = myBackend.Update(null);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual(null, result);
@@ -190,7 +190,7 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myTest);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual(null, result);
@@ -254,7 +254,7 @@ namespace UnitTests.Backend
             myBackend.Delete(dataOriginal.ID);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
