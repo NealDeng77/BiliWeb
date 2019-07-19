@@ -172,7 +172,7 @@ namespace UnitTests.Backend
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
-            myBackend.Delete(myBackend.Index().FirstOrDefault().ID);
+            myBackend.Delete(dataOriginal.ID);
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
@@ -201,6 +201,9 @@ namespace UnitTests.Backend
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
+            // Return Data Source to Mock
+            ExampleBackend.SetDataSource(DataSourceEnum.Mock);
+
             // Assert
             Assert.AreEqual("Mock", result);
         }
@@ -222,6 +225,9 @@ namespace UnitTests.Backend
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+
+            // Return Data Source to Mock
+            ExampleBackend.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("Store", result);
