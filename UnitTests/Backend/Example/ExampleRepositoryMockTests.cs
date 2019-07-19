@@ -181,5 +181,25 @@ namespace UnitTests.Backend
             Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
         }
         #endregion ResetTests
+
+        #region BackupDataTests
+        /// <summary>
+        /// Call for a Backup, Mock ignores the call.
+        /// </summary>
+        [TestMethod]
+        public void Example_BackupData_Data_Valid_Should_Pass()
+        {
+            // Arrange
+            var myBackend = ExampleRepositoryMock.Instance;
+
+            // Act
+            var result = myBackend.BackupData(DataSourceEnum.Local, DataSourceEnum.Local);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+        #endregion BackupDataTests
     }
 }
