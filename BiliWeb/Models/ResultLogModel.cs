@@ -27,8 +27,7 @@ namespace BiliWeb.Models
         public string UserID { get; set; }
 
         // The guid to the photo set for this record, created here and passed back to the phone, and thus used for storing the photos
-        public string PhotoID { get; set; } = new Guid().ToString();
-
+        public string PhotoID { get; set; } = System.Guid.NewGuid().ToString("D");
 
         // Just a field to show how to use it...
         public string Name { get; set; }
