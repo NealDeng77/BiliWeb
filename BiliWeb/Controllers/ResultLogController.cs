@@ -66,6 +66,12 @@ namespace BiliWeb.Controllers
             [Bind("" +
             "ID,"+
             "Name,"+
+
+            "BilirubinValue,"+
+            "ClinicID,"+
+            "UserID,"+
+            "PhotoID,"+
+
             "")] ResultLogModel data)
         {
             if (!ModelState.IsValid)
