@@ -14,6 +14,46 @@ namespace BiliWeb.Backend
         /// Hold one of each of the DataSources as an instance to the datasource
         /// </summary>
         public ExampleBackend ExampleBackend = ExampleBackend.Instance;
+        public ResultLogBackend ResultLogBackend = ResultLogBackend.Instance;
+
+        // Add YourName Above Here  #1
+
+
+        private DataSourceBackend()
+        {
+            ExampleBackend = ExampleBackend.Instance;
+            ResultLogBackend = ResultLogBackend.Instance;
+
+            // Add YourName Above Here #2
+        }
+
+        /// <summary>
+        /// Call for all data sources to reset
+        /// </summary>
+        public void Reset()
+        {
+            ExampleBackend.Reset();
+            ResultLogBackend.Reset();
+
+            // Add YourName Above Here #3
+
+
+            SetTestingMode(false);
+        }
+
+        /// <summary>
+        /// Change between demo, default, and UT data sets
+        /// </summary>
+        /// <param name="SetEnum"></param>
+        public void SetDataSourceDataSet(DataSourceDataSetEnum SetEnum)
+        {
+            ExampleBackend.SetDataSourceDataSet(SetEnum);
+            ResultLogBackend.SetDataSourceDataSet(SetEnum);
+
+            // Add YourName Above Here #4
+        }
+
+        #region hide
 
         /// <summary>
         /// Make into a Singleton
@@ -22,12 +62,6 @@ namespace BiliWeb.Backend
         private static readonly object syncRoot = new Object();
 
         private static bool isTestingMode = false;
-
-        private DataSourceBackend()
-        {
-            // Avatar must be before Student, because Student needs the default avatar
-            ExampleBackend = ExampleBackend.Instance;
-        }
 
         public static DataSourceBackend Instance
         {
@@ -49,32 +83,12 @@ namespace BiliWeb.Backend
         }
 
         /// <summary>
-        /// Call for all data sources to reset
-        /// </summary>
-        public void Reset()
-        {
-            ExampleBackend.Reset();
-
-            SetTestingMode(false);
-        }
-
-        /// <summary>
         /// Changes the data source, does not call for a reset, that allows for how swapping but keeping the original data in place
         /// </summary>
         public void SetDataSource(DataSourceEnum dataSourceEnum)
         {
             // Set the Global DataSourceEnum Value
             SystemGlobalsModel.SetDataSourceEnum(dataSourceEnum);
-
-        }
-
-        /// <summary>
-        /// Change between demo, default, and UT data sets
-        /// </summary>
-        /// <param name="SetEnum"></param>
-        public void SetDataSourceDataSet(DataSourceDataSetEnum SetEnum)
-        {
-            ExampleBackend.SetDataSourceDataSet(SetEnum);
         }
 
         public static bool GetTestingMode()
@@ -111,5 +125,6 @@ namespace BiliWeb.Backend
         //{
         //    throw new NotImplementedException();
         //}
+        #endregion hide
     }
 }
