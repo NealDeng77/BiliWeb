@@ -53,11 +53,18 @@ namespace BiliWeb.Controllers
 
             var result = Backend.DataSourceBackend.Instance.ResultLogBackend.Create(data);
 
-            //todo Return json package with status code, and result of ResultLogID and PhoneID
+            //todo Return json package with status code, and result of ResultLogID and PhotoID
+
+            /*
+             * Return Object Will Include
+             * ID - The ID of this object
+             * PhotoID - The ID to send the Photos
+             * Status: 0
+             * String: OK
+            */
 
             return "OK";
         }
-
 
         #region GetCalls
         /*
