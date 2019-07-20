@@ -22,12 +22,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneResultLogController();
 
             // Act
-            var myTest = myController.Post(null);
+            var result = myController.Post(null);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.AreEqual("Error",result);
         }
 
         //[TestMethod]
@@ -58,12 +58,12 @@ namespace UnitTests.Controllers
             var myData = new ResultLogModel();
 
             // Act
-            var myTest = myController.Post(myData);
+            var result = myController.Post(myData);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.AreEqual("OK",result);
         }
         #endregion PostTests
 

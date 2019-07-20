@@ -21,11 +21,19 @@ namespace BiliWeb.Controllers
         /// After receiving a Log, the method will Call over to the Backend to Create a record
         /// It will reply back to the Phone with the PhotoID which will then be the guid used to upload the Photos
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">A ResultLogModel
+        ///     ID is created at the server, not passed in
+        ///     Date is set at the server, not passed in
+        ///     PhotoID is ignored and instead generated and returned as part of the reply
+        ///
+        ///     ClinicID will be Validated
+        ///     PhoneID will be Validated
+        ///     UserID will be Validated
+        ///     
+        /// </param>
         // POST: api/PhoneService
         [HttpPost]
-//        public void Post([FromBody] ResultLogModel value)
-        public string Post(ResultLogModel data)
+        public string Post([FromBody] ResultLogModel data)
         {
             if (data == null)
             {
