@@ -104,6 +104,9 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
+
+            ViewData["ResultLogIDList"] = BiliWeb.Backend.ResultLogHelper.ToSelectListItems(Backend.Index(), null);
+
             return View(data);
         }
 
