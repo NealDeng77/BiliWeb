@@ -55,15 +55,27 @@ namespace UnitTests.Controllers
         {
             // Arrange
             var myController = new PhoneResultLogController();
-            var myData = new ResultLogModel();
+            var myData = new ResultLogModel
+            {
+                ClinicID = "Clinic",
+                PhoneID = "Phone",
+                UserID = "User",
+                BilirubinValue = 15
+            };
 
             // Act
             var result = myController.Post(myData);
 
+            // Access the Record to ensure it was created
+            var myNewLog = BiliWeb.Backend.DataSourceBackend.Instance.ResultLogBackend.Read(myData.ID);
+
             // Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
             Assert.AreEqual("OK",result);
+            Assert.AreEqual(myData.ID, myNewLog.ID);
+            Assert.AreEqual(myData.BilirubinValue, myNewLog.BilirubinValue);
         }
         #endregion PostTests
 
