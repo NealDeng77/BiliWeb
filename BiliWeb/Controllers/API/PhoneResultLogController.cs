@@ -25,9 +25,16 @@ namespace BiliWeb.Controllers
         // POST: api/PhoneService
         [HttpPost]
 //        public void Post([FromBody] ResultLogModel value)
-        public void Post(ResultLogModel value)
+        public string Post(ResultLogModel data)
         {
-            var a = value.ClinicID;
+            if (data == null)
+            {
+                return "Error";
+            }
+
+            var a = data.ClinicID;
+
+            return "OK";
         }
 
 
