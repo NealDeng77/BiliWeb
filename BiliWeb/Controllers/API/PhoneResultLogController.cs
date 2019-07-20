@@ -21,7 +21,10 @@ namespace BiliWeb.Controllers
         /// After receiving a Log, the method will Call over to the Backend to Create a record
         /// It will reply back to the Phone with the PhotoID which will then be the guid used to upload the Photos
         /// </summary>
-        /// <param name="value">A ResultLogModel
+        /// <param name="value">
+        /// 
+        ///     A ResultLogModel
+        ///     
         ///     ID is created at the server, not passed in
         ///     Date is set at the server, not passed in
         ///     PhotoID is ignored and instead generated and returned as part of the reply
@@ -35,12 +38,22 @@ namespace BiliWeb.Controllers
         [HttpPost]
         public string Post([FromBody] ResultLogModel data)
         {
+            // Todo Implement Security for api call, to prevent DOS attack
+
             if (data == null)
             {
                 return "Error";
             }
 
-            var a = data.ClinicID;
+            // Todo Validate Record paramaters
+            // Range for Bilirubin Value
+            // UserID
+            // ClinicID
+            // PhoneID
+
+            var result = Backend.DataSourceBackend.Instance.ResultLogBackend.Create(data);
+
+            //todo Return json package with status code, and result of ResultLogID and PhoneID
 
             return "OK";
         }
