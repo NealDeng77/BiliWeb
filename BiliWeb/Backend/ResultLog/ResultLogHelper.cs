@@ -23,7 +23,6 @@ namespace BiliWeb.Backend
                               Selected = (m.ID == selectedId),
                               Value = m.ID.ToString(),
 
-                              // TODO: Change the item here to the appropriate item to show in the list box
                               Text = m.BilirubinValue.ToString()
                           });
         }
@@ -42,7 +41,6 @@ namespace BiliWeb.Backend
                 return string.Empty;
             }
 
-            //  TODO: Change the .Name attribute to the appropriate attribute to return for the conversion.
             return data.BilirubinValue.ToString();
         }
     }
