@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using BiliWeb.Models;
 using BiliWeb.Backend;
 
@@ -110,26 +105,5 @@ namespace BiliWeb.Controllers
 
             return myReturn;
         }
-
-        #region GetCalls
-        /*
-         * The Get Calls are for debuging only, after the Post is working and validated, they will be removed.
-         */
-        // GET: api/PhoneService
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/PhoneService/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        #endregion GetCalls
-
-
     }
 }
