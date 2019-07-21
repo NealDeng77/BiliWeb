@@ -36,34 +36,79 @@ namespace BiliWeb.Controllers
         /// </param>
         // POST: api/PhoneService
         [HttpPost]
-        public string Post([FromBody] ResultLogModel data)
+        public PhoneResultLogModel Post([FromBody] ResultLogModel data)
         {
             // Todo Implement Security for api call, to prevent DOS attack
 
+            // Used for each of the Validity Checks
+            bool isValid;
+
+            // Create the result record, assume Fail
+            var myReturn = new PhoneResultLogModel
+            {
+                Status = 0,
+            };
+
             if (data == null)
             {
-                return "Error";
+                myReturn.Message = "No Data";
+                return myReturn;
             }
 
             // Todo Validate Record paramaters
             // Range for Bilirubin Value
-            // UserID
-            // ClinicID
-            // PhoneID
+            if (data.BilirubinValue <0 || data.BilirubinValue > 30)
+            {
+                myReturn.Message = "Data Range Error";
+                return myReturn;
+            }
 
-            var result = Backend.DataSourceBackend.Instance.ResultLogBackend.Create(data);
+            // Check UserID to ensrue it is Valid
+            isValid = true; // Replace with call to Check UserID
+            if (!isValid)
+            {
+                myReturn.Message = "Invalid User";
+                return myReturn;
+            }
 
-            //todo Return json package with status code, and result of ResultLogID and PhotoID
+            // Check ClinicID to ensrue it is Valid
+            isValid = true; // Replace with call to Check ClinicID
+            if (!isValid)
+            {
+                myReturn.Message = "Invalid User";
+                return myReturn;
+            }
+
+            // Check PhoneID to ensrue it is Valid
+            isValid = true; // Replace with call to Check PhoneID
+            if (!isValid)
+            {
+                myReturn.Message = "Invalid Phone";
+                return myReturn;
+            }
+
+            var result = DataSourceBackend.Instance.ResultLogBackend.Create(data);
+            if (result == null)
+            {
+                myReturn.Message = "Failed To Create Record";
+                return myReturn;
+            }
 
             /*
+             * All OK, so update the returned data set to have success, and the created ID for Log and Photo
+             * Status: 1
+             * String: OK
              * Return Object Will Include
              * ID - The ID of this object
              * PhotoID - The ID to send the Photos
-             * Status: 0
-             * String: OK
             */
 
-            return "OK";
+            myReturn.Status = 1;
+            myReturn.Message = "OK";
+            myReturn.ResultLogID = result.ID;
+            myReturn.PhotoID = result.PhotoID;
+
+            return myReturn;
         }
 
         #region GetCalls

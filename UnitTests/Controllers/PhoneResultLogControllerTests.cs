@@ -27,7 +27,7 @@ namespace UnitTests.Controllers
             // Reset
 
             // Assert
-            Assert.AreEqual("Error",result);
+            Assert.AreEqual(0,result.Status);
         }
 
         //[TestMethod]
@@ -73,7 +73,7 @@ namespace UnitTests.Controllers
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("OK",result);
+            Assert.AreEqual(1,result.Status);
             Assert.AreEqual(myData.ID, myNewLog.ID);
             Assert.AreEqual(myData.BilirubinValue, myNewLog.BilirubinValue);
         }

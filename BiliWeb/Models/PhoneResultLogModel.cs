@@ -20,11 +20,11 @@ namespace BiliWeb.Models
     /// </summary>
     public class PhoneResultLogModel
     {
-        // Status of the request
+        // Status of the request, Assume 0 Fail by default
         public int Status { get; set; } = 0;
 
-        // The Message from the system, OK is success, else why there is an error
-        public string Message { get; set; } = "OK";
+        // The Message from the system, OK is success, else Error or Error Messsage
+        public string Message { get; set; } = "Error";
 
         // The record created for this request
         public string ResultLogID { get; set; } = null;
