@@ -23,8 +23,27 @@ namespace BiliWeb.Backend
                               Selected = (m.ID == selectedId),
                               Value = m.ID.ToString(),
 
+                              // TODO: Change the item here to the appropriate item to show in the list box
                               Text = m.BilirubinValue.ToString()
                           });
+        }
+
+        /// <summary>
+        /// Converts the ID for a record, to a string for the item.
+        /// For example converts id 234-asdf-234-sdf to "Bellevue"
+        /// </summary>
+        /// <param name="id">valid record ID</param>
+        /// <returns>empty string for error, else returns the converted field</returns>
+        public static string ConvertIDtoString(string id)
+        {
+            var data = DataSourceBackend.Instance.ResultLogBackend.Read(id);
+            if (data == null)
+            {
+                return string.Empty;
+            }
+
+            //  TODO: Change the .Name attribute to the appropriate attribute to return for the conversion.
+            return data.BilirubinValue.ToString();
         }
     }
 }
