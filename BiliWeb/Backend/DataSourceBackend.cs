@@ -15,6 +15,7 @@ namespace BiliWeb.Backend
         /// </summary>
         public ExampleBackend ExampleBackend = ExampleBackend.Instance;
         public ResultLogBackend ResultLogBackend = ResultLogBackend.Instance;
+        public PhoneBackend PhoneBackend = PhoneBackend.Instance; 
 
         // Add YourName Above Here  #1
 
@@ -23,7 +24,7 @@ namespace BiliWeb.Backend
         {
             ExampleBackend = ExampleBackend.Instance;
             ResultLogBackend = ResultLogBackend.Instance;
-
+            PhoneBackend = PhoneBackend.Instance;
             // Add YourName Above Here #2
         }
 
@@ -34,7 +35,7 @@ namespace BiliWeb.Backend
         {
             ExampleBackend.Reset();
             ResultLogBackend.Reset();
-
+            PhoneBackend.Reset(); 
             // Add YourName Above Here #3
 
 
@@ -49,7 +50,7 @@ namespace BiliWeb.Backend
         {
             ExampleBackend.SetDataSourceDataSet(SetEnum);
             ResultLogBackend.SetDataSourceDataSet(SetEnum);
-
+            PhoneBackend.SetDataSourceDataSet(SetEnum); 
             // Add YourName Above Here #4
         }
 
