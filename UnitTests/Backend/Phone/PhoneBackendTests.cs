@@ -103,7 +103,7 @@ namespace UnitTests.Backend
             // Make a Copy of the Data and update an aspect of it
             var myTest = new PhoneModel(myData);
             myTest.ID = myData.ID; // Force the ID to match for this test.
-            myTest.Name = "New";
+            myTest.ClinicID = "New";
 
             // Act
             myBackend.Update(myTest);
@@ -113,7 +113,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("New",result.Name);
+            Assert.AreEqual("New",result.ClinicID);
             
         }
         #endregion UpdateTests
@@ -178,7 +178,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
+            Assert.AreEqual(dataOriginal.ClinicID, myBackend.Index().FirstOrDefault().ClinicID);
         }
         #endregion ResetTests
 

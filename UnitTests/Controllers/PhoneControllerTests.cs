@@ -250,7 +250,7 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.PhoneBackend.Instance.Index().FirstOrDefault();
             var myTestData = new PhoneModel(myData)
             {
-                Name = "New",
+                DeviceModel = "New",
                 ID = myData.ID
             };
 

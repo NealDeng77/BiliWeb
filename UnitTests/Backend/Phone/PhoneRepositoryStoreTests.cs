@@ -123,7 +123,7 @@ namespace UnitTests.Backend
             // Make a Copy of the Data and update an aspect of it
             var myTest = new PhoneModel(myData);
             myTest.ID = myData.ID; // Force the ID to match for this test.
-            myTest.Name = "New3";
+            myTest.DeviceModel = "New3";
 
             // Act
             var result = myBackend.Update(myTest);
@@ -132,7 +132,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual("New3", result.Name);
+            Assert.AreEqual("New3", result.DeviceModel);
 
         }
 
@@ -239,7 +239,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
+            Assert.AreEqual(dataOriginal.DeviceModel, myBackend.Index().FirstOrDefault().DeviceModel);
         }
         #endregion ResetTests
 

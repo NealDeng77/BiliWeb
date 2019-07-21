@@ -15,17 +15,41 @@
         <br />
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="ID" hidden />       
+            <input asp-for="ID" hidden />
             <input asp-for="Date" hidden />
 
             <div class="form-group">
                 <div class="row">
                     <div class="col-1 text-right">
-                        <label asp-for="Name" class="control-label"></label>
+                        <label asp-for="ClinicID" class="control-label"></label>
                     </div>
                     <div class="col">
-                        <input asp-for="Name" class="form-control" />
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <input asp-for="ClinicID" class="form-control" />
+                        <span asp-validation-for="ClinicID" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1 text-right">
+                        <label asp-for="DeviceModel" class="control-label"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="DeviceModel" class="form-control" />
+                        <span asp-validation-for="DeviceModel" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1 text-right">
+                        <label asp-for="SerialNumber" class="control-label"></label>
+                    </div>
+                    <div class="col">
+                        <input asp-for="SerialNumber" class="form-control" />
+                        <span asp-validation-for="SerialNumber" class="text-danger"></span>
                     </div>
                 </div>
             </div>

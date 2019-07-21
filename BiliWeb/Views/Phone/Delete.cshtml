@@ -26,13 +26,37 @@
             </div>
         </div>
 
+       
+
         <div class="form-group">
             <div class="row">
                 <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.ClinicID)
                 </div>
                 <div class="col">
-                    @Html.DisplayFor(model => model.Name)
+                    @Html.DisplayFor(model => model.ClinicID)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-1 text-right">
+                    @Html.DisplayNameFor(model => model.DeviceModel)
+                </div>
+                <div class="col">
+                    @Html.DisplayFor(model => model.DeviceModel)
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-1 text-right">
+                    @Html.DisplayNameFor(model => model.SerialNumber)
+                </div>
+                <div class="col">
+                    @Html.DisplayFor(model => model.SerialNumber)
                 </div>
             </div>
         </div>

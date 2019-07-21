@@ -52,10 +52,10 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new PhoneModel { Name = "Mike" }); // Default
-            DataList.Add(new PhoneModel { Name = "Doug" }); 
-            DataList.Add(new PhoneModel { Name = "Jea" }); 
-            DataList.Add(new PhoneModel { Name = "Sue" }); 
+            DataList.Add(new PhoneModel { DeviceModel = "Samsung 7", SerialNumber = "1234abcd" }); // Default
+            DataList.Add(new PhoneModel { DeviceModel = "Samsung 8", SerialNumber = "5678qwer" }); 
+            DataList.Add(new PhoneModel { DeviceModel = "DROID RAZR M", SerialNumber = "7890tyui" }); 
+            DataList.Add(new PhoneModel {  DeviceModel = "Samsung 7", SerialNumber = "1170nfle" }); 
 
             return DataList;
         }

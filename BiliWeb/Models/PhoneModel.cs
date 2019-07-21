@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 namespace BiliWeb.Models
 {
     /// <summary>
-    ///  Example Data Model
+    ///  Phone Data Model
     /// </summary>
     public class PhoneModel : BaseModel
     {
 
-        // Just a field to show how to use it...
-        public string Name { get; set; }
+        // The guid to this phone's clinic. 
+        public string ClinicID { get; set; }
+
+        // The device model of this phone. 
+        public string DeviceModel { get; set; }
+
+        // The serial number of this phone. 
+        public string SerialNumber { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -54,7 +60,9 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            Name= data.Name;
+            ClinicID = data.ClinicID;
+            DeviceModel = data.DeviceModel;
+            SerialNumber = data.SerialNumber; 
 
             return true;
         }

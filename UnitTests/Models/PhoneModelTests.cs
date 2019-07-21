@@ -30,14 +30,20 @@ namespace UnitTests.Models
             // Arrange
             var myData = new PhoneModel
             {
-                Name = "New"
+                ClinicID = "Clinic",
+                DeviceModel = "Device",
+                SerialNumber = "Serial",
+ 
             };
 
             // Act
             var myNewData = new PhoneModel(myData);
 
             // Assert
-            Assert.AreEqual("New", myNewData.Name);
+            Assert.AreEqual("Clinic", myNewData.ClinicID);
+            Assert.AreEqual("Device", myNewData.DeviceModel);
+            Assert.AreEqual("Serial", myNewData.SerialNumber);
+        
         }
 
         /// <summary>
@@ -66,7 +72,9 @@ namespace UnitTests.Models
             var myData = new PhoneModel();
             var myDataNew = new PhoneModel
             {
-                Name = "New",
+                ClinicID = "Clinic",
+                DeviceModel = "Device",
+                SerialNumber = "Serial",
 
                 // TODO:  Add your atttrbutes here
 
@@ -77,7 +85,9 @@ namespace UnitTests.Models
             myData.Update(myDataNew);
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual("Clinic", myData.ClinicID);
+            Assert.AreEqual("Device", myData.DeviceModel);
+            Assert.AreEqual("Serial", myData.SerialNumber);
             // TODO:  Add an Assert for each attribute that should change
 
             
@@ -98,7 +108,9 @@ namespace UnitTests.Models
             // Act
 
             // Assert
-            Assert.IsNull(myData.Name);
+            Assert.IsNull(myData.ClinicID);
+            Assert.IsNull(myData.DeviceModel);
+            Assert.IsNull(myData.SerialNumber);
 
             // TODO:  Add an Assert for each attribute
 
@@ -114,11 +126,15 @@ namespace UnitTests.Models
             var myData = new PhoneModel();
 
             // Act
-            myData.Name = "New";
+            myData.ClinicID = "Clinic";
+            myData.DeviceModel = "Device";
+            myData.SerialNumber = "Serial";
             // TODO:  Add each attribute here
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual("Clinic", myData.ClinicID);
+            Assert.AreEqual("Device", myData.DeviceModel);
+            Assert.AreEqual("Serial", myData.SerialNumber);
 
             // TODO:  Add an Assert for each attribute
         }

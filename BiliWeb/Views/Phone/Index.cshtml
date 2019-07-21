@@ -20,7 +20,13 @@
                 Date
             </th>
             <th>
-                Name
+                ClinicID
+            </th>
+            <th>
+                DeviceModel
+            </th>
+            <th>
+                SerialNumber
             </th>
             <th></th>
         </tr>
@@ -28,20 +34,26 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a asp-action="Read" asp-route-id="@item.ID">Read</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
