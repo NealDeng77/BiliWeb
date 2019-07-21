@@ -44,5 +44,34 @@ namespace UnitTests.Models
             Assert.AreEqual("Photo", result.PhotoID);
             Assert.AreEqual("ResultLogID", result.ResultLogID);
         }
+
+        /// <summary>
+        /// Set test for PhoneResultLog Model
+        /// </summary>
+        [TestMethod]
+        public void PhoneResultLog_Get_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new PhoneResultLogModel
+            {
+                Status = 10,
+                Message = "Message",
+                PhotoID = "Photo",
+                ResultLogID = "ResultLogID"
+            };
+
+            var Status = result.Status;
+            var Message = result.Message;
+            var PhotoID = result.PhotoID;
+            var ResultLogID = result.ResultLogID;
+
+            // Assert
+            Assert.AreEqual(10, Status);
+            Assert.AreEqual("Message", Message);
+            Assert.AreEqual("Photo", PhotoID);
+            Assert.AreEqual("ResultLogID", ResultLogID);
+        }
     }
 }
