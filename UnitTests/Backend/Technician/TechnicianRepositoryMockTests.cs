@@ -141,7 +141,7 @@ namespace UnitTests.Backend
             // Make a Copy of the Data and update an aspect of it
             var myDataCopy = new TechnicianModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
-            myDataCopy.Name = "New3";
+            myDataCopy.FirstName = "New3";
 
             // Act
             var result = myBackend.Update(myDataCopy);
@@ -150,7 +150,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual("New3", result.Name);
+            Assert.AreEqual("New3", result.FirstName);
 
         }
 
@@ -257,7 +257,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
+            Assert.AreEqual(dataOriginal.FirstName, myBackend.Index().FirstOrDefault().FirstName);
         }
         #endregion ResetTests
 

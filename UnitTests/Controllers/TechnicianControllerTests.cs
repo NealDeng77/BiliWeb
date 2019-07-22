@@ -250,7 +250,7 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.TechnicianBackend.Instance.Index().FirstOrDefault();
             var resultData = new TechnicianModel(myData)
             {
-                Name = "New",
+                FirstName = "New",
                 ID = myData.ID
             };
 

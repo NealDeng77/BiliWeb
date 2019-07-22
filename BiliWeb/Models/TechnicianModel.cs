@@ -18,7 +18,7 @@ namespace BiliWeb.Models
         public string LastName { get; set; }
 
         // Tech's DOB
-        public DateTime DateOfBirth { get; set; }
+        public Nullable<DateTime> DateOfBirth { get; set; }
 
         /// <summary>
         /// Simple Constructor
