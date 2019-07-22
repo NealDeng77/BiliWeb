@@ -102,6 +102,10 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
+            // TODO Change to getting Clinics when the Clinic section is complete
+            ViewData["InventoryIDList"] = BiliWeb.Backend.InventoryHelper.ToSelectListItems(Backend.Index(), null);
+
+
             return View(data);
         }
 
