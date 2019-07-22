@@ -21,7 +21,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-1 text-right">
-                        <label asp-for="BilirubinValue" class="control-label"></label>
+                        <label asp-for="BilirubinValue" class="control-label">Bilirubin Value</label>
                     </div>
                     <div class="col">
                         <input asp-for="BilirubinValue" class="form-control" />
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-1 text-right">
-                        <label asp-for="ClinicID" class="control-label"></label>
+                        <label asp-for="ClinicID" class="control-label">Clinic ID</label>
                     </div>
                     <div class="col">
                         @Html.DropDownListFor(m => m.ClinicID, ViewData["ResultLogIDList"] as IEnumerable<SelectListItem>,"Select Clinic")
@@ -46,7 +46,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-1 text-right">
-                        <label asp-for="PhoneID" class="control-label"></label>
+                        <label asp-for="PhoneID" class="control-label">Phone ID</label>
                     </div>
                     <div class="col">
                         <input asp-for="PhoneID" class="form-control" />
@@ -58,7 +58,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-1 text-right">
-                        <label asp-for="UserID" class="control-label"></label>
+                        <label asp-for="UserID" class="control-label">User ID</label>
                     </div>
                     <div class="col">
                         <input asp-for="UserID" class="form-control" />
@@ -70,7 +70,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-1 text-right">
-                        <label asp-for="PhotoID" class="control-label"></label>
+                        <label asp-for="PhotoID" class="control-label">Photo ID</label>
                     </div>
                     <div class="col">
                         <input asp-for="PhotoID" class="form-control" />
