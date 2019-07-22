@@ -1,8 +1,23 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+﻿/* nunito-sans-regular - latin */
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/nunito-sans-v4-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Nunito Sans Regular'), local('NunitoSans-Regular'), url('../fonts/nunito-sans-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/nunito-sans-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/nunito-sans-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/nunito-sans-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/nunito-sans-v4-latin-regular.svg#NunitoSans') format('svg'); /* Legacy iOS */
+}
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Nunito Sans', sans-serif;
+
 }
 
 /* Wrapping element */
