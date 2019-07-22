@@ -11,7 +11,7 @@
     url('../fonts/nunito-sans-v4-latin-regular.svg#NunitoSans') format('svg'); /* Legacy iOS */
 }
 
-/* nunito-sans-300 - latin */
+/* Nunito-sans-300 - latin */
 @font-face {
     font-family: 'Nunito Sans';
     font-style: normal;
@@ -63,7 +63,38 @@ body {
     }
 }
 
-/*Headers*/
+/* Colors */
+:root {
+    --primary-color: #F97F50;
+    --secondary-color: #4F135E;
+    --primary-light-color: #FDAF8A;
+    --secondry-light-color: #A98198;
+    --text-color: #242424;
+    --cat-chart-1: #F97F50;
+    --cat-chart-2: #4F135E;
+    --cat-chart-3: #99C7EF;
+    --cat-chart-4: #FAD173;
+    --cat-chart-5: #A3296E;
+}
+
+.primary-color {
+    color: var(--primary-color);
+}
+
+.primary-color-bg {
+    background: var(--primary-color);
+}
+
+.secondary-color {
+    color: var(--secondary-color);
+}
+
+.secondary-color-bg {
+    background: var(--secondary-color);
+}
+
+
+/* Headers */
 h1 {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-size: 2.75rem;
@@ -83,16 +114,9 @@ h3 {
     font-variant: normal;
 }
 
-/**Colors*/
-.primary-color {
-    color: #F97F50;
-}
-.primary-color-bg {
-    background: #F97F50;
-}
-.secondary-color {
-    color: #4F135E;
-}
-.secondary-color-bg {
-    background: #4F135E;
+th {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: var(--secondary-color);
 }
