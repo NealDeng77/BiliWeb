@@ -1,4 +1,4 @@
-﻿/* nunito-sans-regular - latin */
+﻿/* Nunito-sans-regular - latin */
 @font-face {
     font-family: 'Nunito Sans';
     font-style: normal;
@@ -11,13 +11,25 @@
     url('../fonts/nunito-sans-v4-latin-regular.svg#NunitoSans') format('svg'); /* Legacy iOS */
 }
 
+/* nunito-sans-300 - latin */
+@font-face {
+    font-family: 'Nunito Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/nunito-sans-v4-latin-300.eot'); /* IE9 Compat Modes */
+    src: local('Nunito Sans Light'), local('NunitoSans-Light'), url('../fonts/nunito-sans-v4-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/nunito-sans-v4-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/nunito-sans-v4-latin-300.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/nunito-sans-v4-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/nunito-sans-v4-latin-300.svg#NunitoSans') format('svg'); /* Legacy iOS */
+}
+
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-top: 50px;
     padding-bottom: 20px;
     font-family: 'Nunito Sans', sans-serif;
-
 }
 
 /* Wrapping element */
@@ -49,4 +61,38 @@ body {
     .carousel-caption {
         display: none;
     }
+}
+
+/*Headers*/
+h1 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 2.75rem;
+    letter-spacing: .07rem;
+    font-weight:bold;
+    margin-top: .25em;
+}
+
+h2 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 2rem;
+}
+
+h3 {
+    font-family: 'Nunito Sans Light', sans-serif;
+    font-size: 1.25rem;
+    font-variant: normal;
+}
+
+/**Colors*/
+.primary-color {
+    color: #F97F50;
+}
+.primary-color-bg {
+    background: #F97F50;
+}
+.secondary-color {
+    color: #4F135E;
+}
+.secondary-color-bg {
+    background: #4F135E;
 }
