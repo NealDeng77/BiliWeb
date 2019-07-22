@@ -15,7 +15,8 @@ namespace BiliWeb.Backend
         /// </summary>
         public ExampleBackend ExampleBackend = ExampleBackend.Instance;
         public ResultLogBackend ResultLogBackend = ResultLogBackend.Instance;
-        public PhoneBackend PhoneBackend = PhoneBackend.Instance; 
+        public PhoneBackend PhoneBackend = PhoneBackend.Instance;
+        public TechnicianBackend TechnicianBackend = TechnicianBackend.Instance;
 
         // Add YourName Above Here  #1
 
