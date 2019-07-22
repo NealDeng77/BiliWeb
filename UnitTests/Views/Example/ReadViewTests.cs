@@ -17,10 +17,10 @@ namespace UnitTests.Views.Example
             var myController = new ExampleController();
 
             // Act
-            var myTest = myController.Read("bogus");
+            var result = myController.Read("bogus");
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
     }
 }

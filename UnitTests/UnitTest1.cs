@@ -12,10 +12,10 @@ namespace UnitTests
             // Arrange
 
             // Act
-            var myTest = new ErrorViewModel();
+            var result = new ErrorViewModel();
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
     }
 }

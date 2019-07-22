@@ -15,10 +15,10 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var myTest = new ResultLogModel();
+            var result = new ResultLogModel();
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>

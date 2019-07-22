@@ -14,10 +14,10 @@ namespace UnitTests.Views.Phone
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Update("abc");
+            var result = myController.Update("abc");
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
     }
 }

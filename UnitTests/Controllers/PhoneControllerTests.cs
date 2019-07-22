@@ -21,12 +21,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Index();
+            var result = myController.Index();
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion IndexTests
 
@@ -42,12 +42,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Create();
+            var result = myController.Create();
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
@@ -78,12 +78,12 @@ namespace UnitTests.Controllers
             var myData = new PhoneModel();
 
             // Act
-            var myTest = myController.Create(myData);
+            var result = myController.Create(myData);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion CreateTests
 
@@ -98,12 +98,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Read(null);
+            var result = myController.Read(null);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
@@ -117,10 +117,10 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.PhoneBackend.Instance.Index().FirstOrDefault();
 
             // Act
-            var myTest = myController.Read(myData.ID) as ViewResult;
+            var result = myController.Read(myData.ID) as ViewResult;
 
             // Assert
-            Assert.IsNotNull(myTest.Model);
+            Assert.IsNotNull(result.Model);
         }
 
         //             var myData = BiliWeb.Backend.BiliWeb.Backend.DataSourceBackend.Instance.Reset();.Instance.PhoneBackend.Index().FirstOrDefault();
@@ -154,12 +154,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Read("bogus");
+            var result = myController.Read("bogus");
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion ReadTests
 
@@ -174,12 +174,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Update("abc");
+            var result = myController.Update("abc");
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]
@@ -210,12 +210,12 @@ namespace UnitTests.Controllers
             var myData = new PhoneModel();
 
             // Act
-            var myTest = myController.Update(myData);
+            var result = myController.Update(myData);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
@@ -248,14 +248,14 @@ namespace UnitTests.Controllers
             // Arrange
             var myController = new PhoneController();
             var myData = BiliWeb.Backend.PhoneBackend.Instance.Index().FirstOrDefault();
-            var myTestData = new PhoneModel(myData)
+            var resultData = new PhoneModel(myData)
             {
                 DeviceModel = "New",
                 ID = myData.ID
             };
 
             // Act
-            var result = myController.Update(myTestData) as RedirectToActionResult;
+            var result = myController.Update(resultData) as RedirectToActionResult;
 
             //Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
@@ -277,12 +277,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Delete(null);
+            var result = myController.Delete(null);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
@@ -295,12 +295,12 @@ namespace UnitTests.Controllers
             var myController = new PhoneController();
 
             // Act
-            var myTest = myController.Delete("bogus");
+            var result = myController.Delete("bogus");
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         [TestMethod]

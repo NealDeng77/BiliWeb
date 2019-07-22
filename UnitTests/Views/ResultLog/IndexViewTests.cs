@@ -14,10 +14,10 @@ namespace UnitTests.Views.ResultLog
             var myController = new ResultLogController();
 
             // Act
-            var myTest = myController.Index();
+            var result = myController.Index();
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
     }
 }

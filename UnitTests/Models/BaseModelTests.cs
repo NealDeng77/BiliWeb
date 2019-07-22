@@ -15,10 +15,10 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var myTest = new BaseModel();
+            var result = new BaseModel();
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
@@ -30,11 +30,11 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var myTest = new BaseModel();
+            var result = new BaseModel();
 
             // Assert
-            Assert.AreNotEqual("",myTest.ID);
-            Assert.AreNotEqual(System.DateTime.MinValue, myTest.Date);
+            Assert.AreNotEqual("",result.ID);
+            Assert.AreNotEqual(System.DateTime.MinValue, result.Date);
         }
 
 
@@ -47,15 +47,15 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var myTest = new BaseModel
+            var result = new BaseModel
             {
                 ID = "123",
                 Date = System.DateTime.MinValue
             };
 
             // Assert
-            Assert.AreEqual("123", myTest.ID);
-            Assert.AreEqual(System.DateTime.MinValue, myTest.Date);
+            Assert.AreEqual("123", result.ID);
+            Assert.AreEqual(System.DateTime.MinValue, result.Date);
         }
     }
 }

@@ -20,12 +20,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogBackend.Instance;
 
             // Act
-            var myTest = myBackend.Index();
+            var result = myBackend.Index();
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion IndexTests
 
@@ -41,13 +41,13 @@ namespace UnitTests.Backend
             var myData = new ResultLogModel();
 
             // Act
-            var myTest = myBackend.Create(myData);
+            var result = myBackend.Create(myData);
 
             // Reset
             myBackend.Reset();
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion CreateTests
 
@@ -62,12 +62,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogBackend.Instance;
 
             // Act
-            var myTest = myBackend.Read(null);
+            var result = myBackend.Read(null);
 
             // Reset
 
             // Assert
-            Assert.IsNull(myTest);
+            Assert.IsNull(result);
         }
 
         /// <summary>
@@ -80,12 +80,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogBackend.Instance;
 
             // Act
-            var myTest = myBackend.Read("bogus");
+            var result = myBackend.Read("bogus");
 
             // Reset
 
             // Assert
-            Assert.IsNull(myTest);
+            Assert.IsNull(result);
         }
         #endregion ReadTests
 
@@ -101,12 +101,12 @@ namespace UnitTests.Backend
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
-            var myTest = new ResultLogModel(myData);
-            myTest.ID = myData.ID; // Force the ID to match for this test.
-            myTest.ClinicID = "New";
+            var myDataCopy = new ResultLogModel(myData);
+            myDataCopy.ID = myData.ID; // Force the ID to match for this test.
+            myDataCopy.ClinicID = "New";
 
             // Act
-            myBackend.Update(myTest);
+            myBackend.Update(myDataCopy);
             var result = myBackend.Read(myData.ID);
 
             // Reset
@@ -129,12 +129,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogBackend.Instance;
 
             // Act
-            var myTest = myBackend.Delete(null);
+            var result = myBackend.Delete(null);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
@@ -147,12 +147,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogBackend.Instance;
 
             // Act
-            var myTest = myBackend.Delete("bogus");
+            var result = myBackend.Delete("bogus");
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion DeleteTests
 

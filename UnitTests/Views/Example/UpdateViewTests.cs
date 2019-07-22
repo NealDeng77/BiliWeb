@@ -14,10 +14,10 @@ namespace UnitTests.Views.Example
             var myController = new ExampleController();
 
             // Act
-            var myTest = myController.Update("abc");
+            var result = myController.Update("abc");
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
     }
 }

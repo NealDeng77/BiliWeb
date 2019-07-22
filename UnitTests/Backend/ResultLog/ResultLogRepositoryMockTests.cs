@@ -20,12 +20,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogRepositoryMock.Instance;
 
             // Act
-            var myTest = myBackend.Index();
+            var result = myBackend.Index();
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion IndexTests
 
@@ -41,13 +41,13 @@ namespace UnitTests.Backend
             var myData = new ResultLogModel();
 
             // Act
-            var myTest = myBackend.Create(myData);
+            var result = myBackend.Create(myData);
 
             // Reset
             myBackend.Reset();
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
@@ -61,13 +61,13 @@ namespace UnitTests.Backend
             var myData = new ResultLogModel();
 
             // Act
-            var myTest = myBackend.Create(null);
+            var result = myBackend.Create(null);
 
             // Reset
             myBackend.Reset();
 
             // Assert
-            Assert.IsNull(myTest);
+            Assert.IsNull(result);
         }
         #endregion CreateTests
 
@@ -82,12 +82,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogRepositoryMock.Instance;
 
             // Act
-            var myTest = myBackend.Read(null);
+            var result = myBackend.Read(null);
 
             // Reset
 
             // Assert
-            Assert.IsNull(myTest);
+            Assert.IsNull(result);
         }
 
         /// <summary>
@@ -100,12 +100,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogRepositoryMock.Instance;
 
             // Act
-            var myTest = myBackend.Read("bogus");
+            var result = myBackend.Read("bogus");
 
             // Reset
 
             // Assert
-            Assert.IsNull(myTest);
+            Assert.IsNull(result);
         }
 
         /// <summary>
@@ -118,12 +118,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogRepositoryMock.Instance;
 
             // Act
-            var myTest = myBackend.Read("");
+            var result = myBackend.Read("");
 
             // Reset
 
             // Assert
-            Assert.IsNull(myTest);
+            Assert.IsNull(result);
         }
         #endregion ReadTests
 
@@ -139,12 +139,12 @@ namespace UnitTests.Backend
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
-            var myTest = new ResultLogModel(myData);
-            myTest.ID = myData.ID; // Force the ID to match for this test.
-            myTest.ClinicID = "New3";
+            var myDataCopy = new ResultLogModel(myData);
+            myDataCopy.ID = myData.ID; // Force the ID to match for this test.
+            myDataCopy.ClinicID = "New3";
 
             // Act
-            var result = myBackend.Update(myTest);
+            var result = myBackend.Update(myDataCopy);
 
             // Reset
             myBackend.Reset();
@@ -181,13 +181,13 @@ namespace UnitTests.Backend
         {
             // Arrange
             var myBackend = ResultLogRepositoryMock.Instance;
-            var myTest = new ResultLogModel
+            var myDataCopy = new ResultLogModel
             {
                 ID = "bogus"
             };
 
             // Act
-            var result = myBackend.Update(myTest);
+            var result = myBackend.Update(myDataCopy);
 
             // Reset
             myBackend.Reset();
@@ -208,12 +208,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogRepositoryMock.Instance;
 
             // Act
-            var myTest = myBackend.Delete(null);
+            var result = myBackend.Delete(null);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
@@ -226,12 +226,12 @@ namespace UnitTests.Backend
             var myBackend = ResultLogRepositoryMock.Instance;
 
             // Act
-            var myTest = myBackend.Delete("bogus");
+            var result = myBackend.Delete("bogus");
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
         #endregion DeleteTests
 

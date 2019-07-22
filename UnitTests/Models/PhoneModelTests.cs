@@ -15,10 +15,10 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var myTest = new PhoneModel();
+            var result = new PhoneModel();
 
             // Assert
-            Assert.IsNotNull(myTest);
+            Assert.IsNotNull(result);
         }
 
         /// <summary>
