@@ -67,8 +67,8 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "First Name,"+
-            "Last Name,"+
+            "FirstName,"+
+            "LastName,"+
             "DateOfBirth,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
@@ -118,8 +118,8 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "First Name,"+
-            "Last Name,"+
+            "FirstName,"+
+            "LastName,"+
             "DateOfBirth,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
