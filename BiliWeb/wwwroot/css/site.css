@@ -106,12 +106,14 @@ h1 {
 h2 {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-size: 2rem;
+    color: var(--text-color);
 }
 
 h3 {
     font-family: 'Nunito Sans Light', sans-serif;
     font-size: 1.25rem;
     font-variant: normal;
+    color: var(--text-color);
 }
 
 th {
@@ -119,4 +121,8 @@ th {
     font-weight: bold;
     font-size: 1.05rem;
     color: var(--secondary-color);
+}
+
+p {
+    color: var(--text-color);
 }
