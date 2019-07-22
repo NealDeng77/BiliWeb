@@ -67,9 +67,9 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "First Name,"+
-            "Last Name,"+
-            "Date of Birth,"+
+            "FirstName,"+
+            "LastName,"+
+            "DateOfBirth,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] TechnicianModel data)
