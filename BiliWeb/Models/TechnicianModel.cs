@@ -11,8 +11,14 @@ namespace BiliWeb.Models
     public class TechnicianModel : BaseModel
     {
 
-        // Just a field to show how to use it...
-        public string Name { get; set; }
+        // Tech's first name
+        public string FirstName { get; set; }
+
+        // Tech's last name
+        public string LastName { get; set; }
+
+        // Tech's DOB
+        public DateTime DateOfBirth { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -54,7 +60,10 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            Name= data.Name;
+            TechID = data.TechID;
+            FirstName = data.FirstName;
+            LastName = data.LastName;
+            DateOfBirth = data.DateOfBirth;
 
             return true;
         }

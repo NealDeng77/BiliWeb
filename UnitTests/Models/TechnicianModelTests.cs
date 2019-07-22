@@ -30,15 +30,23 @@ namespace UnitTests.Models
             // Arrange
             var myData = new TechnicianModel
             {
-                Name = "New"
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = new System.DateTime(2019, 1, 1)
             };
 
             // Act
             var myNewData = new TechnicianModel(myData);
 
             // Assert
-            Assert.AreEqual("New", myNewData.Name);
+            Assert.AreEqual("John", myNewData.FirstName);
+            Assert.AreEqual("Doe", myNewData.LastName);
+            Assert.AreEqual(new System.DateTime(2019, 1, 1), myNewData.DateOfBirth);
         }
+    
+    
+
+    
 
         /// <summary>
         /// Update Model with bogus data should Fail
@@ -66,10 +74,9 @@ namespace UnitTests.Models
             var myData = new TechnicianModel();
             var myDataNew = new TechnicianModel
             {
-                Name = "New",
-
-                // TODO:  Add your atttrbutes here
-
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = new System.DateTime(2019, 1, 1),
                 ID = myData.ID
             };
 
@@ -77,12 +84,11 @@ namespace UnitTests.Models
             myData.Update(myDataNew);
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
-            // TODO:  Add an Assert for each attribute that should change
+            Assert.AreEqual("John", myData.FirstName);
+            Assert.AreEqual("Doe", myData.LastName);
+            Assert.AreEqual(new System.DateTime(2019, 1, 1), myData.DateOfBirth);
 
-            
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
-            // TODO:  Add an Assert for each attribute that thould Not change
 
         }
 
@@ -98,9 +104,9 @@ namespace UnitTests.Models
             // Act
 
             // Assert
-            Assert.IsNull(myData.Name);
-
-            // TODO:  Add an Assert for each attribute
+            Assert.IsNull(myData.FirstName);
+            Assert.IsNull(myData.LastName);
+            Assert.IsNull(myData.DateOfBirth);
 
         }
 
@@ -114,13 +120,14 @@ namespace UnitTests.Models
             var myData = new TechnicianModel();
 
             // Act
-            myData.Name = "New";
-            // TODO:  Add each attribute here
+            myData.FirstName = "John";
+            myData.LastName = "Doe";
+            myData.DateOfBirth = new System.DateTime(2019, 1, 1);
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
-
-            // TODO:  Add an Assert for each attribute
+            Assert.AreEqual("John", myData.FirstName);
+            Assert.AreEqual("Doe", myData.LastName);
+            Assert.AreEqual(new System.DateTime(2019, 1, 1), myData.DateOfBirth);
         }
     }
 }
