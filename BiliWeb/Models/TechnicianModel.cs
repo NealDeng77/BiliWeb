@@ -60,7 +60,6 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            TechID = data.TechID;
             FirstName = data.FirstName;
             LastName = data.LastName;
             DateOfBirth = data.DateOfBirth;

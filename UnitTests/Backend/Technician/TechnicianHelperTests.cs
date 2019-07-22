@@ -19,7 +19,9 @@ namespace UnitTests.Backend
             // Arrange
             var data = new TechnicianModel
             {
-                Name = "Name"
+                FirstName = "John",
+                LastName = "Doe",
+                DateOfBirth = new System.DateTime(2019, 1, 1)
             };
             DataSourceBackend.Instance.TechnicianBackend.Create(data);
 
@@ -30,7 +32,7 @@ namespace UnitTests.Backend
             DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("Name", result);
+            Assert.AreEqual("Doe", result);
         }
 
         /// <summary>
@@ -88,7 +90,7 @@ namespace UnitTests.Backend
             // Check each item returned, and make sure it matches the original data
             foreach (var item in result)
             {
-                Assert.AreEqual(item.Text, data.Find(m=>m.ID==item.Value).Name);
+                Assert.AreEqual(item.Text, data.Find(m=>m.ID==item.Value).LastName);
             }
 
         }
