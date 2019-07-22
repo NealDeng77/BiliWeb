@@ -22,26 +22,32 @@
             <th>
                 Clinic ID
             </th>
+            <th>
+                Test Strip Stock
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ClinicID)
-                </td>
-                <td>
-                    <a asp-action="Read" asp-route-id="@item.ID">Read</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClinicID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestStripStock)
+            </td>
+            <td>
+                <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
