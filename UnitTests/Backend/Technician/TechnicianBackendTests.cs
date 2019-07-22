@@ -103,7 +103,8 @@ namespace UnitTests.Backend
             // Make a Copy of the Data and update an aspect of it
             var myDataCopy = new TechnicianModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
-            myDataCopy.Name = "New";
+            myDataCopy.FirstName = "Joe";
+            myDataCopy.LastName = "Doe";
 
             // Act
             myBackend.Update(myDataCopy);
@@ -113,7 +114,8 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("New",result.Name);
+            Assert.AreEqual("Joe", result.FirstName);
+            Assert.AreEqual("Doe", result.LastName);
             
         }
         #endregion UpdateTests
@@ -178,7 +180,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
+            Assert.AreEqual(dataOriginal.FirstName, myBackend.Index().FirstOrDefault().FirstName);
         }
         #endregion ResetTests
 

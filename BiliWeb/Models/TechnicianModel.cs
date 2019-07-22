@@ -18,7 +18,7 @@ namespace BiliWeb.Models
         public string LastName { get; set; }
 
         // Tech's DOB
-        public DateTime DateOfBirth { get; set; }
+        public Nullable<DateTime> DateOfBirth { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -60,7 +60,6 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            TechID = data.TechID;
             FirstName = data.FirstName;
             LastName = data.LastName;
             DateOfBirth = data.DateOfBirth;
