@@ -66,8 +66,14 @@ namespace BiliWeb.Controllers
             [Bind("" +
             "ID,"+
             "Date,"+
-
             "Name,"+
+            "Address,"+
+            "City,"+
+            "Country,"+
+            "Contact,"+
+            "Phone,"+
+            "Email,"+
+            "Notes,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] ClinicModel data)
@@ -115,8 +121,14 @@ namespace BiliWeb.Controllers
             [Bind("" +
             "ID,"+
             "Date,"+
-
             "Name,"+
+            "Address,"+
+            "City,"+
+            "Country,"+
+            "Contact,"+
+            "Phone,"+
+            "Email,"+
+            "Notes,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] ClinicModel data)
