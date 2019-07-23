@@ -120,3 +120,9 @@ th {
     font-size: 1.05rem;
     color: var(--secondary-color);
 }
+
+/* Navigation */
+.ml-auto .navbar-toggler {
+    left: auto !important;
+    right: 0px;
+}
