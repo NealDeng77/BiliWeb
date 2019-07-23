@@ -14,10 +14,10 @@ namespace UnitTests.Backend
         /// Ensure the Default Index page on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Index_Get_Default_Should_Pass()
+        public void Clinic_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Index();
@@ -34,11 +34,11 @@ namespace UnitTests.Backend
         /// Ensure the Create Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Create_Default_Should_Pass()
+        public void Clinic_Create_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
-            var myData = new ExampleModel();
+            var myBackend = ClinicRepositoryStore.Instance;
+            var myData = new ClinicModel();
 
             // Act
             var result = myBackend.Create(myData);
@@ -54,11 +54,11 @@ namespace UnitTests.Backend
         /// Create with Null should Fail
         /// </summary>
         [TestMethod]
-        public void Example_Create_InValid_Null_Should_Fail()
+        public void Clinic_Create_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
-            var myData = new ExampleModel();
+            var myBackend = ClinicRepositoryStore.Instance;
+            var myData = new ClinicModel();
 
             // Act
             var result = myBackend.Create(null);
@@ -76,10 +76,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_InValid_Null_Should_Fail()
+        public void Clinic_Read_Get_Data_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Read(null);
@@ -94,10 +94,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_InValid_Bogus_Should_Fail()
+        public void Clinic_Read_Get_Data_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Read("bogus");
@@ -114,14 +114,14 @@ namespace UnitTests.Backend
         /// Ensure the Update Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Default_Should_Pass()
+        public void Clinic_Update_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
-            var myDataCopy = new ExampleModel(myData);
+            var myDataCopy = new ClinicModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
             myDataCopy.Name = "New3";
 
@@ -140,10 +140,10 @@ namespace UnitTests.Backend
         /// Updating a Null record, shoudl Fail
         /// </summary>
         [TestMethod]
-        public void Example_Update_InValid_Null_Should_Fail()
+        public void Clinic_Update_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Update(null);
@@ -159,11 +159,11 @@ namespace UnitTests.Backend
         /// Updating a bogus record, should Fail
         /// </summary>
         [TestMethod]
-        public void Example_Update_InValid_Bogus_Should_Fail()
+        public void Clinic_Update_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
-            var myDataCopy = new ExampleModel
+            var myBackend = ClinicRepositoryStore.Instance;
+            var myDataCopy = new ClinicModel
             {
                 ID = "bogus"
             };
@@ -184,10 +184,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_InValid_Data_Null_Should_Fail()
+        public void Clinic_Delete_InValid_Data_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Delete(null);
@@ -202,10 +202,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_InValid_Data_Bogus_Should_Fail()
+        public void Clinic_Delete_InValid_Data_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Delete("bogus");
@@ -226,10 +226,10 @@ namespace UnitTests.Backend
         /// See if it is back
         /// </summary>
         [TestMethod]
-        public void Example_Reset_Data_Valid_Should_Pass()
+        public void Clinic_Reset_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
@@ -255,10 +255,10 @@ namespace UnitTests.Backend
         /// If different sets are implemented, then verify the sets
         /// </summary>
         [TestMethod]
-        public void Example_DataSetDemo_Data_Valid_Should_Pass()
+        public void Clinic_DataSetDemo_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             myBackend.LoadDataSet(DataSourceDataSetEnum.Demo);
@@ -277,10 +277,10 @@ namespace UnitTests.Backend
         /// If different sets are implemented, then verify the sets
         /// </summary>
         [TestMethod]
-        public void Example_DataSetUnitTest_Data_Valid_Should_Pass()
+        public void Clinic_DataSetUnitTest_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             myBackend.LoadDataSet(DataSourceDataSetEnum.UnitTest);
@@ -298,10 +298,10 @@ namespace UnitTests.Backend
         /// String should Match the Store or Store
         /// </summary>
         [TestMethod]
-        public void Example_GetDataSourceString_Data_Valid_Should_Pass()
+        public void Clinic_GetDataSourceString_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            var myBackend = ClinicRepositoryStore.Instance;
 
             // Act
             var result = myBackend.GetDataSourceString();

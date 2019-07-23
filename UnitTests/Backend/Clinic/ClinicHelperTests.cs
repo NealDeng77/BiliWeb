@@ -14,35 +14,35 @@ namespace UnitTests.Backend
         /// Convert Valid ID to Value
         /// </summary>
         [TestMethod]
-        public void ExampleHelper_ConvertIDtoString_Valid_Should_Pass()
+        public void ClinicHelper_ConvertIDtoString_Valid_Should_Pass()
         {
             // Arrange
-            var data = new ExampleModel
+            var data = new ClinicModel
             {
-                Name = "Name"
+                Name = "W Medical"
             };
-            DataSourceBackend.Instance.ExampleBackend.Create(data);
+            DataSourceBackend.Instance.ClinicBackend.Create(data);
 
             // Act
-            var result = ExampleHelper.ConvertIDtoString(data.ID);
+            var result = ClinicHelper.ConvertIDtoString(data.ID);
 
             // Reset
             DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("Name", result);
+            Assert.AreEqual("W Medical", result);
         }
 
         /// <summary>
         /// Convert with Null should Fail
         /// </summary>
         [TestMethod]
-        public void ExampleHelper_ConvertIDtoString_InValid_Null_Should_Fail()
+        public void ClinicHelper_ConvertIDtoString_InValid_Null_Should_Fail()
         {
             // Arrange
 
             // Act
-            var result = ExampleHelper.ConvertIDtoString(null);
+            var result = ClinicHelper.ConvertIDtoString(null);
 
             // Reset
 
@@ -54,12 +54,12 @@ namespace UnitTests.Backend
         /// Convert with Null should Fail
         /// </summary>
         [TestMethod]
-        public void ExampleHelper_ConvertIDtoString_InValid_Bogus_Should_Fail()
+        public void ClinicHelper_ConvertIDtoString_InValid_Bogus_Should_Fail()
         {
             // Arrange
 
             // Act
-            var result = ExampleHelper.ConvertIDtoString("bogus");
+            var result = ClinicHelper.ConvertIDtoString("bogus");
 
             // Reset
 
@@ -74,13 +74,13 @@ namespace UnitTests.Backend
         /// Used for converting the records to a list that can go into a drop down list box
         /// </summary>
         [TestMethod]
-        public void ExampleHelper_ToSelectListItemsTests_Valid_Should_Pass()
+        public void ClinicHelper_ToSelectListItemsTests_Valid_Should_Pass()
         {
             // Arrange
-            var data = DataSourceBackend.Instance.ExampleBackend.Index();
+            var data = DataSourceBackend.Instance.ClinicBackend.Index();
 
             // Act
-            var result = ExampleHelper.ToSelectListItems(data,null);
+            var result = ClinicHelper.ToSelectListItems(data,null);
 
             // Reset
 
@@ -98,16 +98,16 @@ namespace UnitTests.Backend
         /// Make sure the Selected Value is returned
         /// </summary>
         [TestMethod]
-        public void ExampleHelper_ToSelectListItemsTests_Valid_Selected_Should_Pass()
+        public void ClinicHelper_ToSelectListItemsTests_Valid_Selected_Should_Pass()
         {
             // Arrange
-            var data = DataSourceBackend.Instance.ExampleBackend.Index();
+            var data = DataSourceBackend.Instance.ClinicBackend.Index();
 
             // Choose item to be selected
             var value = data[0].ID;
 
             // Act
-            var result = ExampleHelper.ToSelectListItems(data, value);
+            var result = ClinicHelper.ToSelectListItems(data, value);
 
             // Reset
 
@@ -124,16 +124,16 @@ namespace UnitTests.Backend
         /// If the Selected item is not in the list, return the list with no selected items
         /// </summary>
         [TestMethod]
-        public void ExampleHelper_ToSelectListItemsTests_InValid_Selected_Should_Pass()
+        public void ClinicHelper_ToSelectListItemsTests_InValid_Selected_Should_Pass()
         {
             // Arrange
-            var data = DataSourceBackend.Instance.ExampleBackend.Index();
+            var data = DataSourceBackend.Instance.ClinicBackend.Index();
 
             // Choose item to be selected
             var value = "bogus";
 
             // Act
-            var result = ExampleHelper.ToSelectListItems(data, value);
+            var result = ClinicHelper.ToSelectListItems(data, value);
             var resultCount = result.Where(m => m.Selected == true).Count();
 
             // Reset

@@ -14,10 +14,10 @@ namespace UnitTests.Backend
         /// Ensure the Default Index page on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Index_Get_Default_Should_Pass()
+        public void Clinic_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
 
             // Act
             var result = myBackend.Index();
@@ -34,11 +34,11 @@ namespace UnitTests.Backend
         /// Ensure the Create Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Create_Post_Default_Should_Pass()
+        public void Clinic_Create_Post_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
-            var myData = new ExampleModel();
+            var myBackend = ClinicBackend.Instance;
+            var myData = new ClinicModel();
 
             // Act
             var result = myBackend.Create(myData);
@@ -56,10 +56,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_InValid_Null_Should_Fail()
+        public void Clinic_Read_Get_Data_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
 
             // Act
             var result = myBackend.Read(null);
@@ -74,10 +74,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_InValid_Bogus_Should_Fail()
+        public void Clinic_Read_Get_Data_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
 
             // Act
             var result = myBackend.Read("bogus");
@@ -94,16 +94,23 @@ namespace UnitTests.Backend
         /// Ensure the Update Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Post_Default_Should_Pass()
+        public void Clinic_Update_Post_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
-            var myDataCopy = new ExampleModel(myData);
+            var myDataCopy = new ClinicModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
-            myDataCopy.Name = "New";
+            myDataCopy.Name = "W Medical";
+            myDataCopy.Address = "111 11th Ave";
+            myDataCopy.City = "Seattle";
+            myDataCopy.Country = "USA";
+            myDataCopy.Contact = "Joe Doe";
+            myDataCopy.Phone = "+12062554444";
+            myDataCopy.Email = "jdoe@uw.edu";
+            myDataCopy.Notes = "N/A";
 
             // Act
             myBackend.Update(myDataCopy);
@@ -113,8 +120,15 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("New",result.Name);
-            
+            Assert.AreEqual("W Medical", result.Name);
+            Assert.AreEqual("111 11th Ave", result.Address);
+            Assert.AreEqual("Seattle", result.City);
+            Assert.AreEqual("USA", result.Country);
+            Assert.AreEqual("Joe Doe", result.Contact);
+            Assert.AreEqual("+12062554444", result.Phone);
+            Assert.AreEqual("jdoe@uw.edu", result.Email);
+            Assert.AreEqual("N/A", result.Notes);
+
         }
         #endregion UpdateTests
 
@@ -123,10 +137,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_InValid_Data_Null_Should_Fail()
+        public void Clinic_Delete_InValid_Data_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
 
             // Act
             var result = myBackend.Delete(null);
@@ -141,10 +155,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_InValid_Data_Bogus_Should_Fail()
+        public void Clinic_Delete_InValid_Data_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
 
             // Act
             var result = myBackend.Delete("bogus");
@@ -165,10 +179,10 @@ namespace UnitTests.Backend
         /// See if it is back
         /// </summary>
         [TestMethod]
-        public void Example_Reset_Data_Valid_Should_Pass()
+        public void Clinic_Reset_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
@@ -188,21 +202,21 @@ namespace UnitTests.Backend
         /// Verify it changed
         /// </summary>
         [TestMethod]
-        public void Example_SetDataSource_Data_Mock_Should_Pass()
+        public void Clinic_SetDataSource_Data_Mock_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
-            ExampleBackend.SetDataSource(DataSourceEnum.Mock);
-            var result = ExampleBackend.Instance.GetDataSourceString();
+            ClinicBackend.SetDataSource(DataSourceEnum.Mock);
+            var result = ClinicBackend.Instance.GetDataSourceString();
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Return Data Source to Mock
-            ExampleBackend.SetDataSource(DataSourceEnum.Mock);
+            ClinicBackend.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("Mock", result);
@@ -213,21 +227,21 @@ namespace UnitTests.Backend
         /// Verify it changed
         /// </summary>
         [TestMethod]
-        public void Example_SetDataSource_Data_Local_Should_Pass()
+        public void Clinic_SetDataSource_Data_Local_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
-            ExampleBackend.SetDataSource(DataSourceEnum.Local);
-            var result = ExampleBackend.Instance.GetDataSourceString();
+            ClinicBackend.SetDataSource(DataSourceEnum.Local);
+            var result = ClinicBackend.Instance.GetDataSourceString();
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Return Data Source to Mock
-            ExampleBackend.SetDataSource(DataSourceEnum.Mock);
+            ClinicBackend.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("Store", result);
@@ -239,14 +253,14 @@ namespace UnitTests.Backend
         /// 
         /// </summary>
         [TestMethod]
-        public void Example_SetDataSourceSet_Data_Local_Should_Pass()
+        public void Clinic_SetDataSourceSet_Data_Local_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleBackend.Instance;
+            var myBackend = ClinicBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
-            ExampleBackend.SetDataSourceDataSet(DataSourceDataSetEnum.Default);
+            ClinicBackend.SetDataSourceDataSet(DataSourceDataSetEnum.Default);
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
