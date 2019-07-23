@@ -15,10 +15,10 @@ namespace UnitTests.Controllers
         /// Ensure the Default Index page on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Index_Get_Default_Should_Pass()
+        public void Clinic_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = myController.Index();
@@ -36,10 +36,10 @@ namespace UnitTests.Controllers
         /// Ensure the Create Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Create_Get_Default_Should_Pass()
+        public void Clinic_Create_Get_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = myController.Create();
@@ -51,11 +51,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Create_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        public void Clinic_Create_Post_Invalid_Model_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            var data = new ExampleModel();
+            var controller = new ClinicController();
+            var data = new ClinicModel();
 
             // Make ModelState Invalid
             controller.ModelState.AddModelError("test", "test");
@@ -71,11 +71,11 @@ namespace UnitTests.Controllers
         /// Ensure the Create Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Create_Post_Default_Should_Pass()
+        public void Clinic_Create_Post_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = new ExampleModel();
+            var myController = new ClinicController();
+            var myData = new ClinicModel();
 
             // Act
             var result = myController.Create(myData);
@@ -92,10 +92,10 @@ namespace UnitTests.Controllers
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_Null_Should_Fail()
+        public void Clinic_Read_Get_Data_Null_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = myController.Read(null);
@@ -110,11 +110,11 @@ namespace UnitTests.Controllers
         /// Read of Null Data should Fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Valid_Data_Should_Pass()
+        public void Clinic_Read_Valid_Data_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = BiliWeb.Backend.ExampleBackend.Instance.Index().FirstOrDefault();
+            var myController = new ClinicController();
+            var myData = BiliWeb.Backend.ClinicBackend.Instance.Index().FirstOrDefault();
 
             // Act
             var result = myController.Read(myData.ID) as ViewResult;
@@ -130,10 +130,10 @@ namespace UnitTests.Controllers
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_InValid_Data_Null_Should_Fail()
+        public void Clinic_Read_Get_InValid_Data_Null_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = (NotFoundResult)myController.Read(null);
@@ -148,10 +148,10 @@ namespace UnitTests.Controllers
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_In_Valid_Should_Fail()
+        public void Clinic_Read_Get_Data_In_Valid_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = myController.Read("bogus");
@@ -168,10 +168,10 @@ namespace UnitTests.Controllers
         /// Ensure the Update Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Get_InValid_ID_Bogus_Should_Fail()
+        public void Clinic_Update_Get_InValid_ID_Bogus_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = myController.Update("abc");
@@ -183,11 +183,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Update_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        public void Clinic_Update_Post_Invalid_Model_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            var data = new ExampleModel();
+            var controller = new ClinicController();
+            var data = new ClinicModel();
 
             // Make ModelState Invalid
             controller.ModelState.AddModelError("test", "test");
@@ -203,11 +203,11 @@ namespace UnitTests.Controllers
         /// Ensure the Update Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Post_Default_Should_Pass()
+        public void Clinic_Update_Post_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = new ExampleModel();
+            var myController = new ClinicController();
+            var myData = new ClinicModel();
 
             // Act
             var result = myController.Update(myData);
@@ -224,11 +224,11 @@ namespace UnitTests.Controllers
         /// Success on Update Jups to Index page
         /// </summary>
         [TestMethod]
-        public void Example_Update_Get_Valid_Data_Should_Pass()
+        public void Clinic_Update_Get_Valid_Data_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = BiliWeb.Backend.ExampleBackend.Instance.Index().FirstOrDefault();
+            var myController = new ClinicController();
+            var myData = BiliWeb.Backend.ClinicBackend.Instance.Index().FirstOrDefault();
 
             // Act
             var result = myController.Update(myData.ID) as ViewResult;
@@ -243,12 +243,12 @@ namespace UnitTests.Controllers
         /// Success on Update Jumps to Index page
         /// </summary>
         [TestMethod]
-        public void Example_Update_Post_Valid_Data_Should_Pass()
+        public void Clinic_Update_Post_Valid_Data_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = BiliWeb.Backend.ExampleBackend.Instance.Index().FirstOrDefault();
-            var resultData = new ExampleModel(myData)
+            var myController = new ClinicController();
+            var myData = BiliWeb.Backend.ClinicBackend.Instance.Index().FirstOrDefault();
+            var resultData = new ClinicModel(myData)
             {
                 Name = "New",
                 ID = myData.ID
@@ -271,10 +271,10 @@ namespace UnitTests.Controllers
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_Get_Data_Null_Should_Fail()
+        public void Clinic_Delete_Get_Data_Null_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = myController.Delete(null);
@@ -289,10 +289,10 @@ namespace UnitTests.Controllers
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_Get_Data_In_Valid_Should_Fail()
+        public void Clinic_Delete_Get_Data_In_Valid_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new ClinicController();
 
             // Act
             var result = myController.Delete("bogus");
@@ -304,10 +304,10 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Null_Id_Should_Return_Error()
+        public void Clinic_Delete_Get_Null_Id_Should_Return_Error()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
 
             // Act
             var result = controller.Delete((string)null) as NotFoundResult;
@@ -317,10 +317,10 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Invalid_Null_Data_Should_Return_Error()
+        public void Clinic_Delete_Invalid_Null_Data_Should_Return_Error()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
             string id = "bogus";
 
             // Act
@@ -334,12 +334,12 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Default_Should_Pass()
+        public void Clinic_Delete_Get_Default_Should_Pass()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
 
-            string id = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault().ID;
+            string id = BiliWeb.Backend.DataSourceBackend.Instance.ClinicBackend.Index().FirstOrDefault().ID;
 
             // Act
             ViewResult result = controller.Delete(id) as ViewResult;
@@ -352,13 +352,13 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Default_Should_Return_Error_Message()
+        public void Clinic_Delete_Get_Default_Should_Return_Error_Message()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
 
             // Get default student
-            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.ClinicBackend.Index().FirstOrDefault();
 
             // Act
             var result = controller.Delete(data.ID, true) as ViewResult;
@@ -370,13 +370,13 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Default_Should_Return_Data()
+        public void Clinic_Delete_Get_Default_Should_Return_Data()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
 
             // Get default student
-            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.ClinicBackend.Index().FirstOrDefault();
 
             // Act
             var result = controller.Delete(data.ID, true) as ViewResult;
@@ -390,11 +390,11 @@ namespace UnitTests.Controllers
 
         #region DeletePostRegion
         [TestMethod]
-        public void Example_Delete_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        public void Clinic_Delete_Post_Invalid_Model_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            var data = new ExampleModel();
+            var controller = new ClinicController();
+            var data = new ClinicModel();
 
             // Make ModelState Invalid
             controller.ModelState.AddModelError("test", "test");
@@ -407,10 +407,10 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Null_Data_Should_Return_Error()
+        public void Clinic_Delete_Post_Null_Data_Should_Return_Error()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
 
             // Act
             var result = controller.DeleteConfirmed(null) as RedirectToActionResult;
@@ -420,11 +420,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Null_Id_Should_Send_Back_For_Edit()
+        public void Clinic_Delete_Post_Null_Id_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            ExampleModel dataNull = new ExampleModel
+            var controller = new ClinicController();
+            ClinicModel dataNull = new ClinicModel
             {
                 // Make data.Id = null
                 ID = null
@@ -438,11 +438,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Empty_Id_Should_Send_Back_For_Edit()
+        public void Clinic_Delete_Post_Empty_Id_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            ExampleModel dataEmpty = new ExampleModel
+            var controller = new ClinicController();
+            ClinicModel dataEmpty = new ClinicModel
             {
 
                 // Make data.Id empty
@@ -457,14 +457,14 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Default_Should_Return_Index_Page()
+        public void Clinic_Delete_Post_Default_Should_Return_Index_Page()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
 
             // Get default student
-            var defaultData = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
-            ExampleModel data = new ExampleModel(defaultData);
+            var defaultData = BiliWeb.Backend.DataSourceBackend.Instance.ClinicBackend.Index().FirstOrDefault();
+            ClinicModel data = new ClinicModel(defaultData);
 
             // Act
             var result = controller.DeleteConfirmed(data.ID) as NotFoundResult;
@@ -485,17 +485,17 @@ namespace UnitTests.Controllers
         /// The read should fail if the data was deleted
         /// </summary>
         [TestMethod]
-        public void Example_Delete_Post_Valid_Should_Delete()
+        public void Clinic_Delete_Post_Valid_Should_Delete()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new ClinicController();
 
             // Get default student
-            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.ClinicBackend.Index().FirstOrDefault();
 
             // Act
             var result = controller.DeleteConfirmed(data.ID) as ViewResult;
-            var dataExist = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Read(data.ID);
+            var dataExist = BiliWeb.Backend.DataSourceBackend.Instance.ClinicBackend.Read(data.ID);
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
