@@ -12,6 +12,8 @@ namespace BiliWeb.Controllers
     {
         InventoryBackend Backend = InventoryBackend.Instance;
 
+        ClinicBackend ClinicData = ClinicBackend.Instance;
+        
         /// <summary>
         /// Show all the data
         /// </summary>
@@ -102,8 +104,8 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
-            // TODO Change to getting Clinics when the Clinic section is complete
-            ViewData["InventoryIDList"] = BiliWeb.Backend.InventoryHelper.ToSelectListItems(Backend.Index(), null);
+            // Getting Clinics List for Drop
+            ViewData["InventoryIDList"] = BiliWeb.Backend.ClinicHelper.ToSelectListItems(ClinicData.Index(), null);
 
 
             return View(data);
