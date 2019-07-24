@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,9 +13,11 @@ namespace BiliWeb.Models
     {
 
         // The guid to the Clinic where the value was recorded
+        [Display(Name = "Clinic ID")]
         public string ClinicID { get; set; }
 
         // The int count of current test strips in stock
+        [Display(Name = "Test Strip Stock")]
         public int TestStripStock { get; set; }
 
 
