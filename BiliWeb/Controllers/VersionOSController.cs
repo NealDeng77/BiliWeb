@@ -67,7 +67,7 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "Name,"+
+            "VersionOSName,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] VersionOSModel data)
@@ -116,7 +116,7 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "Name,"+
+            "VersionOSName,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] VersionOSModel data)
