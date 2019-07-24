@@ -51,11 +51,18 @@ namespace BiliWeb.Backend
         public List<ResultLogModel> GetDefaultDataSet()
         {
             DataList.Clear();
+            // TODO Add call to clinic backend, phone, technician
 
-            DataList.Add(new ResultLogModel { BilirubinValue=1 }); // Default
-            DataList.Add(new ResultLogModel { BilirubinValue = 2 }); 
-            DataList.Add(new ResultLogModel { BilirubinValue = 3.5 }); 
-            DataList.Add(new ResultLogModel { BilirubinValue = 10 }); 
+            //Call backed clinic so ids match
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel>  clinics = ClinicData.Index();
+
+      
+
+            DataList.Add(new ResultLogModel { ClinicID = clinics[0].Name.ToString(), BilirubinValue =1 }); // Default
+            DataList.Add(new ResultLogModel { ClinicID = clinics[1].Name.ToString(), BilirubinValue = 2 }); 
+            DataList.Add(new ResultLogModel { ClinicID = clinics[2].Name.ToString(), BilirubinValue = 3.5 }); 
+            DataList.Add(new ResultLogModel { ClinicID = clinics[3].Name.ToString(), BilirubinValue = 10 }); 
 
             return DataList;
         }
