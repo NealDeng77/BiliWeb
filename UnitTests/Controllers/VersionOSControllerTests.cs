@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BiliWeb.Models;
 using BiliWeb.Controllers;
@@ -8,17 +8,17 @@ using Microsoft.AspNetCore.Routing;
 namespace UnitTests.Controllers
 {
     [TestClass]
-    public class ExampleControlerTests
+    public class VersionOSControlerTests
     {
         #region IndexTests
         /// <summary>
         /// Ensure the Default Index page on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Index_Get_Default_Should_Pass()
+        public void VersionOS_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = myController.Index();
@@ -36,10 +36,10 @@ namespace UnitTests.Controllers
         /// Ensure the Create Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Create_Get_Default_Should_Pass()
+        public void VersionOS_Create_Get_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = myController.Create();
@@ -51,11 +51,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Create_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        public void VersionOS_Create_Post_Invalid_Model_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            var data = new ExampleModel();
+            var controller = new VersionOSController();
+            var data = new VersionOSModel();
 
             // Make ModelState Invalid
             controller.ModelState.AddModelError("test", "test");
@@ -71,11 +71,11 @@ namespace UnitTests.Controllers
         /// Ensure the Create Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Create_Post_Default_Should_Pass()
+        public void VersionOS_Create_Post_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = new ExampleModel();
+            var myController = new VersionOSController();
+            var myData = new VersionOSModel();
 
             // Act
             var result = myController.Create(myData);
@@ -92,10 +92,10 @@ namespace UnitTests.Controllers
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_Null_Should_Fail()
+        public void VersionOS_Read_Get_Data_Null_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = myController.Read(null);
@@ -110,11 +110,11 @@ namespace UnitTests.Controllers
         /// Read of Null Data should Fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Valid_Data_Should_Pass()
+        public void VersionOS_Read_Valid_Data_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = BiliWeb.Backend.ExampleBackend.Instance.Index().FirstOrDefault();
+            var myController = new VersionOSController();
+            var myData = BiliWeb.Backend.VersionOSBackend.Instance.Index().FirstOrDefault();
 
             // Act
             var result = myController.Read(myData.ID) as ViewResult;
@@ -123,17 +123,17 @@ namespace UnitTests.Controllers
             Assert.IsNotNull(result.Model);
         }
 
-        //             var myData = BiliWeb.Backend.BiliWeb.Backend.DataSourceBackend.Instance.Reset();.Instance.ExampleBackend.Index().FirstOrDefault();
+        //             var myData = BiliWeb.Backend.BiliWeb.Backend.DataSourceBackend.Instance.Reset();.Instance.VersionOSBackend.Index().FirstOrDefault();
         //            BiliWeb.Backend.BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
         /// <summary>
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_InValid_Data_Null_Should_Fail()
+        public void VersionOS_Read_Get_InValid_Data_Null_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = (NotFoundResult)myController.Read(null);
@@ -148,10 +148,10 @@ namespace UnitTests.Controllers
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Read_Get_Data_In_Valid_Should_Fail()
+        public void VersionOS_Read_Get_Data_In_Valid_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = myController.Read("bogus");
@@ -168,10 +168,10 @@ namespace UnitTests.Controllers
         /// Ensure the Update Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Get_InValid_ID_Bogus_Should_Fail()
+        public void VersionOS_Update_Get_InValid_ID_Bogus_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = myController.Update("abc");
@@ -183,11 +183,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Update_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        public void VersionOS_Update_Post_Invalid_Model_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            var data = new ExampleModel();
+            var controller = new VersionOSController();
+            var data = new VersionOSModel();
 
             // Make ModelState Invalid
             controller.ModelState.AddModelError("test", "test");
@@ -203,11 +203,11 @@ namespace UnitTests.Controllers
         /// Ensure the Update Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void Example_Update_Post_Default_Should_Pass()
+        public void VersionOS_Update_Post_Default_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = new ExampleModel();
+            var myController = new VersionOSController();
+            var myData = new VersionOSModel();
 
             // Act
             var result = myController.Update(myData);
@@ -224,11 +224,11 @@ namespace UnitTests.Controllers
         /// Success on Update Jups to Index page
         /// </summary>
         [TestMethod]
-        public void Example_Update_Get_Valid_Data_Should_Pass()
+        public void VersionOS_Update_Get_Valid_Data_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = BiliWeb.Backend.ExampleBackend.Instance.Index().FirstOrDefault();
+            var myController = new VersionOSController();
+            var myData = BiliWeb.Backend.VersionOSBackend.Instance.Index().FirstOrDefault();
 
             // Act
             var result = myController.Update(myData.ID) as ViewResult;
@@ -243,14 +243,14 @@ namespace UnitTests.Controllers
         /// Success on Update Jumps to Index page
         /// </summary>
         [TestMethod]
-        public void Example_Update_Post_Valid_Data_Should_Pass()
+        public void VersionOS_Update_Post_Valid_Data_Should_Pass()
         {
             // Arrange
-            var myController = new ExampleController();
-            var myData = BiliWeb.Backend.ExampleBackend.Instance.Index().FirstOrDefault();
-            var resultData = new ExampleModel(myData)
+            var myController = new VersionOSController();
+            var myData = BiliWeb.Backend.VersionOSBackend.Instance.Index().FirstOrDefault();
+            var resultData = new VersionOSModel(myData)
             {
-                Name = "New",
+                VersionOSName = "New",
                 ID = myData.ID
             };
 
@@ -271,10 +271,10 @@ namespace UnitTests.Controllers
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_Get_Data_Null_Should_Fail()
+        public void VersionOS_Delete_Get_Data_Null_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = myController.Delete(null);
@@ -289,10 +289,10 @@ namespace UnitTests.Controllers
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void Example_Delete_Get_Data_In_Valid_Should_Fail()
+        public void VersionOS_Delete_Get_Data_In_Valid_Should_Fail()
         {
             // Arrange
-            var myController = new ExampleController();
+            var myController = new VersionOSController();
 
             // Act
             var result = myController.Delete("bogus");
@@ -304,10 +304,10 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Null_Id_Should_Return_Error()
+        public void VersionOS_Delete_Get_Null_Id_Should_Return_Error()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
 
             // Act
             var result = controller.Delete((string)null) as NotFoundResult;
@@ -317,10 +317,10 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Invalid_Null_Data_Should_Return_Error()
+        public void VersionOS_Delete_Invalid_Null_Data_Should_Return_Error()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
             string id = "bogus";
 
             // Act
@@ -334,12 +334,12 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Default_Should_Pass()
+        public void VersionOS_Delete_Get_Default_Should_Pass()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
 
-            string id = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault().ID;
+            string id = BiliWeb.Backend.DataSourceBackend.Instance.VersionOSBackend.Index().FirstOrDefault().ID;
 
             // Act
             ViewResult result = controller.Delete(id) as ViewResult;
@@ -352,13 +352,13 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Default_Should_Return_Error_Message()
+        public void VersionOS_Delete_Get_Default_Should_Return_Error_Message()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
 
             // Get default student
-            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.VersionOSBackend.Index().FirstOrDefault();
 
             // Act
             var result = controller.Delete(data.ID, true) as ViewResult;
@@ -370,13 +370,13 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Get_Default_Should_Return_Data()
+        public void VersionOS_Delete_Get_Default_Should_Return_Data()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
 
             // Get default student
-            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.VersionOSBackend.Index().FirstOrDefault();
 
             // Act
             var result = controller.Delete(data.ID, true) as ViewResult;
@@ -390,11 +390,11 @@ namespace UnitTests.Controllers
 
         #region DeletePostRegion
         [TestMethod]
-        public void Example_Delete_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        public void VersionOS_Delete_Post_Invalid_Model_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            var data = new ExampleModel();
+            var controller = new VersionOSController();
+            var data = new VersionOSModel();
 
             // Make ModelState Invalid
             controller.ModelState.AddModelError("test", "test");
@@ -407,10 +407,10 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Null_Data_Should_Return_Error()
+        public void VersionOS_Delete_Post_Null_Data_Should_Return_Error()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
 
             // Act
             var result = controller.DeleteConfirmed(null) as RedirectToActionResult;
@@ -420,11 +420,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Null_Id_Should_Send_Back_For_Edit()
+        public void VersionOS_Delete_Post_Null_Id_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            ExampleModel dataNull = new ExampleModel
+            var controller = new VersionOSController();
+            VersionOSModel dataNull = new VersionOSModel
             {
                 // Make data.Id = null
                 ID = null
@@ -438,11 +438,11 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Empty_Id_Should_Send_Back_For_Edit()
+        public void VersionOS_Delete_Post_Empty_Id_Should_Send_Back_For_Edit()
         {
             // Arrange
-            var controller = new ExampleController();
-            ExampleModel dataEmpty = new ExampleModel
+            var controller = new VersionOSController();
+            VersionOSModel dataEmpty = new VersionOSModel
             {
 
                 // Make data.Id empty
@@ -457,14 +457,14 @@ namespace UnitTests.Controllers
         }
 
         [TestMethod]
-        public void Example_Delete_Post_Default_Should_Return_Index_Page()
+        public void VersionOS_Delete_Post_Default_Should_Return_Index_Page()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
 
             // Get default student
-            var defaultData = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
-            ExampleModel data = new ExampleModel(defaultData);
+            var defaultData = BiliWeb.Backend.DataSourceBackend.Instance.VersionOSBackend.Index().FirstOrDefault();
+            VersionOSModel data = new VersionOSModel(defaultData);
 
             // Act
             var result = controller.DeleteConfirmed(data.ID) as NotFoundResult;
@@ -485,17 +485,17 @@ namespace UnitTests.Controllers
         /// The read should fail if the data was deleted
         /// </summary>
         [TestMethod]
-        public void Example_Delete_Post_Valid_Should_Delete()
+        public void VersionOS_Delete_Post_Valid_Should_Delete()
         {
             // Arrange
-            var controller = new ExampleController();
+            var controller = new VersionOSController();
 
             // Get default student
-            var data = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Index().FirstOrDefault();
+            var data = BiliWeb.Backend.DataSourceBackend.Instance.VersionOSBackend.Index().FirstOrDefault();
 
             // Act
             var result = controller.DeleteConfirmed(data.ID) as ViewResult;
-            var dataExist = BiliWeb.Backend.DataSourceBackend.Instance.ExampleBackend.Read(data.ID);
+            var dataExist = BiliWeb.Backend.DataSourceBackend.Instance.VersionOSBackend.Read(data.ID);
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
