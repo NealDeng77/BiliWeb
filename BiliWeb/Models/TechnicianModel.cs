@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,12 +13,15 @@ namespace BiliWeb.Models
     {
 
         // Tech's first name
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         // Tech's last name
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         // Tech's DOB
+        [Display(Name = "Date of Birth")]
         public Nullable<DateTime> DateOfBirth { get; set; }
 
         /// <summary>
