@@ -42,7 +42,10 @@
                 @Html.DisplayFor(modelItem => item.ClinicID)
                 @{
                     var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(item.ClinicID);
-                    <span class="highlight-text">,  @clinicName</span>
+                    if (clinicName != "")
+                    {
+                        <span class="highlight-text">,&nbsp&nbsp @clinicName</span>
+                    }
                 }
             </td>
             <td>
