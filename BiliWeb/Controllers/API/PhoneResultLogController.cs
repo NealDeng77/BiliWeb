@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using BiliWeb.Models;
 using BiliWeb.Backend;
+using System.Collections.Generic;
 
 namespace BiliWeb.Controllers
 {
+
+
     /// <summary>
     /// The URL the Phone will send the Result Logs to
     /// </summary>
@@ -11,6 +14,24 @@ namespace BiliWeb.Controllers
     [ApiController]
     public class PhoneResultLogController : ControllerBase
     {
+
+
+        public bool isValidTechnician(string id)
+        {
+            //Call backend to technicians
+            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
+            List<TechnicianModel> tech = TechnicianData.Index();
+
+            foreach (TechnicianModel t in tech)
+            {
+                if ( t.ID.Equals(id) )
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// The Phone will POST to the server a data object that will have the information needed to record the Log.
         /// After receiving a Log, the method will Call over to the Backend to Create a record
@@ -61,7 +82,7 @@ namespace BiliWeb.Controllers
 
             // Check UserID to ensrue it is Valid
             isValid = true; // Replace with call to Check UserID
-            if (!isValid)
+            if (!isValidTechnician( data.UserID ) )
             {
                 myReturn.Message = "Invalid User";
                 return myReturn;

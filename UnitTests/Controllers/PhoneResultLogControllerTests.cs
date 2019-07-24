@@ -4,6 +4,8 @@ using BiliWeb.Models;
 using BiliWeb.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using BiliWeb.Backend;
+using System.Collections.Generic;
 
 namespace UnitTests.Controllers
 {
@@ -55,11 +57,16 @@ namespace UnitTests.Controllers
         {
             // Arrange
             var myController = new PhoneResultLogController();
+
+            //Call backend to technicians
+            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
+            List<TechnicianModel> tech = TechnicianData.Index();
+
             var myData = new ResultLogModel
             {
                 ClinicID = "Clinic",
                 PhoneID = "Phone",
-                UserID = "User",
+                UserID = tech[0].ID,
                 BilirubinValue = 15
             };
 
