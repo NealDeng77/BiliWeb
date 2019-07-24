@@ -24,9 +24,7 @@
                         <label asp-for="ClinicID" class="control-label"></label>
                     </div>
                     <div class="col">
-                        @*  TODO Change to Clinic List when it is Created *@
                         @Html.DropDownListFor(m => m.ClinicID, ViewData["InventoryIDList"] as IEnumerable<SelectListItem>, "Select Clinic")
-                        @*<input asp-for="ClinicID" class="form-control" />*@
                         <span asp-validation-for="ClinicID" class="text-danger"></span>
                     </div>
                 </div>

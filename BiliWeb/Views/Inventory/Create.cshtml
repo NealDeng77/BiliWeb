@@ -14,9 +14,11 @@
     <div class="col">
         <br />
         <form asp-action="Create">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="ID" hidden />
             <input asp-for="Date" hidden />
+
 
             <div class="form-group">
                 <div class="row">
@@ -24,9 +26,10 @@
                         <label asp-for="ClinicID" class="control-label">Clinic ID</label>
                     </div>
                     <div class="col">
-                        <input asp-for="ClinicID" class="form-control" />
+                        @Html.DropDownListFor(m => m.ClinicID, ViewData["ClinicIDList"] as IEnumerable<SelectListItem>, "Select Clinic")
                         <span asp-validation-for="ClinicID" class="text-danger"></span>
                     </div>
+
                 </div>
             </div>
 

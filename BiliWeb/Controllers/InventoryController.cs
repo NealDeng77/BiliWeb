@@ -54,6 +54,8 @@ namespace BiliWeb.Controllers
         public IActionResult Create()
         {
             var data = new InventoryModel();
+            ViewData["ClinicIDList"] = BiliWeb.Backend.ClinicHelper.ToSelectListItems(ClinicData.Index(), null);
+
             return View(data);
         }
 
@@ -86,6 +88,8 @@ namespace BiliWeb.Controllers
             {
                 return RedirectToAction("Error", "Home");
             }
+
+
 
             return RedirectToAction(nameof(Index));
         }
