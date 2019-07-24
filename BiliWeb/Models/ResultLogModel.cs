@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,18 +16,23 @@ namespace BiliWeb.Models
     public class ResultLogModel : BaseModel
     {
         // The Bilirubin result Value
+        [Display(Name = "Bilirubin Value")]
         public double BilirubinValue { get; set; }
 
         // The guid to the Clinic where the value was recorded
+        [Display(Name = "Clinic ID")]
         public string ClinicID { get; set; }
 
         // The guid to the Phone that took the picture
+        [Display(Name = "Phone ID")]
         public string PhoneID { get; set; }
 
         // The guid to the User who took the pictures
+        [Display(Name = "User ID")]
         public string UserID { get; set; }
 
         // The guid to the photo set for this record, created here and passed back to the phone, and thus used for storing the photos
+        [Display(Name = "Photo ID")]
         public string PhotoID { get; set; } = System.Guid.NewGuid().ToString("D");
         
         /// <summary>
