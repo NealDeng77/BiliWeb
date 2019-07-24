@@ -101,7 +101,9 @@ namespace BiliWeb.Controllers
             myReturn.Message = "OK";
             myReturn.ResultLogID = result.ID;
             myReturn.PhotoID = result.PhotoID;
-            myReturn.ResultDataID = "form guid"; //TODO, call to the ResultFrom and create a new guid
+
+            // myReturn.ResultDataURI = Use the default for now that is in the model
+            myReturn.ResultDataID = DataSourceBackend.Instance.ResultDataBackend.CreateNewEmpty().ID;
 
             return myReturn;
         }
