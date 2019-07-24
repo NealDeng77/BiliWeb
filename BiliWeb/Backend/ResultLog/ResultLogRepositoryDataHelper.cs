@@ -63,18 +63,18 @@ namespace BiliWeb.Backend
             TechnicianBackend TechnicianData = TechnicianBackend.Instance;
             List<TechnicianModel> tech = TechnicianData.Index();
 
-
+            /*
             DataList.Add(new ResultLogModel {  BilirubinValue = 1 }); // Default
             DataList.Add(new ResultLogModel {  BilirubinValue = 2 });
             DataList.Add(new ResultLogModel {  BilirubinValue = 3.5 });
             DataList.Add(new ResultLogModel {  BilirubinValue = 10 });
-
-            /*
+            */
+            
             DataList.Add(new ResultLogModel { ClinicID = clinics[0].ID, PhoneID = phones[0].ID, UserID = tech[0].ID, BilirubinValue = 1 }); // Default
             DataList.Add(new ResultLogModel { ClinicID = clinics[1].ID, PhoneID = phones[1].ID, UserID = tech[1].ID, BilirubinValue = 2 });
             DataList.Add(new ResultLogModel { ClinicID = clinics[2].ID, PhoneID = phones[2].ID, UserID = tech[2].ID, BilirubinValue = 3.5 });
-            DataList.Add(new ResultLogModel { ClinicID = clinics[3].ID, PhoneID = phones[3].ID, UserID = tech[3].ID, BilirubinValue = 10 });
-            */
+            //DataList.Add(new ResultLogModel { ClinicID = clinics[3].ID, PhoneID = phones[3].ID, UserID = tech[3].ID, BilirubinValue = 10 });
+            
 
             return DataList;
         }
