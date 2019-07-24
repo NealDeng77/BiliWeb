@@ -118,7 +118,7 @@ h3 {
 th {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-weight: bold;
-    font-size: 1.05rem;
+    text-transform: uppercase;
     color: var(--secondary-color);
 }
 
@@ -129,6 +129,61 @@ th {
 }
 
 /* CRUDI pages */
+.crudi-page {
+    margin: 2em;
+}
+
+@media screen and (max-width: 600px) {
+    .crudi-page {
+        margin: .5em;
+    }
+
+    table {
+        border: 0;
+    }
+
+        table caption {
+            font-size: 1.3em;
+        }
+
+        table thead {
+            border: none;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        table tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: .625em;
+        }
+
+        table td {
+            border-bottom: 1px solid #ddd;
+            display: block;
+            font-size: .8em;
+            text-align: right;
+        }
+
+            table td::before {
+
+                content: attr(data-label);
+                float: left;
+                text-transform: uppercase;
+                font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+                font-weight: bold;
+                color: var(--secondary-color);
+            }
+
+            table td:last-child {
+                border-bottom: 0;
+            }
+}
 .highlight-text {
     color: var(--secondary-color);
 }
