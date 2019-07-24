@@ -102,10 +102,6 @@ namespace BiliWeb.Controllers
         {
             // Todo Implement Security for api call, to prevent DOS attack
 
-            // Todo Update to validate
-            // Used for each of the Validity Checks
-            bool isValid;
-
             // Create the result record, assume Fail
             var myReturn = new PhoneResultLogModel
             {
@@ -127,7 +123,6 @@ namespace BiliWeb.Controllers
             }
 
             // Check UserID to ensrue it is Valid
-            isValid = true; // Replace with call to Check UserID
             if (!isValidTechnician( data.UserID ) )
             {
                 myReturn.Message = "Invalid User";
@@ -135,7 +130,6 @@ namespace BiliWeb.Controllers
             }
 
             // Check ClinicID to ensrue it is Valid
-            isValid = true; // Replace with call to Check ClinicID
             if (!isValidClinic( data.ClinicID ) )
             {
                 myReturn.Message = "Invalid User";
@@ -143,7 +137,6 @@ namespace BiliWeb.Controllers
             }
 
             // Check PhoneID to ensrue it is Valid
-            isValid = true; // Replace with call to Check PhoneID
             if (!isValidPhone( data.PhoneID ))
             {
                 myReturn.Message = "Invalid Phone";

@@ -12,5 +12,10 @@ namespace BiliWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Issue()
+        {
+            return View();
+        }
     }
 }
