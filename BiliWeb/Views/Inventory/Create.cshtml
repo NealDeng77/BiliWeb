@@ -3,64 +3,65 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="crudi-page">
 
-<h2>Create</h2>
+    <h2>Create</h2>
 
-<h4>Enter data to create a new Inventory record</h4>
+    <h4>Enter data to create a new Inventory record</h4>
 
-<br />
-<hr />
-<div class="row">
-    <div class="col">
-        <br />
-        <form asp-action="Create">
+    <br />
+    <hr />
+    <div class="row">
+        <div class="col">
+            <br />
+            <form asp-action="Create">
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="ID" hidden />
-            <input asp-for="Date" hidden />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="ID" hidden />
+                <input asp-for="Date" hidden />
 
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-1 text-right">
-                        <label asp-for="ClinicID" class="control-label">Clinic ID</label>
-                    </div>
-                    <div class="col">
-                        @Html.DropDownListFor(m => m.ClinicID, ViewData["ClinicIDList"] as IEnumerable<SelectListItem>, "Select Clinic")
-                        <span asp-validation-for="ClinicID" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-1 text-right">
+                            <label asp-for="ClinicID" class="control-label">Clinic ID</label>
+                        </div>
+                        <div class="col">
+                            @Html.DropDownListFor(m => m.ClinicID, ViewData["ClinicIDList"] as IEnumerable<SelectListItem>, "Select Clinic")
+                            <span asp-validation-for="ClinicID" class="text-danger"></span>
+                        </div>
 
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-1 text-right">
-                        <label asp-for="TestStripStock" class="control-label">Test Strip Stock</label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="TestStripStock" class="form-control" />
-                        <span asp-validation-for="TestStripStock" class="text-danger"></span>
                     </div>
                 </div>
-            </div>
 
-            @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
-
-            <div class="form-group">
-                <br />
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col">
-                        <a asp-action="Index" class="btn btn-info">Back</a>
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-1 text-right">
+                            <label asp-for="TestStripStock" class="control-label">Test Strip Stock</label>
+                        </div>
+                        <div class="col">
+                            <input asp-for="TestStripStock" class="form-control" />
+                            <span asp-validation-for="TestStripStock" class="text-danger"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+
+                @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
+
+                <div class="form-group">
+                    <br />
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-info">Back</a>
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
 
 
 

@@ -115,6 +115,7 @@ h3 {
     font-variant: normal;
 }
 
+/* Tables */
 th {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-weight: bold;
@@ -122,22 +123,7 @@ th {
     color: var(--secondary-color);
 }
 
-/* Navigation */
-.ml-auto .navbar-toggler {
-    left: auto !important;
-    right: 0px;
-}
-
-/* CRUDI pages */
-.crudi-page {
-    margin: 2em;
-}
-
 @media screen and (max-width: 600px) {
-    .crudi-page {
-        margin: .5em;
-    }
-
     table {
         border: 0;
     }
@@ -171,7 +157,6 @@ th {
         }
 
             table td::before {
-
                 content: attr(data-label);
                 float: left;
                 text-transform: uppercase;
@@ -184,6 +169,31 @@ th {
                 border-bottom: 0;
             }
 }
-.highlight-text {
-    color: var(--secondary-color);
+
+/* Navigation */
+.ml-auto .navbar-toggler {
+    left: auto !important;
+    right: 0px;
+}
+
+/* CRUDI pages */
+.crudi-page {
+    margin: 2em;
+}
+    .crudi-page .attr-name {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--secondary-color);
+    }
+    .crudi-page .highlight-text {
+        color: var(--secondary-color);
+    }
+
+@media screen and (max-width: 600px) {
+    .crudi-page {
+        margin: .5em;
+    }
+        .crudi-page .form-group {
+            font-size: .8em;
+        }
 }
