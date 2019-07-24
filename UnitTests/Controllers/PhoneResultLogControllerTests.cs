@@ -62,10 +62,18 @@ namespace UnitTests.Controllers
             TechnicianBackend TechnicianData = TechnicianBackend.Instance;
             List<TechnicianModel> tech = TechnicianData.Index();
 
+            //Call backend to phones
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phone = PhoneData.Index();
+
+            //Call backend to clinics
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinic = ClinicData.Index();
+
             var myData = new ResultLogModel
             {
-                ClinicID = "Clinic",
-                PhoneID = "Phone",
+                ClinicID = clinic[0].ID,
+                PhoneID = phone[0].ID,
                 UserID = tech[0].ID,
                 BilirubinValue = 15
             };

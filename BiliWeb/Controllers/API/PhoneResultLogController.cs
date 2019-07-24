@@ -15,7 +15,11 @@ namespace BiliWeb.Controllers
     public class PhoneResultLogController : ControllerBase
     {
 
-
+        /// <summary>
+        /// Is it a valid technician id
+        /// </summary>
+        /// <param name="id">string technician id</param>
+        /// <returns>True if it is a valid technician id, false otherwise</returns>
         public bool isValidTechnician(string id)
         {
             //Call backend to technicians
@@ -25,6 +29,48 @@ namespace BiliWeb.Controllers
             foreach (TechnicianModel t in tech)
             {
                 if ( t.ID.Equals(id) )
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Is it a valid clinic id
+        /// </summary>
+        /// <param name="id">string id of clinic</param>
+        /// <returns>True if valid, false otherwise.</returns>
+        public bool isValidClinic( string id)
+        {
+            //Call backend to clinics
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinic = ClinicData.Index();
+
+            foreach ( ClinicModel c in clinic )
+            {
+                if( c.ID.Equals( id))
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
+        /// <summary>
+        /// Is it a valid phone 
+        /// </summary>
+        /// <param name="id">string phone id</param>
+        /// <returns>True if valid, false otherwise. </returns>
+        public bool isValidPhone( string id )
+        {
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phones = PhoneData.Index();
+
+            foreach( PhoneModel p in phones)
+            {
+                if( p.ID.Equals( id ))
                 {
                     return true;
                 }
@@ -90,7 +136,7 @@ namespace BiliWeb.Controllers
 
             // Check ClinicID to ensrue it is Valid
             isValid = true; // Replace with call to Check ClinicID
-            if (!isValid)
+            if (!isValidClinic( data.ClinicID ) )
             {
                 myReturn.Message = "Invalid User";
                 return myReturn;
@@ -98,7 +144,7 @@ namespace BiliWeb.Controllers
 
             // Check PhoneID to ensrue it is Valid
             isValid = true; // Replace with call to Check PhoneID
-            if (!isValid)
+            if (!isValidPhone( data.PhoneID ))
             {
                 myReturn.Message = "Invalid Phone";
                 return myReturn;
