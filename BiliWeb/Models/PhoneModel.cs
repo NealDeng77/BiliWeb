@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,12 +13,15 @@ namespace BiliWeb.Models
     {
 
         // The guid to this phone's clinic. 
+        [Display(Name = "Clinic ID")]
         public string ClinicID { get; set; }
 
         // The device model of this phone. 
+        [Display(Name = "Device Model")]
         public string DeviceModel { get; set; }
 
         // The serial number of this phone. 
+        [Display(Name = "Serial Number")]
         public string SerialNumber { get; set; }
 
         /// <summary>
