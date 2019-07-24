@@ -16,69 +16,6 @@ namespace BiliWeb.Controllers
     {
 
         /// <summary>
-        /// Is it a valid technician id
-        /// </summary>
-        /// <param name="id">string technician id</param>
-        /// <returns>True if it is a valid technician id, false otherwise</returns>
-        public bool isValidTechnician(string id)
-        {
-            //Call backend to technicians
-            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
-            List<TechnicianModel> tech = TechnicianData.Index();
-
-            foreach (TechnicianModel t in tech)
-            {
-                if ( t.ID.Equals(id) )
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Is it a valid clinic id
-        /// </summary>
-        /// <param name="id">string id of clinic</param>
-        /// <returns>True if valid, false otherwise.</returns>
-        public bool isValidClinic( string id)
-        {
-            //Call backend to clinics
-            ClinicBackend ClinicData = ClinicBackend.Instance;
-            List<ClinicModel> clinic = ClinicData.Index();
-
-            foreach ( ClinicModel c in clinic )
-            {
-                if( c.ID.Equals( id))
-                {
-                    return true;
-                }
-            }
-            return false;
-
-        }
-
-        /// <summary>
-        /// Is it a valid phone 
-        /// </summary>
-        /// <param name="id">string phone id</param>
-        /// <returns>True if valid, false otherwise. </returns>
-        public bool isValidPhone( string id )
-        {
-            PhoneBackend PhoneData = PhoneBackend.Instance;
-            List<PhoneModel> phones = PhoneData.Index();
-
-            foreach( PhoneModel p in phones)
-            {
-                if( p.ID.Equals( id ))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
         /// The Phone will POST to the server a data object that will have the information needed to record the Log.
         /// After receiving a Log, the method will Call over to the Backend to Create a record
         /// It will reply back to the Phone with the PhotoID which will then be the guid used to upload the Photos
@@ -114,7 +51,6 @@ namespace BiliWeb.Controllers
                 return myReturn;
             }
 
-            // Todo Validate Record paramaters
             // Range for Bilirubin Value
             if (data.BilirubinValue <0 || data.BilirubinValue > 30)
             {
@@ -122,22 +58,22 @@ namespace BiliWeb.Controllers
                 return myReturn;
             }
 
-            // Check UserID to ensrue it is Valid
-            if (!isValidTechnician( data.UserID ) )
+            // Check UserID to ensure it is Valid
+            if (TechnicianBackend.Instance.Read( data.UserID ) is null )
             {
                 myReturn.Message = "Invalid User";
                 return myReturn;
             }
 
-            // Check ClinicID to ensrue it is Valid
-            if (!isValidClinic( data.ClinicID ) )
+            // Check ClinicID to ensure it is Valid
+            if ( ClinicBackend.Instance.Read( data.ClinicID ) is null )
             {
-                myReturn.Message = "Invalid User";
+                myReturn.Message = "Invalid Clinic";
                 return myReturn;
             }
 
-            // Check PhoneID to ensrue it is Valid
-            if (!isValidPhone( data.PhoneID ))
+            // Check PhoneID to ensure it is Valid
+            if ( PhoneBackend.Instance.Read( data.PhoneID) is null )
             {
                 myReturn.Message = "Invalid Phone";
                 return myReturn;
