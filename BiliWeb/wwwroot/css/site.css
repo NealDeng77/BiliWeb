@@ -69,6 +69,7 @@ body {
     --secondary-color: #4F135E;
     --primary-light-color: #FDAF8A;
     --secondry-light-color: #A98198;
+    --highlight-color: #99C7EF;
     --text-color: #242424;
     --cat-chart-1: #F97F50;
     --cat-chart-2: #4F135E;
@@ -125,4 +126,9 @@ th {
 .ml-auto .navbar-toggler {
     left: auto !important;
     right: 0px;
+}
+
+/* CRUDI pages */
+.highlight-text {
+    color: var(--secondary-color);
 }
