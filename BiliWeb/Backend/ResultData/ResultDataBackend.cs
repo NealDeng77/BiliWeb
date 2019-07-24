@@ -92,6 +92,20 @@ namespace BiliWeb.Backend
             return data;
         }
 
+
+        /// <summary>
+        /// Used by the API to create a new empty Data
+        /// Records the ID in the Database
+        /// This allows the API to then update the record in the future
+        /// </summary>
+        /// <returns></returns>
+        public ResultDataModel CreateNewEmpty()
+        {
+            var myData = new ResultDataModel();
+            var myResult = Create(myData);
+            return myResult;
+        }
+
         /// <summary>
         /// Create
         /// </summary>
