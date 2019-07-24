@@ -29,6 +29,27 @@ namespace UnitTests.Backend
         }
         #endregion IndexTests
 
+        #region CreateNewEmptyTests
+        /// <summary>
+        /// Ensure the Create Method Post on the controller returns and is not null
+        /// </summary>
+        [TestMethod]
+        public void ResultData_CreateNewEmpty_Post_Default_Should_Pass()
+        {
+            // Arrange
+            var myBackend = ResultDataBackend.Instance;
+
+            // Act
+            var result = myBackend.CreateNewEmpty();
+
+            // Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+        #endregion CreateNewEmptyTests
+
         #region CreateTests
         /// <summary>
         /// Ensure the Create Method Post on the controller returns and is not null
