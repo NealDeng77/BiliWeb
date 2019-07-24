@@ -32,5 +32,11 @@ namespace BiliWeb.Models
         // The Photo ID to use for the photo upload
         public string PhotoID { get; set; } = null;
 
+        // FormDataID - The ID to pass to the Form to access it
+        public string ResultDataID { get; set; } = null;
+
+        // FormURI - The Controller/Action to send the web page request to
+        public string ResultDataURI { get; set; } = "PhoneResultForm/Update/";
+
     }
 }

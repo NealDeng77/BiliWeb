@@ -23,7 +23,7 @@ namespace BiliWeb.Controllers
         ///     ID is created at the server, not passed in
         ///     Date is set at the server, not passed in
         ///     PhotoID is ignored and instead generated and returned as part of the reply
-        ///
+        ///     
         ///     ClinicID will be Validated
         ///     PhoneID will be Validated
         ///     UserID will be Validated
@@ -97,12 +97,15 @@ namespace BiliWeb.Controllers
              * Return Object Will Include
              * ID - The ID of this object
              * PhotoID - The ID to send the Photos
-            */
+             * FormDataID - The ID to pass to the Form to access it
+             * FormURI - The Controller/Action to send the web page request to
+             */
 
             myReturn.Status = 1;
             myReturn.Message = "OK";
             myReturn.ResultLogID = result.ID;
             myReturn.PhotoID = result.PhotoID;
+            myReturn.ResultDataID = "form guid"; //TODO, call to the ResultFrom and create a new guid
 
             return myReturn;
         }
