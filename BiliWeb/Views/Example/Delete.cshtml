@@ -3,61 +3,62 @@
 @{
     ViewData["Title"] = "Delete";
 }
+    <div class="crudi-page">
 
-<h2>Delete</h2>
+        <h2>Delete</h2>
 
-<p class="text-danger">@ViewData["ErrorMessage"]</p>
-<h3>Are you sure you want to delete this?</h3>
+        <p class="text-danger">@ViewData["ErrorMessage"]</p>
+        <h3>Are you sure you want to delete this?</h3>
 
-<br />
-<hr />
-<div class="row">
-    <div class="col">
         <br />
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.ID)
-                </div>
-                <div class="col">
-                    @Html.DisplayFor(model => model.ID)
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.Name)
-                </div>
-                <div class="col">
-                    @Html.DisplayFor(model => model.Name)
-                </div>
-            </div>
-        </div>
-
-        @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
-
-        <form asp-action="Delete">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="ID" hidden />
-
-            <div class="form-group">
+        <hr />
+        <div class="row">
+            <div class="col">
                 <br />
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col">
-                        <a asp-action="Index" class="btn btn-info">Back</a>
-                        <input type="submit" value="Delete" class="btn btn-danger" />
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-2 text-right attr-name">
+                            @Html.DisplayNameFor(model => model.ID)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(model => model.ID)
+                        </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-2 text-right attr-name">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(model => model.Name)
+                        </div>
+                    </div>
+                </div>
+
+                @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
+
+                <form asp-action="Delete">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="ID" hidden />
+
+                    <div class="form-group">
+                        <br />
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col">
+                                <a asp-action="Index" class="btn btn-info">Back</a>
+                                <input type="submit" value="Delete" class="btn btn-danger" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
             </div>
-        </form>
-
+        </div>
     </div>
-</div>
-
 
 
 
