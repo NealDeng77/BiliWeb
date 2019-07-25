@@ -29,10 +29,46 @@ namespace UnitTests.Controllers.API
             // Reset
 
             // Assert
-            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Status);
         }
 
-        
+        /// <summary>
+        /// Send null value
+        /// </summary>
+        [TestMethod]
+        public void PhoneSettings_Get_InValid_Null_Should_Fail()
+        {
+            // Arrange
+            var myController = new PhoneSettingsController();
+
+            // Act
+            var result = myController.Get(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0,result.Status);
+        }
+
+        /// <summary>
+        /// Send null value
+        /// </summary>
+        [TestMethod]
+        public void PhoneSettings_Get_InValid_Bogus_Should_Fail()
+        {
+            // Arrange
+            var myController = new PhoneSettingsController();
+
+            // Act
+            var result = myController.Get("Bogus");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Status);
+        }
+
+
         #endregion GetTests
 
     }

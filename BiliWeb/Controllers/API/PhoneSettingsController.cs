@@ -38,9 +38,11 @@ namespace BiliWeb.Controllers
                 return data;
             }
 
-            data = new PhoneSettingsModel(dataPhone);
-            data.Status = 1;
-            data.Message = "OK";
+            data = new PhoneSettingsModel(dataPhone)
+            {
+                Status = 1,
+                Message = "OK"
+            };
 
             return data;
         }
