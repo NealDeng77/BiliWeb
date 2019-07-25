@@ -34,5 +34,14 @@ namespace BiliWeb.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// Create view of the Needs page
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Needs()
+        {
+            return View();
+        }
     }
 }
