@@ -18,14 +18,8 @@ namespace BiliWeb.Models
     /// PhoneID
     ///     The Photo record created to match this log, will be used for the photo upload location
     /// </summary>
-    public class PhoneResultLogModel
+    public class PhoneResultLogModel : APIBaseModel
     {
-        // Status of the request, Assume 0 Fail by default
-        public int Status { get; set; } = 0;
-
-        // The Message from the system, OK is success, else Error or Error Messsage
-        public string Message { get; set; } = "Error";
-
         // The record created for this request
         public string ResultLogID { get; set; } = null;
 

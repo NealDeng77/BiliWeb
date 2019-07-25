@@ -8,7 +8,7 @@ namespace BiliWeb.Controllers
     /// <summary>
     /// The URL the Phone will send the Result Logs to
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/[controller]/{SerialNumber}")]
     [ApiController]
     public class PhoneSettingsController : ControllerBase
     {
@@ -24,18 +24,24 @@ namespace BiliWeb.Controllers
         [HttpGet]
         public PhoneSettingsModel Get(string SerialNumber)
         {
+
+            var data = new PhoneSettingsModel();
+
             if (string.IsNullOrEmpty(SerialNumber))
             {
-                return null;
+                return data;
             }
 
-            var dataPhone = BiliWeb.Backend.PhoneHelper.ConvertSerialNumberToPhoneModel(SerialNumber);
+            var dataPhone = Backend.PhoneHelper.ConvertSerialNumberToPhoneModel(SerialNumber);
             if (dataPhone == null)
             {
-                return null;
+                return data;
             }
 
-            var data = new PhoneSettingsModel(dataPhone);
+            data = new PhoneSettingsModel(dataPhone);
+            data.Status = 1;
+            data.Message = "OK";
+
             return data;
         }
     }
