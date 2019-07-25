@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BiliWeb.Models;
 
-namespace UnitTests.Models
+namespace UnitTests.Models.API
 {
     [TestClass]
     public class PhoneResultLogModelTests
@@ -35,7 +35,9 @@ namespace UnitTests.Models
                 Status = 10,
                 Message = "Message",
                 PhotoID = "Photo",
-                ResultLogID = "ResultLogID"
+                ResultLogID = "ResultLogID",
+                ResultDataID = "ResultDataID",
+                ResultDataURI = "ResultDataURI"
             };
 
             // Assert
@@ -43,6 +45,8 @@ namespace UnitTests.Models
             Assert.AreEqual("Message", result.Message);
             Assert.AreEqual("Photo", result.PhotoID);
             Assert.AreEqual("ResultLogID", result.ResultLogID);
+            Assert.AreEqual("ResultDataID", result.ResultDataID);
+            Assert.AreEqual("ResultDataURI", result.ResultDataURI);
         }
 
         /// <summary>
@@ -59,19 +63,25 @@ namespace UnitTests.Models
                 Status = 10,
                 Message = "Message",
                 PhotoID = "Photo",
-                ResultLogID = "ResultLogID"
+                ResultLogID = "ResultLogID",
+                ResultDataID = "ResultDataID",
+                ResultDataURI = "ResultDataURI"
             };
 
             var Status = result.Status;
             var Message = result.Message;
             var PhotoID = result.PhotoID;
             var ResultLogID = result.ResultLogID;
+            var ResultDataID = result.ResultDataID;
+            var ResultDataURI = result.ResultDataURI;
 
             // Assert
             Assert.AreEqual(10, Status);
             Assert.AreEqual("Message", Message);
             Assert.AreEqual("Photo", PhotoID);
             Assert.AreEqual("ResultLogID", ResultLogID);
+            Assert.AreEqual("ResultDataID", ResultDataID);
+            Assert.AreEqual("ResultDataURI", ResultDataURI);
         }
     }
 }
