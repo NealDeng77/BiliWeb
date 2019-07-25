@@ -45,5 +45,24 @@ namespace BiliWeb.Backend
             //  TODO: Change the .Name attribute to the appropriate attribute to return for the conversion.
             return data.DeviceModel;
         }
+
+        /// <summary>
+        /// Converts the SerialNumber to a PhoneModel
+        /// For example converts ABCDEFT to the Phone Model
+        /// </summary>
+        /// <param name="id">valid SerialNumber </param>
+        /// <returns>empty string for error, else returns the PhoneModel</returns>
+        public static PhoneModel ConvertSerialNumberToPhoneModel(string SerialNumber)
+        {
+            var dataPhones = DataSourceBackend.Instance.PhoneBackend.Index();
+
+            var data = dataPhones.Where(m => m.SerialNumber == SerialNumber).FirstOrDefault();
+            if (data == null)
+            {
+                return null;
+            }
+
+            return data;
+        }
     }
 }
