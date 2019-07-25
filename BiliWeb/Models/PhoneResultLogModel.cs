@@ -36,7 +36,7 @@ namespace BiliWeb.Models
         public string ResultDataID { get; set; } = null;
 
         // FormURI - The Controller/Action to send the web page request to
-        public string ResultDataURI { get; set; } = "PhoneResultForm/Update/";
+        public string ResultDataURI { get; set; } = "/PhoneResultForm/Update/";
 
     }
 }
