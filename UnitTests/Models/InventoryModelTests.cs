@@ -83,6 +83,7 @@ namespace UnitTests.Models
 
             // Act
             myData.Update(myDataNew);
+            myData.Date = myData.Date.AddSeconds(-5);
 
             // Assert
             // Clinic and test strip count attribute should change
