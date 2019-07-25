@@ -1,0 +1,68 @@
+﻿@model List<BiliWeb.Models.PhotoModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="crudi-page">
+
+    <h2>Index</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Device
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Score
+                </th>
+                <th>
+                    Note
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td data-label="ID">
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td data-label="Date">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td data-label="Device">
+                    @Html.DisplayFor(modelItem => item.Device)
+                </td>
+                <td data-label="Status">
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td data-label="Score">
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+                <td data-label="Note">
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+
+                <td>
+                    <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
