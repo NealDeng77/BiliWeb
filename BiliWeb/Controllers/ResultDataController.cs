@@ -210,5 +210,60 @@ namespace BiliWeb.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        /// <summary>
+        /// Returns a blank Update page with a pre-populated guid for the record
+        /// </summary>
+        /// <returns>new data model</returns>
+        [HttpGet]
+        public IActionResult UpdateLab(string id)
+        {
+            //Look up the ID
+            var data = Backend.Read(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            return View(data);
+        }
+
+        /// <summary>
+        /// Receive a post for a new record
+        /// </summary>
+        /// <param name="data">The data to Update</param>
+        /// <returns>Redirects to Index page</returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateLab(
+            [Bind("" +
+            "ID,"+
+            "Date,"+
+
+            "Lab,"+
+            // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
+
+            "")] ResultDataModel data)
+        {
+            if (!ModelState.IsValid)
+            {
+                return NotFound();
+            }
+
+            //Look up the ID
+            var dataExist = Backend.Read(data.ID);
+            if (dataExist == null)
+            {
+                return NotFound();
+            }
+
+            var dataResult = Backend.Update(data);
+            if (dataResult == null)
+            {
+                return NotFound();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
