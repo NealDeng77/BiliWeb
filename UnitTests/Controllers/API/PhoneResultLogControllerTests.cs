@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Routing;
 using BiliWeb.Backend;
 using System.Collections.Generic;
 
-namespace UnitTests.Controllers
+namespace UnitTests.Controllers.API
 {
     [TestClass]
     public class PhoneResultLogControlerTests
@@ -18,7 +18,7 @@ namespace UnitTests.Controllers
         /// Ensure the Post Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void ResultLog_Post_Get_Default_Should_Pass()
+        public void PhoneResultLog_Post_Default_Should_Pass()
         {
             // Arrange
             var myController = new PhoneResultLogController();
@@ -33,11 +33,11 @@ namespace UnitTests.Controllers
         }
 
         //[TestMethod]
-        //public void ResultLog_Post_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        //public void PhoneResultLog_Post_Post_Invalid_Model_Should_Send_Back_For_Edit()
         //{
         //    // Arrange
         //    var controller = new PhoneResultLogController();
-        //    var data = new ResultLogModel();
+        //    var data = new PhoneResultLogModel();
 
         //    // Make ModelState Invalid
         //    controller.ModelState.AddModelError("test", "test");
@@ -53,7 +53,7 @@ namespace UnitTests.Controllers
         /// Ensure the Post Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void ResultLog_Post_Post_Default_Should_Pass()
+        public void PhoneResultLog_Post_Valid_ResultLog_Should_Pass()
         {
             // Arrange
             var myController = new PhoneResultLogController();
