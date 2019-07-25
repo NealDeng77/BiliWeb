@@ -12,7 +12,7 @@ namespace BiliWeb.Models
     {
 
         // Just a field to show how to use it...
-        public string Name { get; set; }
+        public string VersionAppName { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -54,7 +54,7 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            Name = data.Name;
+            VersionAppName = data.VersionAppName;
 
             return true;
         }

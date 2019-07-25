@@ -1,4 +1,4 @@
-﻿@model BiliWeb.Models.TechnicianModel
+﻿@model BiliWeb.Models.VersionAppModel
 
 @{
     ViewData["Title"] = "Read";
@@ -7,7 +7,7 @@
 
     <h2>Read</h2>
 
-    <h4>Technician record</h4>
+    <h4>VersionApp record</h4>
 
     <br />
     <hr />
@@ -29,35 +29,15 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-2 text-right attr-name">
-                        @Html.DisplayNameFor(model => model.FirstName)
+                        @Html.DisplayNameFor(model => model.VersionAppName)
                     </div>
                     <div class="col">
-                        @Html.DisplayFor(model => model.FirstName)
+                        @Html.DisplayFor(model => model.VersionAppName)
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-2 text-right attr-name">
-                        @Html.DisplayNameFor(model => model.LastName)
-                    </div>
-                    <div class="col">
-                        @Html.DisplayFor(model => model.LastName)
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-2 text-right attr-name">
-                        @Html.DisplayNameFor(model => model.DateOfBirth)
-                    </div>
-                    <div class="col">
-                        @Html.DisplayFor(model => model.DateOfBirth)
-                    </div>
-                </div>
-            </div>
+            @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
 
             <div class="form-group">
                 <br />

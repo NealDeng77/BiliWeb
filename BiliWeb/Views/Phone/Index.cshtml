@@ -3,57 +3,59 @@
 @{
     ViewData["Title"] = "Index";
 }
+    <div class="crudi-page">
 
-<h2>Index</h2>
+        <h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Date
-            </th>
-            <th>
-                ClinicID
-            </th>
-            <th>
-                Device Model
-            </th>
-            <th>
-                Serial Number
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ClinicID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeviceModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SerialNumber)
-            </td>
-            <td>
-                <a asp-action="Read" asp-route-id="@item.ID">Read</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        ClinicID
+                    </th>
+                    <th>
+                        Device Model
+                    </th>
+                    <th>
+                        Serial Number
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClinicID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DeviceModel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SerialNumber)
+                        </td>
+                        <td>
+                            <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
