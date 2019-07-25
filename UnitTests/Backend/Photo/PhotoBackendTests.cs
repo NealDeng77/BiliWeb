@@ -7,17 +7,17 @@ using BiliWeb.Backend;
 namespace UnitTests.Backend
 {
     [TestClass]
-    public class VersionAppBackendTests
+    public class PhotoBackendTests
     {
         #region IndexTests
         /// <summary>
         /// Ensure the Default Index page on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void VersionApp_Index_Get_Default_Should_Pass()
+        public void Photo_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
 
             // Act
             var result = myBackend.Index();
@@ -34,11 +34,11 @@ namespace UnitTests.Backend
         /// Ensure the Create Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void VersionApp_Create_Post_Default_Should_Pass()
+        public void Photo_Create_Post_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
-            var myData = new VersionAppModel();
+            var myBackend = PhotoBackend.Instance;
+            var myData = new PhotoModel();
 
             // Act
             var result = myBackend.Create(myData);
@@ -56,10 +56,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Read_Get_Data_InValid_Null_Should_Fail()
+        public void Photo_Read_Get_Data_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
 
             // Act
             var result = myBackend.Read(null);
@@ -74,10 +74,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Read_Get_Data_InValid_Bogus_Should_Fail()
+        public void Photo_Read_Get_Data_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
 
             // Act
             var result = myBackend.Read("bogus");
@@ -94,16 +94,16 @@ namespace UnitTests.Backend
         /// Ensure the Update Method Post on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void VersionApp_Update_Post_Default_Should_Pass()
+        public void Photo_Update_Post_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
-            var myDataCopy = new VersionAppModel(myData);
+            var myDataCopy = new PhotoModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
-            myDataCopy.VersionAppName = "New";
+            myDataCopy.Note = "New";
 
             // Act
             myBackend.Update(myDataCopy);
@@ -113,7 +113,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("New",result.VersionAppName);
+            Assert.AreEqual("New",result.Note);
             
         }
         #endregion UpdateTests
@@ -123,10 +123,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Delete_InValid_Data_Null_Should_Fail()
+        public void Photo_Delete_InValid_Data_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
 
             // Act
             var result = myBackend.Delete(null);
@@ -141,10 +141,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Delete_InValid_Data_Bogus_Should_Fail()
+        public void Photo_Delete_InValid_Data_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
 
             // Act
             var result = myBackend.Delete("bogus");
@@ -165,10 +165,10 @@ namespace UnitTests.Backend
         /// See if it is back
         /// </summary>
         [TestMethod]
-        public void VersionApp_Reset_Data_Valid_Should_Pass()
+        public void Photo_Reset_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
@@ -178,7 +178,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.VersionAppName, myBackend.Index().FirstOrDefault().VersionAppName);
+            Assert.AreEqual(dataOriginal.Note, myBackend.Index().FirstOrDefault().Note);
         }
         #endregion ResetTests
 
@@ -188,21 +188,21 @@ namespace UnitTests.Backend
         /// Verify it changed
         /// </summary>
         [TestMethod]
-        public void VersionApp_SetDataSource_Data_Mock_Should_Pass()
+        public void Photo_SetDataSource_Data_Mock_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
-            VersionAppBackend.SetDataSource(DataSourceEnum.Mock);
-            var result = VersionAppBackend.Instance.GetDataSourceString();
+            PhotoBackend.SetDataSource(DataSourceEnum.Mock);
+            var result = PhotoBackend.Instance.GetDataSourceString();
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Return Data Source to Mock
-            VersionAppBackend.SetDataSource(DataSourceEnum.Mock);
+            PhotoBackend.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("Mock", result);
@@ -213,21 +213,21 @@ namespace UnitTests.Backend
         /// Verify it changed
         /// </summary>
         [TestMethod]
-        public void VersionApp_SetDataSource_Data_Local_Should_Pass()
+        public void Photo_SetDataSource_Data_Local_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
-            VersionAppBackend.SetDataSource(DataSourceEnum.Local);
-            var result = VersionAppBackend.Instance.GetDataSourceString();
+            PhotoBackend.SetDataSource(DataSourceEnum.Local);
+            var result = PhotoBackend.Instance.GetDataSourceString();
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Return Data Source to Mock
-            VersionAppBackend.SetDataSource(DataSourceEnum.Mock);
+            PhotoBackend.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("Store", result);
@@ -239,14 +239,14 @@ namespace UnitTests.Backend
         /// 
         /// </summary>
         [TestMethod]
-        public void VersionApp_SetDataSourceSet_Data_Local_Should_Pass()
+        public void Photo_SetDataSourceSet_Data_Local_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppBackend.Instance;
+            var myBackend = PhotoBackend.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
-            VersionAppBackend.SetDataSourceDataSet(DataSourceDataSetEnum.Default);
+            PhotoBackend.SetDataSourceDataSet(DataSourceDataSetEnum.Default);
 
             // Reset
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();

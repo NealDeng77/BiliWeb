@@ -7,17 +7,17 @@ using BiliWeb.Backend;
 namespace UnitTests.Backend
 {
     [TestClass]
-    public class VersionAppRepositoryStoreTests
+    public class PhotoRepositoryStoreTests
     {
         #region IndexTests
         /// <summary>
         /// Ensure the Default Index page on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void VersionApp_Index_Get_Default_Should_Pass()
+        public void Photo_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Index();
@@ -34,11 +34,11 @@ namespace UnitTests.Backend
         /// Ensure the Create Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void VersionApp_Create_Default_Should_Pass()
+        public void Photo_Create_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
-            var myData = new VersionAppModel();
+            var myBackend = PhotoRepositoryStore.Instance;
+            var myData = new PhotoModel();
 
             // Act
             var result = myBackend.Create(myData);
@@ -54,11 +54,11 @@ namespace UnitTests.Backend
         /// Create with Null should Fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Create_InValid_Null_Should_Fail()
+        public void Photo_Create_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
-            var myData = new VersionAppModel();
+            var myBackend = PhotoRepositoryStore.Instance;
+            var myData = new PhotoModel();
 
             // Act
             var result = myBackend.Create(null);
@@ -76,10 +76,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Read_Get_Data_InValid_Null_Should_Fail()
+        public void Photo_Read_Get_Data_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Read(null);
@@ -94,10 +94,10 @@ namespace UnitTests.Backend
         /// Ensure the Read Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Read_Get_Data_InValid_Bogus_Should_Fail()
+        public void Photo_Read_Get_Data_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Read("bogus");
@@ -114,16 +114,16 @@ namespace UnitTests.Backend
         /// Ensure the Update Method on the controller returns and is not null
         /// </summary>
         [TestMethod]
-        public void VersionApp_Update_Default_Should_Pass()
+        public void Photo_Update_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
-            var myDataCopy = new VersionAppModel(myData);
+            var myDataCopy = new PhotoModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
-            myDataCopy.VersionAppName = "New3";
+            myDataCopy.Note = "New3";
 
             // Act
             var result = myBackend.Update(myDataCopy);
@@ -132,7 +132,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual("New3", result.VersionAppName);
+            Assert.AreEqual("New3", result.Note);
 
         }
 
@@ -140,10 +140,10 @@ namespace UnitTests.Backend
         /// Updating a Null record, shoudl Fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Update_InValid_Null_Should_Fail()
+        public void Photo_Update_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Update(null);
@@ -159,11 +159,11 @@ namespace UnitTests.Backend
         /// Updating a bogus record, should Fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Update_InValid_Bogus_Should_Fail()
+        public void Photo_Update_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
-            var myDataCopy = new VersionAppModel
+            var myBackend = PhotoRepositoryStore.Instance;
+            var myDataCopy = new PhotoModel
             {
                 ID = "bogus"
             };
@@ -184,10 +184,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Delete_InValid_Data_Null_Should_Fail()
+        public void Photo_Delete_InValid_Data_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Delete(null);
@@ -202,10 +202,10 @@ namespace UnitTests.Backend
         /// Ensure the Delete Method with no data should fail
         /// </summary>
         [TestMethod]
-        public void VersionApp_Delete_InValid_Data_Bogus_Should_Fail()
+        public void Photo_Delete_InValid_Data_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             var result = myBackend.Delete("bogus");
@@ -226,10 +226,10 @@ namespace UnitTests.Backend
         /// See if it is back
         /// </summary>
         [TestMethod]
-        public void VersionApp_Reset_Data_Valid_Should_Pass()
+        public void Photo_Reset_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
@@ -239,7 +239,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.VersionAppName, myBackend.Index().FirstOrDefault().VersionAppName);
+            Assert.AreEqual(dataOriginal.Note, myBackend.Index().FirstOrDefault().Note);
         }
         #endregion ResetTests
 
@@ -255,10 +255,10 @@ namespace UnitTests.Backend
         /// If different sets are implemented, then verify the sets
         /// </summary>
         [TestMethod]
-        public void VersionApp_DataSetDemo_Data_Valid_Should_Pass()
+        public void Photo_DataSetDemo_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             myBackend.LoadDataSet(DataSourceDataSetEnum.Demo);
@@ -277,10 +277,10 @@ namespace UnitTests.Backend
         /// If different sets are implemented, then verify the sets
         /// </summary>
         [TestMethod]
-        public void VersionApp_DataSetUnitTest_Data_Valid_Should_Pass()
+        public void Photo_DataSetUnitTest_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             myBackend.LoadDataSet(DataSourceDataSetEnum.UnitTest);
@@ -298,10 +298,10 @@ namespace UnitTests.Backend
         /// String should Match the Store or Store
         /// </summary>
         [TestMethod]
-        public void VersionApp_GetDataSourceString_Data_Valid_Should_Pass()
+        public void Photo_GetDataSourceString_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = VersionAppRepositoryStore.Instance;
+            var myBackend = PhotoRepositoryStore.Instance;
 
             // Act
             var result = myBackend.GetDataSourceString();

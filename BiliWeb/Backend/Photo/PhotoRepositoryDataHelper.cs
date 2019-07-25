@@ -10,17 +10,17 @@ namespace BiliWeb.Backend
     /// <summary>
     /// Backend Table DataSource for AvatarItems, to manage them
     /// </summary>
-    public class VersionAppRepositoryDataHelper
+    public class PhotoRepositoryDataHelper
     {
         /// <summary>
         /// Make into a Singleton
         /// </summary>
-        private static volatile VersionAppRepositoryDataHelper instance;
+        private static volatile PhotoRepositoryDataHelper instance;
         private static readonly object syncRoot = new Object();
 
-        private VersionAppRepositoryDataHelper() { }
+        private PhotoRepositoryDataHelper() { }
 
-        public static VersionAppRepositoryDataHelper Instance
+        public static PhotoRepositoryDataHelper Instance
         {
             get
             {
@@ -30,7 +30,7 @@ namespace BiliWeb.Backend
                     {
                         if (instance == null)
                         {
-                            instance = new VersionAppRepositoryDataHelper();
+                            instance = new PhotoRepositoryDataHelper();
                         }
                     }
                 }
@@ -42,20 +42,20 @@ namespace BiliWeb.Backend
         /// <summary>
         /// The AvatarItem List
         /// </summary>
-        private List<VersionAppModel> DataList = new List<VersionAppModel>();
+        private List<PhotoModel> DataList = new List<PhotoModel>();
 
         /// <summary>
         /// Clear the Data List, and build up a new one
         /// </summary>
         /// <returns></returns>
-        public List<VersionAppModel> GetDefaultDataSet()
+        public List<PhotoModel> GetDefaultDataSet()
         {
             DataList.Clear();
 
-            DataList.Add(new VersionAppModel { VersionAppName = "1.0" }); // Default
-            DataList.Add(new VersionAppModel { VersionAppName = "1.1" }); 
-            DataList.Add(new VersionAppModel { VersionAppName = "1.2" }); 
-            DataList.Add(new VersionAppModel { VersionAppName = "1.3" }); 
+            DataList.Add(new PhotoModel { Note = "Mike's Photo" }); // Default
+            DataList.Add(new PhotoModel { Note = "Doug's Photo" }); 
+            DataList.Add(new PhotoModel { Note = "Jea's Photo" }); 
+            DataList.Add(new PhotoModel { Note = "Sue's Photo" }); 
 
             return DataList;
         }

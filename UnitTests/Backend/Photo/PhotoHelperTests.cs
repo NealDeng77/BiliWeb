@@ -6,7 +6,7 @@ using System.Linq;
 namespace UnitTests.Backend
 {
     [TestClass]
-    public class VersionAppHelperTests
+    public class PhotoHelperTests
     {
 
         #region ConvertIDtoStringTests
@@ -14,17 +14,17 @@ namespace UnitTests.Backend
         /// Convert Valid ID to Value
         /// </summary>
         [TestMethod]
-        public void VersionAppHelper_ConvertIDtoString_Valid_Should_Pass()
+        public void PhotoHelper_ConvertIDtoString_Valid_Should_Pass()
         {
             // Arrange
-            var data = new VersionAppModel
+            var data = new PhotoModel
             {
-                VersionAppName = "Name"
+                Note = "Name"
             };
-            DataSourceBackend.Instance.VersionAppBackend.Create(data);
+            DataSourceBackend.Instance.PhotoBackend.Create(data);
 
             // Act
-            var result = VersionAppHelper.ConvertIDtoString(data.ID);
+            var result = PhotoHelper.ConvertIDtoString(data.ID);
 
             // Reset
             DataSourceBackend.Instance.Reset();
@@ -37,12 +37,12 @@ namespace UnitTests.Backend
         /// Convert with Null should Fail
         /// </summary>
         [TestMethod]
-        public void VersionAppHelper_ConvertIDtoString_InValid_Null_Should_Fail()
+        public void PhotoHelper_ConvertIDtoString_InValid_Null_Should_Fail()
         {
             // Arrange
 
             // Act
-            var result = VersionAppHelper.ConvertIDtoString(null);
+            var result = PhotoHelper.ConvertIDtoString(null);
 
             // Reset
 
@@ -54,12 +54,12 @@ namespace UnitTests.Backend
         /// Convert with Null should Fail
         /// </summary>
         [TestMethod]
-        public void VersionAppHelper_ConvertIDtoString_InValid_Bogus_Should_Fail()
+        public void PhotoHelper_ConvertIDtoString_InValid_Bogus_Should_Fail()
         {
             // Arrange
 
             // Act
-            var result = VersionAppHelper.ConvertIDtoString("bogus");
+            var result = PhotoHelper.ConvertIDtoString("bogus");
 
             // Reset
 
@@ -70,17 +70,17 @@ namespace UnitTests.Backend
 
         #region ToSelectListItemsTests
         /// <summary>
-        /// Returns a set of Select List Items from the data set of VersionApp
+        /// Returns a set of Select List Items from the data set of Photo
         /// Used for converting the records to a list that can go into a drop down list box
         /// </summary>
         [TestMethod]
-        public void VersionAppHelper_ToSelectListItemsTests_Valid_Should_Pass()
+        public void PhotoHelper_ToSelectListItemsTests_Valid_Should_Pass()
         {
             // Arrange
-            var data = DataSourceBackend.Instance.VersionAppBackend.Index();
+            var data = DataSourceBackend.Instance.PhotoBackend.Index();
 
             // Act
-            var result = VersionAppHelper.ToSelectListItems(data,null);
+            var result = PhotoHelper.ToSelectListItems(data,null);
 
             // Reset
 
@@ -88,26 +88,26 @@ namespace UnitTests.Backend
             // Check each item returned, and make sure it matches the original data
             foreach (var item in result)
             {
-                Assert.AreEqual(item.Text, data.Find(m=>m.ID==item.Value).VersionAppName);
+                Assert.AreEqual(item.Text, data.Find(m=>m.ID==item.Value).Note);
             }
 
         }
 
         /// <summary>
-        /// Returns a set of Select List Items from the data set of VersionApp
+        /// Returns a set of Select List Items from the data set of Photo
         /// Make sure the Selected Value is returned
         /// </summary>
         [TestMethod]
-        public void VersionAppHelper_ToSelectListItemsTests_Valid_Selected_Should_Pass()
+        public void PhotoHelper_ToSelectListItemsTests_Valid_Selected_Should_Pass()
         {
             // Arrange
-            var data = DataSourceBackend.Instance.VersionAppBackend.Index();
+            var data = DataSourceBackend.Instance.PhotoBackend.Index();
 
             // Choose item to be selected
             var value = data[0].ID;
 
             // Act
-            var result = VersionAppHelper.ToSelectListItems(data, value);
+            var result = PhotoHelper.ToSelectListItems(data, value);
 
             // Reset
 
@@ -120,20 +120,20 @@ namespace UnitTests.Backend
         }
 
         /// <summary>
-        /// Returns a set of Select List Items from the data set of VersionApp
+        /// Returns a set of Select List Items from the data set of Photo
         /// If the Selected item is not in the list, return the list with no selected items
         /// </summary>
         [TestMethod]
-        public void VersionAppHelper_ToSelectListItemsTests_InValid_Selected_Should_Pass()
+        public void PhotoHelper_ToSelectListItemsTests_InValid_Selected_Should_Pass()
         {
             // Arrange
-            var data = DataSourceBackend.Instance.VersionAppBackend.Index();
+            var data = DataSourceBackend.Instance.PhotoBackend.Index();
 
             // Choose item to be selected
             var value = "bogus";
 
             // Act
-            var result = VersionAppHelper.ToSelectListItems(data, value);
+            var result = PhotoHelper.ToSelectListItems(data, value);
             var resultCount = result.Where(m => m.Selected == true).Count();
 
             // Reset
