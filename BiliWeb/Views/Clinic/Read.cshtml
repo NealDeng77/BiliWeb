@@ -7,18 +7,17 @@
 <h2>Read</h2>
 
 <h4>Clinic record</h4>
-
-<br />
 <hr />
 
 <div class="row">
+
     <div class="col">
         <div class="form-group">
             <div class="row">
                 <div class="col-5">
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.ID)
                             </div>
                             <div class="col">
@@ -29,7 +28,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.Name)
                             </div>
                             <div class="col">
@@ -40,7 +39,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.Address)
                             </div>
                             <div class="col">
@@ -51,7 +50,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.City)
                             </div>
                             <div class="col">
@@ -62,7 +61,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.Country)
                             </div>
                             <div class="col">
@@ -73,7 +72,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.Contact)
                             </div>
                             <div class="col">
@@ -84,7 +83,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.Phone)
                             </div>
                             <div class="col">
@@ -95,7 +94,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.Email)
                             </div>
                             <div class="col">
@@ -106,7 +105,7 @@
 
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-1 text-right">
+                            <div class="col-2 text-right attr-name">
                                 @Html.DisplayNameFor(model => model.Notes)
                             </div>
                             <div class="col">
@@ -115,26 +114,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-5">
-                    <div id="floating-panel">
-                        <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-                        <button onclick="changeGradient()">Change gradient</button>
-                        <button onclick="changeRadius()">Change radius</button>
-                        <button onclick="changeOpacity()">Change opacity</button>
-                    </div>
-                    <div id="map" style="height:100%; width:100%"></div>
-                    <script async defer
-                            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKmwh3sfpUFM01boOHIUdUHLoYcOV3Yqs&libraries=visualization&callback=initMap">
-                    </script>
-                </div>
-
             </div>
         </div>
 
         @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
 
         <div class="form-group">
-            <br />
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col">
@@ -145,7 +130,25 @@
             </div>
         </div>
     </div>
-</div>
+
+    <div class="col">
+         <div class="form-group">
+            <iframe frameborder="0" style="border:0; width:400px; height:400px"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBFngdBBzxJognW7Fa2NRy2rQF7xQnJ_0&q=@Html.DisplayFor(m => m.Address),@Html.DisplayFor(m => m.City)+@Html.DisplayFor(m => m.Country)"></iframe>
+            <div class="row">
+                <div id="floating-panel">
+                    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+                    <button onclick="changeGradient()">Change gradient</button>
+                    <button onclick="changeRadius()">Change radius</button>
+                    <button onclick="changeOpacity()">Change opacity</button>
+                </div>
+            </div>
+            <div id="map" style="height:300px; width:500px"></div>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKmwh3sfpUFM01boOHIUdUHLoYcOV3Yqs&libraries=visualization&callback=initMap">
+            </script>
+        </div>
+    </div>
 
 
 
