@@ -1,9 +1,6 @@
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BiliWeb.Models;
 using BiliWeb.Controllers;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using BiliWeb.Backend;
 using System.Collections.Generic;
 
@@ -92,6 +89,202 @@ namespace UnitTests.Controllers.API
             Assert.AreEqual(myData.ID, myNewLog.ID);
             Assert.AreEqual(myData.BilirubinValue, myNewLog.BilirubinValue);
         }
+
+        /// <summary>
+        /// Post Errors
+        /// Bad Bilirubin Range too Low
+        /// </summary>
+        [TestMethod]
+        public void PhoneResultLog_Post_InValid_Bilirubiun_Range_Low_Should_Fail()
+        {
+            // Arrange
+            var myController = new PhoneResultLogController();
+
+            //Call backend to technicians
+            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
+            List<TechnicianModel> tech = TechnicianData.Index();
+
+            //Call backend to phones
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phone = PhoneData.Index();
+
+            //Call backend to clinics
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinic = ClinicData.Index();
+
+            var myData = new ResultLogModel
+            {
+                ClinicID = clinic[0].ID,
+                PhoneID = phone[0].ID,
+                UserID = tech[0].ID,
+                BilirubinValue = -1
+            };
+
+            // Act
+            var result = myController.Post(myData);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Status);
+        }
+
+        /// <summary>
+        /// Post Errors
+        /// Bad Bilirubin Range too Low
+        /// </summary>
+        [TestMethod]
+        public void PhoneResultLog_Post_InValid_Bilirubiun_Range_High_Should_Fail()
+        {
+            // Arrange
+            var myController = new PhoneResultLogController();
+
+            //Call backend to technicians
+            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
+            List<TechnicianModel> tech = TechnicianData.Index();
+
+            //Call backend to phones
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phone = PhoneData.Index();
+
+            //Call backend to clinics
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinic = ClinicData.Index();
+
+            var myData = new ResultLogModel
+            {
+                ClinicID = clinic[0].ID,
+                PhoneID = phone[0].ID,
+                UserID = tech[0].ID,
+                BilirubinValue = 1000
+            };
+
+            // Act
+            var result = myController.Post(myData);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Status);
+        }
+
+        /// <summary>
+        /// Post Errors
+        /// Bad ClinicID
+        /// </summary>
+        [TestMethod]
+        public void PhoneResultLog_Post_InValid_ClinicID_Should_Fail()
+        {
+            // Arrange
+            var myController = new PhoneResultLogController();
+
+            //Call backend to technicians
+            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
+            List<TechnicianModel> tech = TechnicianData.Index();
+
+            //Call backend to phones
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phone = PhoneData.Index();
+
+            //Call backend to clinics
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinic = ClinicData.Index();
+
+            var myData = new ResultLogModel
+            {
+                ClinicID = "Bogus",
+                PhoneID = phone[0].ID,
+                UserID = tech[0].ID,
+                BilirubinValue = 1
+            };
+
+            // Act
+            var result = myController.Post(myData);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Status);
+        }
+
+        /// <summary>
+        /// Post Errors
+        /// Bad PhoneID
+        /// </summary>
+        [TestMethod]
+        public void PhoneResultLog_Post_InValid_PhoneID_Should_Fail()
+        {
+            // Arrange
+            var myController = new PhoneResultLogController();
+
+            //Call backend to technicians
+            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
+            List<TechnicianModel> tech = TechnicianData.Index();
+
+            //Call backend to phones
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phone = PhoneData.Index();
+
+            //Call backend to clinics
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinic = ClinicData.Index();
+
+            var myData = new ResultLogModel
+            {
+                ClinicID = clinic[0].ID,
+                PhoneID = "bogus",
+                UserID = tech[0].ID,
+                BilirubinValue = 1
+            };
+
+            // Act
+            var result = myController.Post(myData);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Status);
+        }
+
+        /// <summary>
+        /// Post Errors
+        /// Bad UserID
+        /// </summary>
+        [TestMethod]
+        public void PhoneResultLog_Post_InValid_UserID_Should_Fail()
+        {
+            // Arrange
+            var myController = new PhoneResultLogController();
+
+            //Call backend to technicians
+            TechnicianBackend TechnicianData = TechnicianBackend.Instance;
+            List<TechnicianModel> tech = TechnicianData.Index();
+
+            //Call backend to phones
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phone = PhoneData.Index();
+
+            //Call backend to clinics
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinic = ClinicData.Index();
+
+            var myData = new ResultLogModel
+            {
+                ClinicID = clinic[0].ID,
+                PhoneID = phone[0].ID,
+                UserID = "bugus",
+                BilirubinValue = 1
+            };
+
+            // Act
+            var result = myController.Post(myData);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Status);
+        }
+
         #endregion PostTests
 
     }
