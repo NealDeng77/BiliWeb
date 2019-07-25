@@ -14,6 +14,7 @@ namespace BiliWeb.Backend
         /// Hold one of each of the DataSources as an instance to the datasource
         /// </summary>
         public ExampleBackend ExampleBackend = ExampleBackend.Instance;
+        public PhotoBackend PhotoBackend = PhotoBackend.Instance;
         public ClinicBackend ClinicBackend = ClinicBackend.Instance;
         public ResultLogBackend ResultLogBackend = ResultLogBackend.Instance;
         public ResultDataBackend ResultDataBackend = ResultDataBackend.Instance;
@@ -27,6 +28,7 @@ namespace BiliWeb.Backend
         private DataSourceBackend()
         {
             ExampleBackend = ExampleBackend.Instance;
+            PhotoBackend = PhotoBackend.Instance;
             ClinicBackend = ClinicBackend.Instance;
             ResultLogBackend = ResultLogBackend.Instance;
             ResultDataBackend = ResultDataBackend.Instance;
@@ -43,6 +45,7 @@ namespace BiliWeb.Backend
         public void Reset()
         {
             ExampleBackend.Reset();
+            PhotoBackend.Reset();
             ClinicBackend.Reset();
             ResultLogBackend.Reset();
             ResultDataBackend.Reset();
@@ -63,6 +66,7 @@ namespace BiliWeb.Backend
         public void SetDataSourceDataSet(DataSourceDataSetEnum SetEnum)
         {
             ExampleBackend.SetDataSourceDataSet(SetEnum);
+            PhotoBackend.SetDataSourceDataSet(SetEnum);
             ClinicBackend.SetDataSourceDataSet(SetEnum);
             ResultLogBackend.SetDataSourceDataSet(SetEnum);
             ResultDataBackend.SetDataSourceDataSet(SetEnum);
