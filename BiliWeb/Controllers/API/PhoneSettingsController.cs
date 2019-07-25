@@ -22,9 +22,20 @@ namespace BiliWeb.Controllers
         /// Clinic List for this Phone to Select From
         /// </returns>
         [HttpGet]
-        public PhoneSettingsModel Get()
+        public PhoneSettingsModel Get(string SerialNumber)
         {
-            var data = new PhoneSettingsModel();
+            if (string.IsNullOrEmpty(SerialNumber))
+            {
+                return null;
+            }
+
+            var dataPhone = BiliWeb.Backend.PhoneHelper.ConvertSerialNumberToPhoneModel(SerialNumber);
+            if (dataPhone == null)
+            {
+                return null;
+            }
+
+            var data = new PhoneSettingsModel(dataPhone);
             return data;
         }
     }

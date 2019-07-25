@@ -24,7 +24,7 @@ namespace UnitTests.Controllers.API
             var myController = new PhoneSettingsController();
 
             // Act
-            var result = myController.Get();
+            var result = myController.Get("1234abcd");
 
             // Reset
 
