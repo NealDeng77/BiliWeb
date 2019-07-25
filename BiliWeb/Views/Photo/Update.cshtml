@@ -1,0 +1,87 @@
+﻿@model BiliWeb.Models.PhotoModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+    <div class="crudi-page">
+
+        <h2>Update</h2>
+
+        <h4>Update data on the record</h4>
+
+        <br />
+        <hr />
+        <div class="row">
+            <div class="col">
+                <br />
+                <form asp-action="Update">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="ID" hidden />
+                    <input asp-for="Date" hidden />
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2 text-right attr-name">
+                                <label asp-for="Device" class="control-label"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="Device" class="form-control" />
+                                <span asp-validation-for="Device" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2 text-right attr-name">
+                                <label asp-for="Status" class="control-label"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="Status" class="form-control" />
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2 text-right attr-name">
+                                <label asp-for="Score" class="control-label"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="Score" class="form-control" />
+                                <span asp-validation-for="Score" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2 text-right attr-name">
+                                <label asp-for="Note" class="control-label"></label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="Note" class="form-control" />
+                                <span asp-validation-for="Note" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
+
+                    <div class="form-group">
+                        <br />
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col">
+                                <a asp-action="Index" class="btn btn-info">Back</a>
+                                <input type="submit" value="Update" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
