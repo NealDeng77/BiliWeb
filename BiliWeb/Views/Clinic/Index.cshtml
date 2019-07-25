@@ -3,81 +3,83 @@
 @{
     ViewData["Title"] = "Index";
 }
+    <div class="crudi-page">
 
-<h2>Index</h2>
+        <h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Name
-            </th>
-            <th>
-                Address
-            </th>
-            <th>
-                City
-            </th>
-            <th>
-                Country
-            </th>
-            <th>
-                Contact
-            </th>
-            <th>
-                Phone
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Notes
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                <a asp-action="Read" asp-route-id="@item.ID">Read</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        City
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Contact
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Notes
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Contact)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notes)
+                        </td>
+                        <td>
+                            <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
