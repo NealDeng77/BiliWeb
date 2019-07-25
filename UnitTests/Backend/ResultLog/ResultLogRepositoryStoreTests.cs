@@ -239,7 +239,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.ClinicID, myBackend.Index().FirstOrDefault().ClinicID);
+            Assert.AreEqual(dataOriginal.BilirubinValue, myBackend.Index().FirstOrDefault().BilirubinValue);
         }
         #endregion ResetTests
 
