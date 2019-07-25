@@ -3,116 +3,116 @@
 @{
     ViewData["Title"] = "Read";
 }
+<div class="crudi-page">
 
-<h2>Read</h2>
+    <h2>Read</h2>
 
-<h4>ResultLog record</h4>
+    <h4>ResultLog record</h4>
 
-<br />
-<hr />
-<div class="row">
-    <div class="col">
-        <br />
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.ID)
-                </div>
-                <div class="col">
-                    @Html.DisplayFor(model => model.ID)
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.BilirubinValue)
-                </div>
-                <div class="col">
-                    @Html.DisplayFor(model => model.BilirubinValue)
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.ClinicID)
-                </div>
-                <div class="col">
-                    @{
-                        var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(Model.ClinicID);
-                        if (clinicName != "")
-                        {
-                            <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@Model.ClinicID"> @clinicName </a></span>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.PhoneID)
-                </div>
-                <div class="col">
-                    @{
-                        var phoneName = BiliWeb.Backend.PhoneHelper.ConvertIDtoString(Model.PhoneID);
-                        if (phoneName != "")
-                        {
-                            <span class="highlight-text"><a asp-controller="Phone" asp-action="Read" asp-route-id="@Model.PhoneID"> @phoneName </a></span>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.UserID)
-                </div>
-                <div class="col">
-                    @{ 
-                        var userId = BiliWeb.Backend.TechnicianHelper.ConvertIDtoString(Model.UserID);
-                        if( userId != "")
-                        {
-                            <span class="highlight-text"> <a asp-controller="Technician" asp-action="Read" asp-route-id="@Model.UserID"> @userId </a></span>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1 text-right">
-                    @Html.DisplayNameFor(model => model.PhotoID)
-                </div>
-                <div class="col">
-                    @Html.DisplayFor(model => model.PhotoID)
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
+    <br />
+    <hr />
+    <div class="row">
+        <div class="col">
             <br />
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col">
-                    <a asp-action="Index" class="btn btn-info">Back</a>
-                    <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-secondary">Update</a>
-                    <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2 text-right attr-name">
+                        @Html.DisplayNameFor(model => model.ID)
+                    </div>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.ID)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2 text-right attr-name">
+                        @Html.DisplayNameFor(model => model.BilirubinValue)
+                    </div>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.BilirubinValue)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2 text-right attr-name">
+                        @Html.DisplayNameFor(model => model.ClinicID)
+                    </div>
+                    <div class="col">
+                        @{
+                            var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(Model.ClinicID);
+                            if (clinicName != "")
+                            {
+                                <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@Model.ClinicID"> @clinicName </a></span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2 text-right attr-name">
+                        @Html.DisplayNameFor(model => model.PhoneID)
+                    </div>
+                    <div class="col">
+                        @{
+                            var phoneName = BiliWeb.Backend.PhoneHelper.ConvertIDtoString(Model.PhoneID);
+                            if (phoneName != "")
+                            {
+                                <span class="highlight-text"><a asp-controller="Phone" asp-action="Read" asp-route-id="@Model.PhoneID"> @phoneName </a></span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2 text-right attr-name">
+                        @Html.DisplayNameFor(model => model.UserID)
+                    </div>
+                    <div class="col">
+                        @{
+                            var userId = BiliWeb.Backend.TechnicianHelper.ConvertIDtoString(Model.UserID);
+                            if (userId != "")
+                            {
+                                <span class="highlight-text"> <a asp-controller="Technician" asp-action="Read" asp-route-id="@Model.UserID"> @userId </a></span>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2 text-right attr-name">
+                        @Html.DisplayNameFor(model => model.PhotoID)
+                    </div>
+                    <div class="col">
+                        @Html.DisplayFor(model => model.PhotoID)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <br />
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-info">Back</a>
+                        <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-secondary">Update</a>
+                        <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 
 
