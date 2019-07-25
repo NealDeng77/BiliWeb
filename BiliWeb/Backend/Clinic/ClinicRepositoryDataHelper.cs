@@ -52,10 +52,11 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new ClinicModel { Name = "Bellevue Hospital", Address = "13 Bellevue Dr.", City = "Bellevue", Country = "USA", Contact = "John Appleseed", Phone = "+14254254252", Email = "jappleseed@gmail.com", Notes = "Newly opened clinic" }); // Default
-            DataList.Add(new ClinicModel { Name = "Seattle Hospital", Address = "31 Cherry St.", City = "Seattle", Country = "USA", Contact = "Jane Doe", Phone = "+12062062060", Email = "jdoe@gmail.com", Notes = "Currently closed for the maintenance" }); // Default
-            DataList.Add(new ClinicModel { Name = "Kano State Hospital", Address = "800 Terrace St.", City = "Seattle", Country = "USA", Contact = "Chicago East", Phone = "+12063837888", Email = "keast@outlook.com", Notes = "" }); // Default
-            DataList.Add(new ClinicModel { Name = "Ijora Clinic", Address = "4225 11th Ave.", City = "Renton", Country = "USA", Contact = "Keith Suth", Phone = "+12531114444", Email = "ksuth@yahoo.com", Notes = "" }); // Default
+            DataList.Add(new ClinicModel { Name = "Asaba Federal Hospital", Address = "Nnebisi Road", City = "Isieke, Asaba", Country = "Nigeria", Contact = "John Appleseed", Phone = "+234 701 918 8232", Email = "m.me/fmcasaba", Notes = "No Email provided" }); // Default
+            DataList.Add(new ClinicModel { Name = "Dept. of Pediatrics, University of Jos", Address = "Bauchi Rd.", City = "Jos", Country = "Nigeria", Contact = "Jane Doe", Phone = "", Email = "onlinecommunications@unijos.edu.ng", Notes = "No Phone # provided" }); // Default
+            DataList.Add(new ClinicModel { Name = "Dept. of Pediatrics, Bayero University", Address = "Gwarzo Rd.", City = "Kano", Country = "Nigeria", Contact = "", Phone = "+234 64 666 023", Email = "vc@buk.edu.ng", Notes = "" }); // Default
+            DataList.Add(new ClinicModel { Name = "Dept. of Pediatrics, Ahmadu Bello University", Address = "Community Market", City = "Zaria", Country = "Nigeria", Contact = "", Phone = "+234 09076797748", Email = "uhs@abu.edu.edu", Notes = "" }); // Default
+            DataList.Add(new ClinicModel { Name = "Dept. of Pediatrics, Cairo University", Address = "Al Kasr Al Aini, قصر العينى،", City = "Al Manial", Country = "Egypt", Contact = "", Phone = "+20 2 23641088", Email = "SA@kasralainy.edu.eg", Notes = "" }); // Default
 
             return DataList;
         }
