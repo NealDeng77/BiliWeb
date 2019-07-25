@@ -75,6 +75,7 @@ namespace UnitTests.Models
 
             // Act
             myData.Update(myDataNew);
+            myData.Date = myData.Date.AddSeconds(-5);
 
             // Assert
             Assert.AreEqual("New", myData.Name);

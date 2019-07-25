@@ -87,6 +87,7 @@ namespace UnitTests.Models
 
             // Act
             myData.Update(myDataNew);
+            myData.Date = myData.Date.AddSeconds(-5);
 
             // Assert
             // Add an Assert for each attribute that should change
