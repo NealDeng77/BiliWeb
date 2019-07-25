@@ -3,73 +3,70 @@
 @{
     ViewData["Title"] = "Update";
 }
+    <div class="crudi-page">
+        <h2>Update</h2>
 
-<h2>Update</h2>
+        <h4>Update data on the record</h4>
 
-<h4>Update data on the record</h4>
-
-<br />
-<hr />
-<div class="row">
-    <div class="col">
         <br />
-        <form asp-action="Update">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input asp-for="ID" hidden />
-            <input asp-for="Date" hidden />
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-1 text-right">
-                        <label asp-for="ClinicID" class="control-label">Clinic ID</label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="ClinicID" class="form-control" />
-                        <span asp-validation-for="ClinicID" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-1 text-right">
-                        <label asp-for="DeviceModel" class="control-label">Device Model</label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="DeviceModel" class="form-control" />
-                        <span asp-validation-for="DeviceModel" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-1 text-right">
-                        <label asp-for="SerialNumber" class="control-label">Serial Number</label>
-                    </div>
-                    <div class="col">
-                        <input asp-for="SerialNumber" class="form-control" />
-                        <span asp-validation-for="SerialNumber" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-
-            @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
-
-            <div class="form-group">
+        <hr />
+        <div class="row">
+            <div class="col">
                 <br />
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col">
-                        <a asp-action="Index" class="btn btn-info">Back</a>
-                        <input type="submit" value="Update" class="btn btn-primary" />
+                <form asp-action="Update">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input asp-for="ID" hidden />
+                    <input asp-for="Date" hidden />
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2 text-right attr-name">
+                                <label asp-for="ClinicID" class="control-label">Clinic ID</label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="ClinicID" class="form-control" />
+                                <span asp-validation-for="ClinicID" class="text-danger"></span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2 text-right attr-name">
+                                <label asp-for="DeviceModel" class="control-label">Device Model</label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="DeviceModel" class="form-control" />
+                                <span asp-validation-for="DeviceModel" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2 text-right attr-name">
+                                <label asp-for="SerialNumber" class="control-label">Serial Number</label>
+                            </div>
+                            <div class="col">
+                                <input asp-for="SerialNumber" class="form-control" />
+                                <span asp-validation-for="SerialNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
+
+                    <div class="form-group">
+                        <br />
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col">
+                                <a asp-action="Index" class="btn btn-info">Back</a>
+                                <input type="submit" value="Update" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-</div>
-
-
-
-
