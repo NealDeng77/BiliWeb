@@ -103,7 +103,7 @@ namespace UnitTests.Backend
             // Make a Copy of the Data and update an aspect of it
             var myDataCopy = new VersionAppModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
-            myDataCopy.Name = "New";
+            myDataCopy.VersionAppName = "New";
 
             // Act
             myBackend.Update(myDataCopy);
@@ -113,7 +113,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual("New",result.Name);
+            Assert.AreEqual("New",result.VersionAppName);
             
         }
         #endregion UpdateTests
@@ -178,7 +178,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
+            Assert.AreEqual(dataOriginal.VersionAppName, myBackend.Index().FirstOrDefault().VersionAppName);
         }
         #endregion ResetTests
 

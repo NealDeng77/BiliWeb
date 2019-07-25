@@ -250,7 +250,7 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.VersionAppBackend.Instance.Index().FirstOrDefault();
             var resultData = new VersionAppModel(myData)
             {
-                Name = "New",
+                VersionAppName = "New",
                 ID = myData.ID
             };
 

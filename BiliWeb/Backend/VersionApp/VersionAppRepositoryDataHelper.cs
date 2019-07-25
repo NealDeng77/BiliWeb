@@ -52,10 +52,10 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new VersionAppModel { Name = "Mike" }); // Default
-            DataList.Add(new VersionAppModel { Name = "Doug" }); 
-            DataList.Add(new VersionAppModel { Name = "Jea" }); 
-            DataList.Add(new VersionAppModel { Name = "Sue" }); 
+            DataList.Add(new VersionAppModel { VersionAppName = "1.0" }); // Default
+            DataList.Add(new VersionAppModel { VersionAppName = "1.1" }); 
+            DataList.Add(new VersionAppModel { VersionAppName = "1.2" }); 
+            DataList.Add(new VersionAppModel { VersionAppName = "1.3" }); 
 
             return DataList;
         }

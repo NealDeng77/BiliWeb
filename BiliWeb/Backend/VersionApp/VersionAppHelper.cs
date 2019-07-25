@@ -24,7 +24,7 @@ namespace BiliWeb.Backend
                               Value = m.ID.ToString(),
 
                               // TODO: Change the item here to the appropriate item to show in the list box
-                              Text = m.Name
+                              Text = m.VersionAppName
                           });
         }
 
@@ -43,7 +43,7 @@ namespace BiliWeb.Backend
             }
 
             //  TODO: Change the .Name attribute to the appropriate attribute to return for the conversion.
-            return data.Name;
+            return data.VersionAppName;
         }
     }
 }
