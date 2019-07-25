@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BiliWeb.Models;
 
-namespace UnitTests.Models
+namespace UnitTests.Models.API
 {
     [TestClass]
     public class APIBaseModelTests
