@@ -67,6 +67,7 @@ namespace UnitTests.Models
             var myDataNew = new ResultDataModel
             {
                 Name = "New",
+                LabResult = 11,
 
                 // TODO:  Add your atttrbutes here
 
@@ -79,9 +80,11 @@ namespace UnitTests.Models
 
             // Assert
             Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual(11, myData.LabResult);
+
             // TODO:  Add an Assert for each attribute that should change
 
-            
+
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
             // TODO:  Add an Assert for each attribute that thould Not change
 
@@ -100,6 +103,7 @@ namespace UnitTests.Models
 
             // Assert
             Assert.IsNull(myData.Name);
+            Assert.AreEqual(0, myData.LabResult);
 
             // TODO:  Add an Assert for each attribute
 
@@ -116,10 +120,12 @@ namespace UnitTests.Models
 
             // Act
             myData.Name = "New";
+            myData.LabResult = 12;
             // TODO:  Add each attribute here
 
             // Assert
             Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual(12, myData.LabResult);
 
             // TODO:  Add an Assert for each attribute
         }
