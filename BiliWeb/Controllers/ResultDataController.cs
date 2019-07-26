@@ -67,7 +67,7 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "Name,"+
+            "LabResult,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] ResultDataModel data)
@@ -116,7 +116,7 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "Name,"+
+            "LabResult,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] ResultDataModel data)
@@ -240,7 +240,7 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "Lab,"+
+            "LabResult,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] ResultDataModel data)

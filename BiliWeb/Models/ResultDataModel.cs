@@ -14,6 +14,10 @@ namespace BiliWeb.Models
         // Just a field to show how to use it...
         public string Name { get; set; }
 
+
+        // Result of the Lab, to compare with the Photo Value
+        public double LabResult { get; set; }
+
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -55,6 +59,8 @@ namespace BiliWeb.Models
 
             // Update all the other fields
             Name= data.Name;
+
+            LabResult = data.LabResult;
 
             return true;
         }

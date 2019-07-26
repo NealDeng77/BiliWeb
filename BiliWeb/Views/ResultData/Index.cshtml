@@ -21,7 +21,7 @@
                     Date
                 </th>
                 <th>
-                    Name
+                    Lab Result
                 </th>
                 <th></th>
             </tr>
@@ -36,8 +36,8 @@
                     <td data-label="Date">
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
-                    <td data-label="Name">
-                        @Html.DisplayFor(modelItem => item.Name)
+                    <td data-label="Lab Result">
+                        @Html.DisplayFor(modelItem => item.LabResult)
                     </td>
                     <td>
                         <a asp-action="Read" asp-route-id="@item.ID">Read</a>
