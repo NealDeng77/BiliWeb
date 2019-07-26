@@ -257,7 +257,18 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
-            var dataResult = Backend.Update(data);
+            /*
+             * Do not want to update everything, just the Lab Result.
+             * So rather than pass the new data to Update
+             * Will manualy update just the Lab Result field on dataExist to be the data Lab Result passed in
+             * Then will update the dataExist
+             * 
+             */
+
+            // Update just the LabResult value
+            dataExist.LabResult = data.LabResult;
+
+            var dataResult = Backend.Update(dataExist);
             if (dataResult == null)
             {
                 return NotFound();
