@@ -10,7 +10,7 @@ namespace BiliWeb.Controllers
 {
     public class HistoryOSController : Controller
     {
-        ExampleBackend Backend = ExampleBackend.Instance;
+        HistoryOSBackend Backend = HistoryOSBackend.Instance;
 
         /// <summary>
         /// Show all the data
@@ -51,7 +51,7 @@ namespace BiliWeb.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var data = new ExampleModel();
+            var data = new HistoryOSModel();
             return View(data);
         }
 
@@ -70,7 +70,7 @@ namespace BiliWeb.Controllers
             "Name,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
-            "")] ExampleModel data)
+            "")] HistoryOSModel data)
         {
             if (!ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace BiliWeb.Controllers
             "Name,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
-            "")] ExampleModel data)
+            "")] HistoryOSModel data)
         {
             if (!ModelState.IsValid)
             {
