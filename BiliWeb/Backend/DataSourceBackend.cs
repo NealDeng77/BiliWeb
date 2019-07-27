@@ -23,6 +23,7 @@ namespace BiliWeb.Backend
         public InventoryBackend InventoryBackend = InventoryBackend.Instance;
         public VersionOSBackend VersionOSBackend = VersionOSBackend.Instance;
         public VersionAppBackend VersionAppBackend = VersionAppBackend.Instance;
+        public HistoryOSBackend HistoryOSBackend = HistoryOSBackend.Instance;
         // Add YourName Above Here  #1
 
 
@@ -37,7 +38,8 @@ namespace BiliWeb.Backend
             TechnicianBackend = TechnicianBackend.Instance;
             InventoryBackend = InventoryBackend.Instance;
             VersionOSBackend = VersionOSBackend.Instance;
-            VersionAppBackend = VersionAppBackend.Instance; 
+            VersionAppBackend = VersionAppBackend.Instance;
+            HistoryOSBackend = HistoryOSBackend.Instance;
             // Add YourName Above Here #2
         }
 
@@ -55,7 +57,8 @@ namespace BiliWeb.Backend
             TechnicianBackend.Reset();
             InventoryBackend.Reset();
             VersionOSBackend.Reset();
-            VersionAppBackend.Reset(); 
+            VersionAppBackend.Reset();
+            HistoryOSBackend.Reset(); 
             // Add YourName Above Here #3
 
 
@@ -78,6 +81,7 @@ namespace BiliWeb.Backend
             InventoryBackend.SetDataSourceDataSet(SetEnum);
             VersionOSBackend.SetDataSourceDataSet(SetEnum);
             VersionAppBackend.SetDataSourceDataSet(SetEnum);
+            HistoryOSBackend.SetDataSourceDataSet(SetEnum); 
             // Add YourName Above Here #4
         }
 
