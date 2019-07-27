@@ -11,8 +11,16 @@ namespace BiliWeb.Models
     public class HistoryOSModel : BaseModel
     {
 
-        // Just a field to show how to use it...
-        public string Name { get; set; }
+        /// <summary>
+        ///  The PhoneID of this record.
+        /// </summary>
+        public string PhoneID { get; set; }
+
+        
+        /// <summary>
+        /// The VersionOSID for this record. 
+        /// </summary>
+        public string VersionOSID { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -54,7 +62,8 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            Name= data.Name;
+            PhoneID= data.PhoneID;
+            VersionOSID = data.VersionOSID;
 
             return true;
         }

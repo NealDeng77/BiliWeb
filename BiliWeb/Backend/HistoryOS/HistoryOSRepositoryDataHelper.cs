@@ -52,10 +52,10 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new HistoryOSModel { Name = "Mike" }); // Default
-            DataList.Add(new HistoryOSModel { Name = "Doug" }); 
-            DataList.Add(new HistoryOSModel { Name = "Jea" }); 
-            DataList.Add(new HistoryOSModel { Name = "Sue" }); 
+            DataList.Add(new HistoryOSModel { PhoneID = "A", VersionOSID = "1" }); // Default
+            DataList.Add(new HistoryOSModel { PhoneID = "B", VersionOSID = "2" }); 
+            DataList.Add(new HistoryOSModel { PhoneID = "C", VersionOSID = "3" }); 
+            DataList.Add(new HistoryOSModel { PhoneID = "D", VersionOSID = "4" }); 
 
             return DataList;
         }

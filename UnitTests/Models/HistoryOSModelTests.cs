@@ -30,14 +30,14 @@ namespace UnitTests.Models
             // Arrange
             var myData = new HistoryOSModel
             {
-                Name = "New"
+                PhoneID = "New"
             };
 
             // Act
             var myNewData = new HistoryOSModel(myData);
 
             // Assert
-            Assert.AreEqual("New", myNewData.Name);
+            Assert.AreEqual("New", myNewData.PhoneID);
         }
 
         /// <summary>
@@ -66,8 +66,8 @@ namespace UnitTests.Models
             var myData = new HistoryOSModel();
             var myDataNew = new HistoryOSModel
             {
-                Name = "New",
-
+                PhoneID = "NewPhone",
+                VersionOSID = "NewVersion",
                 // TODO:  Add your atttrbutes here
 
                 ID = myData.ID
@@ -78,7 +78,8 @@ namespace UnitTests.Models
             myData.Date = myData.Date.AddSeconds(-5);
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual("NewPhone", myData.PhoneID);
+            Assert.AreEqual("NewVersion", myData.VersionOSID);
             // TODO:  Add an Assert for each attribute that should change
 
             
@@ -99,8 +100,8 @@ namespace UnitTests.Models
             // Act
 
             // Assert
-            Assert.IsNull(myData.Name);
-
+            Assert.IsNull(myData.PhoneID);
+            Assert.IsNull(myData.VersionOSID);
             // TODO:  Add an Assert for each attribute
 
         }
@@ -115,11 +116,13 @@ namespace UnitTests.Models
             var myData = new HistoryOSModel();
 
             // Act
-            myData.Name = "New";
+            myData.PhoneID = "NewPhone";
+            myData.VersionOSID = "NewVersion";
             // TODO:  Add each attribute here
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
+            Assert.AreEqual("NewPhone", myData.PhoneID);
+            Assert.AreEqual("NewVersion", myData.VersionOSID);
 
             // TODO:  Add an Assert for each attribute
         }

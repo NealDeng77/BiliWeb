@@ -123,7 +123,7 @@ namespace UnitTests.Backend
             // Make a Copy of the Data and update an aspect of it
             var myDataCopy = new HistoryOSModel(myData);
             myDataCopy.ID = myData.ID; // Force the ID to match for this test.
-            myDataCopy.Name = "New3";
+            myDataCopy.PhoneID = "NewPhone";
 
             // Act
             var result = myBackend.Update(myDataCopy);
@@ -132,7 +132,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual("New3", result.Name);
+            Assert.AreEqual("NewPhone", result.PhoneID);
 
         }
 
@@ -239,7 +239,7 @@ namespace UnitTests.Backend
             myBackend.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
+            Assert.AreEqual(dataOriginal.PhoneID, myBackend.Index().FirstOrDefault().PhoneID);
         }
         #endregion ResetTests
 
