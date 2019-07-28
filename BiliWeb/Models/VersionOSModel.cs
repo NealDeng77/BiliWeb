@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +12,10 @@ namespace BiliWeb.Models
     public class VersionOSModel : BaseModel
     {
 
-        // Just a field to show how to use it...
+        /// <summary>
+        /// The name of this Operating System Version
+        /// </summary>
+        [Display(Name = "Operating System")]
         public string VersionOSName { get; set; }
 
         /// <summary>

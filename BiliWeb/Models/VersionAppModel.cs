@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,11 +15,13 @@ namespace BiliWeb.Models
         /// <summary>
         /// The name of this version of the phone app. 
         /// </summary>
+        [Display(Name = "App Version")]
         public string VersionAppName { get; set; }
 
         /// <summary>
         ///  The release notes for this version of the app. 
         /// </summary>
+        [Display(Name = "Release Notes")]
         public string ReleaseNotes { get; set; }
 
         /// <summary>

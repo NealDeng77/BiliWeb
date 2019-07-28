@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,11 +16,13 @@ namespace BiliWeb.Models
         ///  <summary>
         ///  Getter and Setter for PhoneID
         ///  </summary>
+        [Display(Name = "Phone ID")]
         public string PhoneID { get; set; }
 
         /// <summary>
         /// Getter and Setter for VersionAppID
         /// </summary>
+        [Display(Name = "App Version ID")]
         public string VersionAppID { get; set; }
 
         /// <summary>

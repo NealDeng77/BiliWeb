@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,12 +15,14 @@ namespace BiliWeb.Models
         /// <summary>
         ///  The PhoneID of this record.
         /// </summary>
+        [Display(Name = "Phone ID")]
         public string PhoneID { get; set; }
 
         
         /// <summary>
         /// The VersionOSID for this record. 
         /// </summary>
+        [Display(Name = "Operating System Version ID")]
         public string VersionOSID { get; set; }
 
         /// <summary>
