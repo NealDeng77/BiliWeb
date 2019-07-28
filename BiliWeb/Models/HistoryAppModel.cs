@@ -11,8 +11,16 @@ namespace BiliWeb.Models
     public class HistoryAppModel : BaseModel
     {
 
-        // Just a field to show how to use it...
-        public string Name { get; set; }
+        
+        ///  <summary>
+        ///  Getter and Setter for PhoneID
+        ///  </summary>
+        public string PhoneID { get; set; }
+
+        /// <summary>
+        /// Getter and Setter for VersionAppID
+        /// </summary>
+        public string VersionAppID { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -54,7 +62,8 @@ namespace BiliWeb.Models
             // Date = data.Date;
 
             // Update all the other fields
-            Name= data.Name;
+            PhoneID= data.PhoneID;
+            VersionAppID = data.VersionAppID;
 
             return true;
         }

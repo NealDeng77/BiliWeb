@@ -250,7 +250,7 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.HistoryAppBackend.Instance.Index().FirstOrDefault();
             var resultData = new HistoryAppModel(myData)
             {
-                Name = "New",
+                PhoneID = "NewPhone",
                 ID = myData.ID
             };
 

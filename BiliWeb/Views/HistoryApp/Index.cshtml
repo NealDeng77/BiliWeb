@@ -21,7 +21,10 @@
                     Date
                 </th>
                 <th>
-                    Name
+                    PhoneID
+                </th>
+                <th>
+                    VersionAppID
                 </th>
                 <th></th>
             </tr>
@@ -37,7 +40,10 @@
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
                     <td data-label="Name">
-                        @Html.DisplayFor(modelItem => item.Name)
+                        @Html.DisplayFor(modelItem => item.PhoneID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VersionAppID)
                     </td>
                     <td>
                         <a asp-action="Read" asp-route-id="@item.ID">Read</a>

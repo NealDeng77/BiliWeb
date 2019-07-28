@@ -67,7 +67,8 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "Name,"+
+            "PhoneID,"+
+            "VersionAppID",
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] HistoryAppModel data)
@@ -116,7 +117,8 @@ namespace BiliWeb.Controllers
             "ID,"+
             "Date,"+
 
-            "Name,"+
+            "PhoneID,"+
+            "VersionAppID",
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] HistoryAppModel data)
