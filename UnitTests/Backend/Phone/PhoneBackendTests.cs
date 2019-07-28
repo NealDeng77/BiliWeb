@@ -178,7 +178,7 @@ namespace UnitTests.Backend
             BiliWeb.Backend.DataSourceBackend.Instance.Reset();
 
             // Assert
-            Assert.AreEqual(dataOriginal.ClinicID, myBackend.Index().FirstOrDefault().ClinicID);
+            Assert.AreEqual(dataOriginal.SerialNumber, myBackend.Index().FirstOrDefault().SerialNumber);
         }
         #endregion ResetTests
 

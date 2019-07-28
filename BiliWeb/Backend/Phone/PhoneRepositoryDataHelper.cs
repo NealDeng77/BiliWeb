@@ -52,10 +52,14 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new PhoneModel { DeviceModel = "Samsung 7", SerialNumber = "1234abcd" }); // Default
-            DataList.Add(new PhoneModel { DeviceModel = "Samsung 8", SerialNumber = "5678qwer" }); 
-            DataList.Add(new PhoneModel { DeviceModel = "DROID RAZR M", SerialNumber = "7890tyui" }); 
-            DataList.Add(new PhoneModel {  DeviceModel = "Samsung 7", SerialNumber = "1170nfle" }); 
+            // call backend on Clinics so ID's match
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinics = ClinicData.Index();
+
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 7", SerialNumber = "1234abcd" }); // Default
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 8", SerialNumber = "5678qwer" }); 
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "DROID RAZR M", SerialNumber = "7890tyui" }); 
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 7", SerialNumber = "1170nfle" }); 
 
             return DataList;
         }
