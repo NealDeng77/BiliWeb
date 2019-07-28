@@ -1,0 +1,127 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BiliWeb.Models;
+
+namespace UnitTests.Models
+{
+    [TestClass]
+    public class HistoryAppModelTests
+    {
+        /// <summary>
+        /// Stand up a new Model, make sure it is not null
+        /// </summary>
+        [TestMethod]
+        public void HistoryApp_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new HistoryAppModel();
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        /// <summary>
+        /// Instantiate Model with Data
+        /// </summary>
+        [TestMethod]
+        public void HistoryApp_Constructor_Data_Valid_Should_Pass()
+        {
+            // Arrange
+            var myData = new HistoryAppModel
+            {
+                Name = "New"
+            };
+
+            // Act
+            var myNewData = new HistoryAppModel(myData);
+
+            // Assert
+            Assert.AreEqual("New", myNewData.Name);
+        }
+
+        /// <summary>
+        /// Update Model with bogus data should Fail
+        /// </summary>
+        [TestMethod]
+        public void HistoryApp_Update_InValid_Data_Null_Should_Fail()
+        {
+            // Arrange
+            var myData = new HistoryAppModel();
+
+            // Act
+            var result = myData.Update(null);
+
+            // Assert
+            Assert.AreEqual(false,result);
+        }
+
+        /// <summary>
+        /// Update Model with bogus data should Fail
+        /// </summary>
+        [TestMethod]
+        public void HistoryApp_Update_Valid_Data_Good_Should_Pass()
+        {
+            // Arrange
+            var myData = new HistoryAppModel();
+            var myDataNew = new HistoryAppModel
+            {
+                Name = "New",
+
+                // TODO:  Add your atttrbutes here
+
+                ID = myData.ID
+            };
+
+            // Act
+            myData.Update(myDataNew);
+            myData.Date = myData.Date.AddSeconds(-5);
+
+            // Assert
+            Assert.AreEqual("New", myData.Name);
+            // TODO:  Add an Assert for each attribute that should change
+
+            
+            Assert.AreNotEqual(myData.Date, myDataNew.Date);
+            // TODO:  Add an Assert for each attribute that thould Not change
+
+        }
+
+        /// <summary>
+        /// Get test for Model
+        /// </summary>
+        [TestMethod]
+        public void HistoryApp_Get_Should_Pass()
+        {
+            // Arrange
+            var myData = new HistoryAppModel();
+
+            // Act
+
+            // Assert
+            Assert.IsNull(myData.Name);
+
+            // TODO:  Add an Assert for each attribute
+
+        }
+
+        /// <summary>
+        /// Set test for Model
+        /// </summary>
+        [TestMethod]
+        public void HistoryApp_Set_Should_Pass()
+        {
+            // Arrange
+            var myData = new HistoryAppModel();
+
+            // Act
+            myData.Name = "New";
+            // TODO:  Add each attribute here
+
+            // Assert
+            Assert.AreEqual("New", myData.Name);
+
+            // TODO:  Add an Assert for each attribute
+        }
+    }
+}
