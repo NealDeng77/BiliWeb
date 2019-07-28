@@ -34,7 +34,13 @@
                             @Html.DisplayNameFor(model => model.ClinicID)
                         </div>
                         <div class="col">
-                            @Html.DisplayFor(model => model.ClinicID)
+                            @{
+                                var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(Model.ClinicID);
+                                if (clinicName != "")
+                                {
+                                    <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@Model.ClinicID"> @clinicName </a></span>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
