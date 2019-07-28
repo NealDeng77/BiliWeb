@@ -23,26 +23,32 @@
                 <th>
                     VersionAppName
                 </th>
+                <th>
+                    Release Notes
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td data-label="ID">
-                        @Html.DisplayFor(modelItem => item.ID)
-                    </td>
-                    <td data-label="Date">
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td data-label="Name">
-                        @Html.DisplayFor(modelItem => item.VersionAppName)
-                    </td>
-                    <td>
-                        <a asp-action="Read" asp-route-id="@item.ID">Read</a>
-                    </td>
-                </tr>
+            <tr>
+                <td data-label="ID">
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td data-label="Date">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td data-label="Name">
+                    @Html.DisplayFor(modelItem => item.VersionAppName)
+                </td>
+                <td data-label="Name">
+                    @Html.DisplayFor(modelItem => item.ReleaseNotes)
+                </td>
+                <td>
+                    <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

@@ -11,8 +11,15 @@ namespace BiliWeb.Models
     public class VersionAppModel : BaseModel
     {
 
-        // Just a field to show how to use it...
+        /// <summary>
+        /// The name of this version of the phone app. 
+        /// </summary>
         public string VersionAppName { get; set; }
+
+        /// <summary>
+        ///  The release notes for this version of the app. 
+        /// </summary>
+        public string ReleaseNotes { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -55,6 +62,7 @@ namespace BiliWeb.Models
 
             // Update all the other fields
             VersionAppName = data.VersionAppName;
+            ReleaseNotes = data.ReleaseNotes;
 
             return true;
         }

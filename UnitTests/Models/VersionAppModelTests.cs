@@ -30,7 +30,8 @@ namespace UnitTests.Models
             // Arrange
             var myData = new VersionAppModel
             {
-                VersionAppName = "New"
+                VersionAppName = "New",
+                ReleaseNotes = "BogusNotes"
             };
 
             // Act
@@ -38,6 +39,7 @@ namespace UnitTests.Models
 
             // Assert
             Assert.AreEqual("New", myNewData.VersionAppName);
+            Assert.AreEqual("BogusNotes", myNewData.ReleaseNotes);
         }
 
         /// <summary>
@@ -67,7 +69,7 @@ namespace UnitTests.Models
             var myDataNew = new VersionAppModel
             {
                 VersionAppName = "New",
-
+                ReleaseNotes = "ReleaseNotes",
                 // TODO:  Add your atttrbutes here
 
                 ID = myData.ID
@@ -78,6 +80,7 @@ namespace UnitTests.Models
 
             // Assert
             Assert.AreEqual("New", myData.VersionAppName);
+            Assert.AreEqual("ReleaseNotes", myData.ReleaseNotes);
             // TODO:  Add an Assert for each attribute that should change
 
             
@@ -99,7 +102,7 @@ namespace UnitTests.Models
 
             // Assert
             Assert.IsNull(myData.VersionAppName);
-
+            Assert.IsNull(myData.ReleaseNotes);
             // TODO:  Add an Assert for each attribute
 
         }
@@ -115,11 +118,12 @@ namespace UnitTests.Models
 
             // Act
             myData.VersionAppName = "New";
+            myData.ReleaseNotes = "ReleaseNotes";
             // TODO:  Add each attribute here
 
             // Assert
             Assert.AreEqual("New", myData.VersionAppName);
-
+            Assert.AreEqual("ReleaseNotes", myData.ReleaseNotes);
             // TODO:  Add an Assert for each attribute
         }
     }
