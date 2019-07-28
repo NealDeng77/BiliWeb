@@ -88,7 +88,7 @@ namespace UnitTests.Backend
             // Check each item returned, and make sure it matches the original data
             foreach (var item in result)
             {
-                Assert.AreEqual(item.Text, data.Find(m=>m.ID==item.Value).ClinicID);
+                Assert.AreEqual(item.Text, data.Find(m=>m.ID==item.Value).DeviceModel + " - " + data.Find(m=>m.ID==item.Value).SerialNumber);
             }
 
         }
