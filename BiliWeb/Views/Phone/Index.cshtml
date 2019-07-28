@@ -21,7 +21,7 @@
                         Date
                     </th>
                     <th>
-                        ClinicID
+                        Clinic
                     </th>
                     <th>
                         Device Model
@@ -43,7 +43,14 @@
                             @Html.DisplayFor(modelItem => item.Date)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ClinicID)
+                            
+                            @{
+                                var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(item.ClinicID);
+                                if (clinicName != "")
+                                {
+                                    <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@item.ClinicID"> @clinicName </a></span>
+                                }
+                            }
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.DeviceModel)
