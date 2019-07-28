@@ -103,6 +103,8 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
+            ViewData["ClinicIDList"] = BiliWeb.Backend.ClinicHelper.ToSelectListItems(ClinicBackend.Instance.Index(), null);
+
             return View(data);
         }
 

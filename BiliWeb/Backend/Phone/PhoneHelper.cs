@@ -24,7 +24,7 @@ namespace BiliWeb.Backend
                               Value = m.ID.ToString(),
 
                               // TODO: Change the item here to the appropriate item to show in the list box
-                              Text = m.DeviceModel
+                              Text = m.ClinicID
                           });
         }
 
