@@ -266,6 +266,110 @@ namespace UnitTests.Controllers
 
         #endregion UpdateTests
 
+        #region UpdateLabTests
+        /// <summary>
+        /// Ensure the UpdateLab Method on the controller returns and is not null
+        /// </summary>
+        [TestMethod]
+        public void ResultData_UpdateLab_Get_InValid_ID_Bogus_Should_Fail()
+        {
+            // Arrange
+            var myController = new ResultDataController();
+
+            // Act
+            var result = myController.UpdateLab("abc");
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void ResultData_UpdateLab_Post_Invalid_Model_Should_Send_Back_For_Edit()
+        {
+            // Arrange
+            var controller = new ResultDataController();
+            var data = new ResultDataModel();
+
+            // Make ModelState Invalid
+            controller.ModelState.AddModelError("test", "test");
+
+            // Act
+            var result = controller.UpdateLab(data) as NotFoundResult;
+
+            // Assert
+            Assert.AreEqual(404, result.StatusCode);
+        }
+
+        /// <summary>
+        /// Ensure the UpdateLab Method Post on the controller returns and is not null
+        /// </summary>
+        [TestMethod]
+        public void ResultData_UpdateLab_Post_Default_Should_Pass()
+        {
+            // Arrange
+            var myController = new ResultDataController();
+            var myData = new ResultDataModel();
+
+            // Act
+            var result = myController.UpdateLab(myData);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        /// <summary>
+        /// UpdateLab of Null Data should Fail
+        /// 
+        /// Success on UpdateLab Jups to Index page
+        /// </summary>
+        [TestMethod]
+        public void ResultData_UpdateLab_Get_Valid_Data_Should_Pass()
+        {
+            // Arrange
+            var myController = new ResultDataController();
+            var myData = BiliWeb.Backend.ResultDataBackend.Instance.Index().FirstOrDefault();
+
+            // Act
+            var result = myController.UpdateLab(myData.ResultCode) as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result.Model);
+        }
+
+        /// <summary>
+        /// UpdateLab of Null Data should Fail
+        /// 
+        /// Success on UpdateLab Jumps to Index page
+        /// </summary>
+        [TestMethod]
+        public void ResultData_UpdateLab_Post_Valid_Data_Should_Pass()
+        {
+            // Arrange
+            var myController = new ResultDataController();
+            var myData = BiliWeb.Backend.ResultDataBackend.Instance.Index().FirstOrDefault();
+            var resultData = new ResultDataModel(myData)
+            {
+                Name = "New",
+                ID = myData.ID,
+                ResultCode = myData.ResultCode
+            };
+
+            // Act
+            var result = myController.UpdateLab(resultData) as RedirectToActionResult;
+
+            //Reset
+            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+
+            // Assert
+            Assert.AreEqual("Index", result.ActionName);
+        }
+
+        #endregion LabUpdateLabTests
+
         #region DeleteTests
         /// <summary>
         /// Ensure the Delete Method with no data should fail
