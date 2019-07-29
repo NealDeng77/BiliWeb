@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace BiliWeb.Models
 {
@@ -11,12 +12,15 @@ namespace BiliWeb.Models
     public class ResultDataModel : BaseModel
     {
         // Just a field to show how to use it...
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         // 4 letter code that matches this result back to the Phone Result so that technicians don't have to enter the entire quid.
+        [Display(Name = "Result Code")]
         public string ResultCode { get; set; } = Backend.ResultDataHelper.GenerateResultCode();
 
         // Result of the Lab, to compare with the Photo Value
+        [Display(Name = "Lab Result")]
         public double LabResult { get; set; }
 
         /// <summary>
