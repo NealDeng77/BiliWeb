@@ -218,8 +218,15 @@ namespace BiliWeb.Controllers
         [HttpGet]
         public IActionResult UpdateLab(string id)
         {
+            //Use the Result Code to lookup a Record
+            var dataID = ResultDataHelper.ConvertResultCodeToID(id);
+            if (string.IsNullOrEmpty(dataID))
+            {
+                return NotFound();
+            }
+
             //Look up the ID
-            var data = Backend.Read(id);
+            var data = Backend.Read(dataID);
             if (data == null)
             {
                 return NotFound();
@@ -241,7 +248,7 @@ namespace BiliWeb.Controllers
             "Date,"+
 
             "LabResult,"+
-            // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
+            "ResultCode,"+
 
             "")] ResultDataModel data)
         {
@@ -253,6 +260,11 @@ namespace BiliWeb.Controllers
             //Look up the ID
             var dataExist = Backend.Read(data.ID);
             if (dataExist == null)
+            {
+                return NotFound();
+            }
+
+            if (!dataExist.ResultCode.Equals(data.ResultCode))
             {
                 return NotFound();
             }

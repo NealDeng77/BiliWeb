@@ -68,8 +68,7 @@ namespace UnitTests.Models
             {
                 Name = "New",
                 LabResult = 11,
-
-                // TODO:  Add your atttrbutes here
+                ResultCode = "123456",
 
                 ID = myData.ID
             };
@@ -81,12 +80,9 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("New", myData.Name);
             Assert.AreEqual(11, myData.LabResult);
-
-            // TODO:  Add an Assert for each attribute that should change
-
+            Assert.AreEqual("123456", myData.ResultCode);
 
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
-            // TODO:  Add an Assert for each attribute that thould Not change
 
         }
 
@@ -104,9 +100,7 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNull(myData.Name);
             Assert.AreEqual(0, myData.LabResult);
-
-            // TODO:  Add an Assert for each attribute
-
+            Assert.AreNotEqual("000000", myData.ResultCode);
         }
 
         /// <summary>
@@ -121,13 +115,12 @@ namespace UnitTests.Models
             // Act
             myData.Name = "New";
             myData.LabResult = 12;
-            // TODO:  Add each attribute here
+            myData.ResultCode = "123456";
 
             // Assert
             Assert.AreEqual("New", myData.Name);
             Assert.AreEqual(12, myData.LabResult);
-
-            // TODO:  Add an Assert for each attribute
+            Assert.AreEqual("123456", myData.ResultCode);
         }
     }
 }

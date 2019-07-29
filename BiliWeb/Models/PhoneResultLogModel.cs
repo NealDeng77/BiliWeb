@@ -29,6 +29,9 @@ namespace BiliWeb.Models
         // FormDataID - The ID to pass to the Form to access it
         public string ResultDataID { get; set; } = null;
 
+        // The ResultCode from the ResultData model
+        public string ResultCode { get; set; } = null;
+
         // FormURI - The Controller/Action to send the web page request to
         public string ResultDataURI { get; set; } = "/PhoneResultForm/Update/";
 
