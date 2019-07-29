@@ -65,7 +65,8 @@ namespace UnitTests.Models.API
                 PhotoID = "Photo",
                 ResultLogID = "ResultLogID",
                 ResultDataID = "ResultDataID",
-                ResultDataURI = "ResultDataURI"
+                ResultDataURI = "ResultDataURI",
+                ResultCode = "ResultCode"
             };
 
             var Status = result.Status;
@@ -74,6 +75,7 @@ namespace UnitTests.Models.API
             var ResultLogID = result.ResultLogID;
             var ResultDataID = result.ResultDataID;
             var ResultDataURI = result.ResultDataURI;
+            var ResultCode = result.ResultCode;
 
             // Assert
             Assert.AreEqual(10, Status);
@@ -82,6 +84,7 @@ namespace UnitTests.Models.API
             Assert.AreEqual("ResultLogID", ResultLogID);
             Assert.AreEqual("ResultDataID", ResultDataID);
             Assert.AreEqual("ResultDataURI", ResultDataURI);
+            Assert.AreEqual("ResultCode", ResultCode);
         }
     }
 }
