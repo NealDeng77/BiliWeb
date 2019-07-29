@@ -21,10 +21,10 @@
                     Date
                 </th>
                 <th>
-                    Phone ID
+                    Phone 
                 </th>
                 <th>
-                    Operating System Version ID
+                    Operating System Version 
                 </th>
                 <th></th>
             </tr>
@@ -40,10 +40,22 @@
                         @Html.DisplayFor(modelItem => item.Date)
                     </td>
                     <td data-label="Name">
-                        @Html.DisplayFor(modelItem => item.PhoneID)
+                        @{
+                            var phoneName = BiliWeb.Backend.PhoneHelper.ConvertIDtoString(item.PhoneID);
+                            if (phoneName != "")
+                            {
+                            <span class="highlight-text"><a asp-controller="Phone" asp-action="Read" asp-route-id="@item.PhoneID"> @phoneName </a></span>
+                            }
+                        }
                     </td>
                     <td data-label="Name">
-                        @Html.DisplayFor(modelItem => item.VersionOSID)
+                        @{
+                            var versionName = BiliWeb.Backend.VersionOSHelper.ConvertIDtoString(item.VersionOSID);
+                            if (phoneName != "")
+                            {
+                                <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@item.VersionOSID"> @versionName </a></span>
+                            }
+                        }
                     </td>
                     <td>
                         <a asp-action="Read" asp-route-id="@item.ID">Read</a>
