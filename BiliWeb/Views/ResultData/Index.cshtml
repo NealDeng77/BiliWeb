@@ -21,6 +21,9 @@
                     Date
                 </th>
                 <th>
+                    Result Code
+                </th>
+                <th>
                     Lab Result
                 </th>
                 <th></th>
@@ -29,20 +32,25 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td data-label="ID">
-                        @Html.DisplayFor(modelItem => item.ID)
-                    </td>
-                    <td data-label="Date">
-                        @Html.DisplayFor(modelItem => item.Date)
-                    </td>
-                    <td data-label="Lab Result">
-                        @Html.DisplayFor(modelItem => item.LabResult)
-                    </td>
-                    <td>
-                        <a asp-action="Read" asp-route-id="@item.ID">Read</a>
-                    </td>
-                </tr>
+            <tr>
+                <td data-label="ID">
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td data-label="Date">
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+
+                <td data-label="Lab Result">
+                    @Html.DisplayFor(modelItem => item.ResultCode)
+                </td>
+
+                <td data-label="Lab Result">
+                    @Html.DisplayFor(modelItem => item.LabResult)
+                </td>
+                <td>
+                    <a asp-action="Read" asp-route-id="@item.ID">Read</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
