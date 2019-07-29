@@ -37,7 +37,6 @@ namespace BiliWeb.Models
         /// <param name="data"></param>
         public ResultDataModel(ResultDataModel data)
         {
-            GenerateResultCode();
             // Because this is a copy, let it have a new ID
             Update(data);
         }
