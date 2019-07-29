@@ -38,7 +38,7 @@
                             <label asp-for="ClinicID" class="control-label">Clinic ID</label>
                         </div>
                         <div class="col">
-                            @Html.DropDownListFor(m => m.ClinicID, ViewData["ResultLogIDList"] as IEnumerable<SelectListItem>, "Select Clinic")
+                            @Html.DropDownListFor(m => m.ClinicID, ViewData["ClinicIDList"] as IEnumerable<SelectListItem>, "Select Clinic")
                             @*<input asp-for="ClinicID" class="form-control" />*@
                             <span asp-validation-for="ClinicID" class="text-danger"></span>
                         </div>
@@ -51,7 +51,8 @@
                             <label asp-for="PhoneID" class="control-label">Phone ID</label>
                         </div>
                         <div class="col">
-                            <input asp-for="PhoneID" class="form-control" />
+                            @Html.DropDownListFor(m => m.PhoneID, ViewData["PhoneIDList"] as IEnumerable<SelectListItem>, "Select Phone")
+                            @*<input asp-for="ClinicID" class="form-control" />*@
                             <span asp-validation-for="PhoneID" class="text-danger"></span>
                         </div>
                     </div>
@@ -63,7 +64,8 @@
                             <label asp-for="UserID" class="control-label">User ID</label>
                         </div>
                         <div class="col">
-                            <input asp-for="UserID" class="form-control" />
+                            @Html.DropDownListFor(m => m.UserID, ViewData["UserIDList"] as IEnumerable<SelectListItem>, "Select User")
+                            @*<input asp-for="ClinicID" class="form-control" />*@
                             <span asp-validation-for="UserID" class="text-danger"></span>
                         </div>
                     </div>

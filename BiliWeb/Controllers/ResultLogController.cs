@@ -11,6 +11,9 @@ namespace BiliWeb.Controllers
     public class ResultLogController : Controller
     {
         ResultLogBackend Backend = ResultLogBackend.Instance;
+        ClinicBackend ClinicData = ClinicBackend.Instance;
+        PhoneBackend PhoneData = PhoneBackend.Instance;
+        TechnicianBackend UserData = TechnicianBackend.Instance;
 
         /// <summary>
         /// Show all the data
@@ -106,6 +109,9 @@ namespace BiliWeb.Controllers
 
 
             ViewData["ResultLogIDList"] = BiliWeb.Backend.ResultLogHelper.ToSelectListItems(Backend.Index(), null);
+            ViewData["ClinicIDList"] = BiliWeb.Backend.ClinicHelper.ToSelectListItems(ClinicData.Index(), null);
+            ViewData["PhoneIDList"] = BiliWeb.Backend.PhoneHelper.ToSelectListItems(PhoneData.Index(), null);
+            ViewData["UserIDList"] = BiliWeb.Backend.TechnicianHelper.ToSelectListItems(UserData.Index(), null);
 
             return View(data);
         }
