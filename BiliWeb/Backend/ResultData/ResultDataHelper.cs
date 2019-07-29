@@ -45,5 +45,23 @@ namespace BiliWeb.Backend
             //  TODO: Change the .Name attribute to the appropriate attribute to return for the conversion.
             return data.Name;
         }
+
+        /// <summary>
+        /// Converts the Result Code to an ID for a record
+        /// Only returns the first one, if duplicates, then 
+        /// </summary>
+        /// <param name="id">valid Result Code</param>
+        /// <returns>empty string for error, else returns the ID</returns>
+        public static string ConvertResultCodeToID(string id)
+        {
+            var data = DataSourceBackend.Instance.ResultDataBackend.Index().Where(m=>m.ResultCode == id).FirstOrDefault();
+            if (data == null)
+            {
+                return string.Empty;
+            }
+
+            //  TODO: Change the .Name attribute to the appropriate attribute to return for the conversion.
+            return data.Name;
+        }
     }
 }

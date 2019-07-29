@@ -86,6 +86,14 @@ namespace BiliWeb.Controllers
                 return myReturn;
             }
 
+            // myReturn.ResultDataURI = Use the default for now that is in the model
+            var myResultData = DataSourceBackend.Instance.ResultDataBackend.CreateNewEmpty();
+            if (myResultData == null)
+            {
+                myReturn.Message = "Bad Result Data";
+                return myReturn;
+            }
+
             /*
              * All OK, so update the returned data set to have success, and the created ID for Log and Photo
              * Status: 1
@@ -94,6 +102,7 @@ namespace BiliWeb.Controllers
              * ID - The ID of this object
              * PhotoID - The ID to send the Photos
              * FormDataID - The ID to pass to the Form to access it
+             * ResultCode = Code to enter to access the record instead of a string
              * FormURI - The Controller/Action to send the web page request to
              */
 
@@ -102,8 +111,8 @@ namespace BiliWeb.Controllers
             myReturn.ResultLogID = result.ID;
             myReturn.PhotoID = result.PhotoID;
 
-            // myReturn.ResultDataURI = Use the default for now that is in the model
-            myReturn.ResultDataID = DataSourceBackend.Instance.ResultDataBackend.CreateNewEmpty().ID;
+            myReturn.ResultDataID = myResultData.ID;
+            myReturn.ResultCode = myResultData.ResultCode;
 
             return myReturn;
         }
