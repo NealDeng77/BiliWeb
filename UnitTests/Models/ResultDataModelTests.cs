@@ -68,8 +68,6 @@ namespace UnitTests.Models
             {
                 Name = "New",
                 LabResult = 11,
-                ResultCode = "123456",
-
                 ID = myData.ID
             };
 
@@ -80,9 +78,10 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("New", myData.Name);
             Assert.AreEqual(11, myData.LabResult);
-            Assert.AreEqual("123456", myData.ResultCode);
 
+            // Data fields that should NOT match
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
+            Assert.AreNotEqual(myData.ResultCode, myDataNew.ResultCode);    // Should not match
 
         }
 
