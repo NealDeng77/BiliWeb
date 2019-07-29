@@ -33,7 +33,14 @@
                             @Html.DisplayNameFor(model => model.PhoneID)
                         </div>
                         <div class="col">
-                            @Html.DisplayFor(model => model.PhoneID)
+                            
+                            @{
+                                var phoneName = BiliWeb.Backend.PhoneHelper.ConvertIDtoString(Model.PhoneID);
+                                if (phoneName != "")
+                                {
+                                    <span class="highlight-text"><a asp-controller="Phone" asp-action="Read" asp-route-id="@Model.PhoneID"> @phoneName </a></span>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
@@ -44,7 +51,13 @@
                             @Html.DisplayNameFor(model => model.VersionOSID)
                         </div>
                         <div class="col">
-                            @Html.DisplayFor(model => model.VersionOSID)
+                            @{
+                                var versionOSName = BiliWeb.Backend.VersionOSHelper.ConvertIDtoString(Model.VersionOSID);
+                                if (versionOSName != "")
+                                {
+                                    <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@Model.VersionOSID"> @versionOSName </a></span>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
