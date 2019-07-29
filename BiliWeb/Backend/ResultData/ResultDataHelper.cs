@@ -60,8 +60,7 @@ namespace BiliWeb.Backend
                 return string.Empty;
             }
 
-            //  TODO: Change the .Name attribute to the appropriate attribute to return for the conversion.
-            return data.Name;
+            return data.ID;
         }
     }
 }
