@@ -52,10 +52,10 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new VersionOSModel { VersionOSName = "3.0" }); // Default
-            DataList.Add(new VersionOSModel { VersionOSName = "3.1" }); 
-            DataList.Add(new VersionOSModel { VersionOSName = "3.2" }); 
-            DataList.Add(new VersionOSModel { VersionOSName = "3.3" }); 
+            DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.1 \"KitKat\"" }); // Default
+            DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.2 \"KitKat\"" }); 
+            DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.3 \"KitKat\"" }); 
+            DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.4 \"KitKat\"" }); 
 
             return DataList;
         }
