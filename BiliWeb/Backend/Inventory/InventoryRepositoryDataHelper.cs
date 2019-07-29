@@ -52,10 +52,15 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new InventoryModel { ClinicID = "2b3ba9d3-f258-4b55-a8fd-923b5d1", TestStripStock = 30 }); // Default
-            DataList.Add(new InventoryModel { ClinicID = "b26c644f-5fa4-4d7e-bbd6-34acd08", TestStripStock = 20 }); 
-            DataList.Add(new InventoryModel { ClinicID = "aac644f-5fa4-4d7e-bbd6-34acd099", TestStripStock = 15 }); 
-            DataList.Add(new InventoryModel { ClinicID = "44f-5fa4-4d7e-bbd6-34acd08f44f1", TestStripStock = 50 }); 
+
+            //Call backend clinic so ids match
+            ClinicBackend ClinicData = ClinicBackend.Instance;
+            List<ClinicModel> clinics = ClinicData.Index();
+
+            DataList.Add(new InventoryModel { ClinicID = clinics[0].ID,  TestStripStock = 30 }); // Default
+            DataList.Add(new InventoryModel { ClinicID = clinics[1].ID,  TestStripStock = 20 }); 
+            DataList.Add(new InventoryModel { ClinicID = clinics[2].ID,  TestStripStock = 15 }); 
+            DataList.Add(new InventoryModel { ClinicID = clinics[3].ID,  TestStripStock = 50 }); 
 
             return DataList;
         }
