@@ -11,10 +11,6 @@ namespace BiliWeb.Models
     /// </summary>
     public class ResultDataModel : BaseModel
     {
-        // Just a field to show how to use it...
-        [Display(Name = "Name")]
-        public string Name { get; set; }
-
         // 4 letter code that matches this result back to the Phone Result so that technicians don't have to enter the entire quid.
         [Display(Name = "Result Code")]
         public string ResultCode { get; set; } = Backend.ResultDataHelper.GenerateResultCode();
@@ -67,7 +63,6 @@ namespace BiliWeb.Models
             // ResultCode = data.ResultCode;
 
             // Update all the other fields
-            Name = data.Name;
             LabResult = data.LabResult;
 
             return true;

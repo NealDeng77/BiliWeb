@@ -30,14 +30,14 @@ namespace UnitTests.Models
             // Arrange
             var myData = new ResultDataModel
             {
-                Name = "New"
+                LabResult = 123
             };
 
             // Act
             var myNewData = new ResultDataModel(myData);
 
             // Assert
-            Assert.AreEqual("New", myNewData.Name);
+            Assert.AreEqual(123, myNewData.LabResult);
         }
 
         /// <summary>
@@ -66,7 +66,6 @@ namespace UnitTests.Models
             var myData = new ResultDataModel();
             var myDataNew = new ResultDataModel
             {
-                Name = "New",
                 LabResult = 11,
                 ID = myData.ID
             };
@@ -76,7 +75,6 @@ namespace UnitTests.Models
             myData.Date = myData.Date.AddSeconds(-5);
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
             Assert.AreEqual(11, myData.LabResult);
 
             // Data fields that should NOT match
@@ -97,7 +95,6 @@ namespace UnitTests.Models
             // Act
 
             // Assert
-            Assert.IsNull(myData.Name);
             Assert.AreEqual(0, myData.LabResult);
             Assert.AreNotEqual("000000", myData.ResultCode);
         }
@@ -112,12 +109,10 @@ namespace UnitTests.Models
             var myData = new ResultDataModel();
 
             // Act
-            myData.Name = "New";
             myData.LabResult = 12;
             myData.ResultCode = "123456";
 
             // Assert
-            Assert.AreEqual("New", myData.Name);
             Assert.AreEqual(12, myData.LabResult);
             Assert.AreEqual("123456", myData.ResultCode);
         }

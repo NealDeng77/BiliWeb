@@ -250,7 +250,7 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.ResultDataBackend.Instance.Index().FirstOrDefault();
             var resultData = new ResultDataModel(myData)
             {
-                Name = "New",
+                ResultCode = "ResultCode",
                 ID = myData.ID
             };
 
@@ -353,7 +353,6 @@ namespace UnitTests.Controllers
             var myData = BiliWeb.Backend.ResultDataBackend.Instance.Index().FirstOrDefault();
             var resultData = new ResultDataModel(myData)
             {
-                Name = "New",
                 ID = myData.ID,
                 ResultCode = myData.ResultCode
             };
