@@ -22,7 +22,7 @@ namespace UnitTests.Backend
                 FirstName = "John",
                 LastName = "Doe",
                 DateOfBirth = new System.DateTime(2019, 1, 1),
-                Clinic = "TestClinic"
+                ClinicID = "TestClinic"
             };
             DataSourceBackend.Instance.TechnicianBackend.Create(data);
 

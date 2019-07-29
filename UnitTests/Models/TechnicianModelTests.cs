@@ -33,7 +33,7 @@ namespace UnitTests.Models
                 FirstName = "John",
                 LastName = "Doe",
                 DateOfBirth = new System.DateTime(2019, 1, 1),
-                Clinic = "Test"
+                ClinicID = "Test"
             };
 
             // Act
@@ -43,7 +43,7 @@ namespace UnitTests.Models
             Assert.AreEqual("John", myNewData.FirstName);
             Assert.AreEqual("Doe", myNewData.LastName);
             Assert.AreEqual(new System.DateTime(2019, 1, 1), myNewData.DateOfBirth);
-            Assert.AreEqual("Test", myNewData.Clinic);
+            Assert.AreEqual("Test", myNewData.ClinicID);
         }
     
     
@@ -79,7 +79,7 @@ namespace UnitTests.Models
                 FirstName = "John",
                 LastName = "Doe",
                 DateOfBirth = new System.DateTime(2019, 1, 1),
-                Clinic = "Test",
+                ClinicID = "Test",
                 ID = myData.ID
             };
 
@@ -92,7 +92,7 @@ namespace UnitTests.Models
             Assert.AreEqual("John", myData.FirstName);
             Assert.AreEqual("Doe", myData.LastName);
             Assert.AreEqual(new System.DateTime(2019, 1, 1), myData.DateOfBirth);
-            Assert.AreEqual("Test", myData.Clinic);
+            Assert.AreEqual("Test", myData.ClinicID);
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
 
         }
@@ -112,7 +112,7 @@ namespace UnitTests.Models
             Assert.IsNull(myData.FirstName);
             Assert.IsNull(myData.LastName);
             Assert.IsNull(myData.DateOfBirth);
-            Assert.IsNull(myData.Clinic);
+            Assert.IsNull(myData.ClinicID);
 
         }
 
@@ -129,13 +129,13 @@ namespace UnitTests.Models
             myData.FirstName = "John";
             myData.LastName = "Doe";
             myData.DateOfBirth = new System.DateTime(2019, 1, 1);
-            myData.Clinic = "Test";
+            myData.ClinicID = "Test";
 
             // Assert
             Assert.AreEqual("John", myData.FirstName);
             Assert.AreEqual("Doe", myData.LastName);
             Assert.AreEqual(new System.DateTime(2019, 1, 1), myData.DateOfBirth);
-            Assert.AreEqual("Test", myData.Clinic);
+            Assert.AreEqual("Test", myData.ClinicID);
         }
     }
 }

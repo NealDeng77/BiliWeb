@@ -26,7 +26,7 @@ namespace BiliWeb.Models
         
         // Tech's clinic
         [Display(Name = "Clinic")]
-        public string Clinic { get; set; }
+        public string ClinicID { get; set; }
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -70,7 +70,7 @@ namespace BiliWeb.Models
             FirstName = data.FirstName;
             LastName = data.LastName;
             DateOfBirth = data.DateOfBirth;
-            Clinic = data.Clinic;
+            ClinicID = data.ClinicID;
 
             return true;
         }
