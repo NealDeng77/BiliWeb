@@ -23,7 +23,10 @@ namespace BiliWeb.Models
         // Tech's DOB
         [Display(Name = "Date of Birth")]
         public Nullable<DateTime> DateOfBirth { get; set; }
-
+        
+        // Tech's clinic
+        [Display(Name = "Clinic")]
+        public string Clinic { get; set; }
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -67,6 +70,7 @@ namespace BiliWeb.Models
             FirstName = data.FirstName;
             LastName = data.LastName;
             DateOfBirth = data.DateOfBirth;
+            Clinic = data.Clinic;
 
             return true;
         }

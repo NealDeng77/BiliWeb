@@ -52,10 +52,10 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new TechnicianModel { FirstName = "Mike", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 2) }); // Default
-            DataList.Add(new TechnicianModel { FirstName = "Doug", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 3) }); 
-            DataList.Add(new TechnicianModel { FirstName = "Jean", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 4) }); 
-            DataList.Add(new TechnicianModel { FirstName = "Sue", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 5) }); 
+            DataList.Add(new TechnicianModel { FirstName = "Mike", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 2), Clinic = "Test1" }); // Default
+            DataList.Add(new TechnicianModel { FirstName = "Doug", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 3), Clinic = "Test2" }); 
+            DataList.Add(new TechnicianModel { FirstName = "Jean", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 4), Clinic = "Test3" }); 
+            DataList.Add(new TechnicianModel { FirstName = "Sue", LastName = "Smith", DateOfBirth = new System.DateTime(2000, 1, 5), Clinic = "Test4" }); 
 
             return DataList;
         }
