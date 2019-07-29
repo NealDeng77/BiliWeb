@@ -14,6 +14,7 @@ namespace BiliWeb.Controllers
         ClinicBackend ClinicData = ClinicBackend.Instance;
         PhoneBackend PhoneData = PhoneBackend.Instance;
         TechnicianBackend UserData = TechnicianBackend.Instance;
+        PhotoBackend PhotoData = PhotoBackend.Instance;
 
         /// <summary>
         /// Show all the data
@@ -112,6 +113,7 @@ namespace BiliWeb.Controllers
             ViewData["ClinicIDList"] = BiliWeb.Backend.ClinicHelper.ToSelectListItems(ClinicData.Index(), null);
             ViewData["PhoneIDList"] = BiliWeb.Backend.PhoneHelper.ToSelectListItems(PhoneData.Index(), null);
             ViewData["UserIDList"] = BiliWeb.Backend.TechnicianHelper.ToSelectListItems(UserData.Index(), null);
+            ViewData["PhotoIDList"] = BiliWeb.Backend.PhotoHelper.ToSelectListItems(PhotoData.Index(), null);
 
             return View(data);
         }
