@@ -175,7 +175,7 @@ namespace UnitTests.Backend
             myBackend.Delete(dataOriginal.ID);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset(); 
 
             // Assert
             Assert.AreEqual(dataOriginal.PhoneID, myBackend.Index().FirstOrDefault().PhoneID);

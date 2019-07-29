@@ -52,10 +52,18 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new HistoryOSModel { PhoneID = "A", VersionOSID = "1" }); // Default
-            DataList.Add(new HistoryOSModel { PhoneID = "B", VersionOSID = "2" }); 
-            DataList.Add(new HistoryOSModel { PhoneID = "C", VersionOSID = "3" }); 
-            DataList.Add(new HistoryOSModel { PhoneID = "D", VersionOSID = "4" }); 
+            // get list of phones
+            PhoneBackend PhoneData = PhoneBackend.Instance;
+            List<PhoneModel> phones = PhoneData.Index();
+
+            // get list of OS versions
+            VersionOSBackend VersionOSData = VersionOSBackend.Instance;
+            List<VersionOSModel> OSversions = VersionOSData.Index(); 
+
+            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[0].ID }); // Default
+            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[1].ID }); 
+            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[2].ID }); 
+            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[3].ID }); 
 
             return DataList;
         }
