@@ -94,7 +94,13 @@
                         @Html.DisplayNameFor(model => model.PhotoID)
                     </div>
                     <div class="col">
-                        @Html.DisplayFor(model => model.PhotoID)
+                        @{
+                            var photoID = BiliWeb.Backend.PhotoHelper.ConvertIDtoString(Model.PhotoID);
+                            if (photoID != "")
+                            {
+                                <span class="highlight-text"> <a asp-controller="Photo" asp-action="Read" asp-route-id="@Model.PhotoID"> @photoID </a></span>
+                            }
+                        }
                     </div>
                 </div>
             </div>

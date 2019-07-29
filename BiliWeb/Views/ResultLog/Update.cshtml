@@ -77,7 +77,8 @@
                             <label asp-for="PhotoID" class="control-label">Photo ID</label>
                         </div>
                         <div class="col">
-                            <input asp-for="PhotoID" class="form-control" />
+                            @Html.DropDownListFor(m => m.PhotoID, ViewData["PhotoIDList"] as IEnumerable<SelectListItem>, "Select Photo")
+                            @*<input asp-for="ClinicID" class="form-control" />*@
                             <span asp-validation-for="PhotoID" class="text-danger"></span>
                         </div>
                     </div>

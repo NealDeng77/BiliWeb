@@ -24,6 +24,9 @@
                 <th>
                     Bilirubin Value
                 </th>
+                <th>
+                    Clinic
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -39,6 +42,15 @@
                     </td>
                     <td data-label="Billirubin Value">
                         @Html.DisplayFor(modelItem => item.BilirubinValue)
+                    </td>
+                    <td>
+                        @{
+                            var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(item.ClinicID);
+                            if (clinicName != "")
+                            {
+                                <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@item.ClinicID"> @clinicName </a></span>
+                            }
+                        }
                     </td>
                     <td>
                         <a asp-action="Read" asp-route-id="@item.ID">Read</a>
