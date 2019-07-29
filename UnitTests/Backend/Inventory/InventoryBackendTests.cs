@@ -178,7 +178,7 @@ namespace UnitTests.Backend
             myBackend.Delete(dataOriginal.ID);
 
             // Reset
-            BiliWeb.Backend.DataSourceBackend.Instance.Reset();
+            myBackend.Reset();
 
             // Assert
             Assert.AreEqual(dataOriginal.TestStripStock, myBackend.Index().FirstOrDefault().TestStripStock);

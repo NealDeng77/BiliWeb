@@ -60,7 +60,7 @@ namespace BiliWeb.Backend
             DataList.Add(new InventoryModel { ClinicID = clinics[0].ID,  TestStripStock = 30 }); // Default
             DataList.Add(new InventoryModel { ClinicID = clinics[1].ID,  TestStripStock = 20 }); 
             DataList.Add(new InventoryModel { ClinicID = clinics[2].ID,  TestStripStock = 15 }); 
-            DataList.Add(new InventoryModel { ClinicID = clinics[3].ID,  TestStripStock = 50 }); 
+            //DataList.Add(new InventoryModel { ClinicID = clinics[3].ID,  TestStripStock = 50 }); 
 
             return DataList;
         }
