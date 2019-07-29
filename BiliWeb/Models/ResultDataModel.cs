@@ -14,13 +14,10 @@ namespace BiliWeb.Models
         public string Name { get; set; }
 
         // 4 letter code that matches this result back to the Phone Result so that technicians don't have to enter the entire quid.
-        public string ResultCode { get; set; }
+        public string ResultCode { get; set; } = Backend.ResultDataHelper.GenerateResultCode();
 
         // Result of the Lab, to compare with the Photo Value
         public double LabResult { get; set; }
-
-        // Random Number Generator
-        private Random _random = new Random();
 
         /// <summary>
         /// Simple Constructor
@@ -28,7 +25,7 @@ namespace BiliWeb.Models
         /// <param name="data"></param>
         public ResultDataModel()
         {
-            GenerateResultCode();
+        //    GenerateResultCode();
         }
 
         /// <summary>
@@ -39,17 +36,6 @@ namespace BiliWeb.Models
         {
             // Because this is a copy, let it have a new ID
             Update(data);
-        }
-
-        /// <summary>
-        /// Create a didget random string, used as the code
-        /// Not important if it repeats, because the PhoneRecord will check to see if the Code matches the expected Guid
-        /// </summary>
-        /// <returns>000001 - 999999 as a string</returns>
-        public string GenerateResultCode()
-        {
-            ResultCode = _random.Next(0, 1000000).ToString("D6");
-            return ResultCode;
         }
 
         /// <summary>
@@ -73,11 +59,12 @@ namespace BiliWeb.Models
             // Don't update the Date, leave the old one in place
             // Date = data.Date;
 
-            // Update all the other fields
-            Name= data.Name;
+            // Don't update the Access Code Result Code
+            // ResultCode = data.ResultCode;
 
+            // Update all the other fields
+            Name = data.Name;
             LabResult = data.LabResult;
-            ResultCode = data.ResultCode;
 
             return true;
         }

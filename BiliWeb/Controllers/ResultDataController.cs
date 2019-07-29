@@ -257,14 +257,16 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
-            //Look up the ID
-            var dataExist = Backend.Read(data.ID);
-            if (dataExist == null)
+            //Use the Result Code to lookup a Record
+            var dataID = ResultDataHelper.ConvertResultCodeToID(data.ResultCode);
+            if (string.IsNullOrEmpty(dataID))
             {
                 return NotFound();
             }
 
-            if (!dataExist.ResultCode.Equals(data.ResultCode))
+            //Look up the ID
+            var dataExist = Backend.Read(dataID);
+            if (dataExist == null)
             {
                 return NotFound();
             }

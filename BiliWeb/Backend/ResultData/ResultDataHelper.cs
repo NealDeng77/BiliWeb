@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BiliWeb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -62,5 +63,28 @@ namespace BiliWeb.Backend
 
             return data.ID;
         }
+
+        //Function to get random number
+        private static readonly Random random = new Random();
+        private static readonly object syncLock = new object();
+        public static int RandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            { // synchronize
+                return random.Next(min, max);
+            }
+        }
+
+        /// <summary>
+        /// Create a didget random string, used as the code
+        /// Not important if it repeats, because the PhoneRecord will check to see if the Code matches the expected Guid
+        /// </summary>
+        /// <returns>000001 - 999999 as a string</returns>
+        public static string GenerateResultCode()
+        {
+            var data = RandomNumber(0, 1000000).ToString("D6");
+            return data;
+        }
+
     }
 }
