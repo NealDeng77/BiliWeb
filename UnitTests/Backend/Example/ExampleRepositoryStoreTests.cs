@@ -17,12 +17,15 @@ namespace UnitTests.Backend
         public void Example_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
 
             // Act
             var result = myBackend.Index();
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -37,14 +40,16 @@ namespace UnitTests.Backend
         public void Example_Create_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
             var myData = new ExampleModel();
 
             // Act
             var result = myBackend.Create(myData);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -57,14 +62,16 @@ namespace UnitTests.Backend
         public void Example_Create_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
             var myData = new ExampleModel();
 
             // Act
             var result = myBackend.Create(null);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNull(result);
@@ -79,12 +86,15 @@ namespace UnitTests.Backend
         public void Example_Read_Get_Data_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
 
             // Act
             var result = myBackend.Read(null);
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNull(result);
@@ -97,12 +107,15 @@ namespace UnitTests.Backend
         public void Example_Read_Get_Data_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
 
             // Act
             var result = myBackend.Read("bogus");
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNull(result);
@@ -117,7 +130,8 @@ namespace UnitTests.Backend
         public void Example_Update_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
@@ -129,7 +143,8 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myDataCopy);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("New3", result.Name);
@@ -143,13 +158,15 @@ namespace UnitTests.Backend
         public void Example_Update_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
 
             // Act
             var result = myBackend.Update(null);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual(null, result);
@@ -162,7 +179,8 @@ namespace UnitTests.Backend
         public void Example_Update_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
             var myDataCopy = new ExampleModel
             {
                 ID = "bogus"
@@ -172,7 +190,8 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myDataCopy);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual(null, result);
@@ -187,12 +206,15 @@ namespace UnitTests.Backend
         public void Example_Delete_InValid_Data_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
 
             // Act
             var result = myBackend.Delete(null);
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -205,12 +227,15 @@ namespace UnitTests.Backend
         public void Example_Delete_InValid_Data_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
 
             // Act
             var result = myBackend.Delete("bogus");
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -229,14 +254,16 @@ namespace UnitTests.Backend
         public void Example_Reset_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
             myBackend.Delete(dataOriginal.ID);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual(dataOriginal.Name, myBackend.Index().FirstOrDefault().Name);
@@ -247,52 +274,6 @@ namespace UnitTests.Backend
         // Add Later, after Table is working and Moq is enabled
         #endregion BackupDataTests
 
-        #region Set_DataSetTests
-        /// <summary>
-        /// Call for The Demo Data Set
-        /// Then reset to the Default
-        /// Return True, because no different currently
-        /// If different sets are implemented, then verify the sets
-        /// </summary>
-        [TestMethod]
-        public void Example_DataSetDemo_Data_Valid_Should_Pass()
-        {
-            // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
-
-            // Act
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Demo);
-
-            // Reset
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
-
-            // Assert
-            Assert.IsTrue(true);
-        }
-
-        /// <summary>
-        /// Call for The Demo Data Unit Test Set
-        /// Then reset to the Default
-        /// Return True, because no different currently
-        /// If different sets are implemented, then verify the sets
-        /// </summary>
-        [TestMethod]
-        public void Example_DataSetUnitTest_Data_Valid_Should_Pass()
-        {
-            // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
-
-            // Act
-            myBackend.LoadDataSet(DataSourceDataSetEnum.UnitTest);
-
-            // Reset
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
-
-            // Assert
-            Assert.IsTrue(true);
-        }
-        #endregion Set_DataSetTests
-
         #region GetDataSourceStringTests
         /// <summary>
         /// String should Match the Store or Store
@@ -301,13 +282,15 @@ namespace UnitTests.Backend
         public void Example_GetDataSourceString_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = ExampleRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.ExampleBackend;
 
             // Act
             var result = myBackend.GetDataSourceString();
 
             // Reset
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("Store", result);
