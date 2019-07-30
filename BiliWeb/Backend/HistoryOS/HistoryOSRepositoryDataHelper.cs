@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using BiliWeb.Models;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
@@ -56,14 +56,16 @@ namespace BiliWeb.Backend
             PhoneBackend PhoneData = PhoneBackend.Instance;
             List<PhoneModel> phones = PhoneData.Index();
 
+            var myPhoneId = phones.Where(m => m.SerialNumber == "1234abcd").FirstOrDefault().ID;
+
             // get list of OS versions
             VersionOSBackend VersionOSData = VersionOSBackend.Instance;
             List<VersionOSModel> OSversions = VersionOSData.Index(); 
 
-            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[0].ID }); // Default
-            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[1].ID }); 
-            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[2].ID }); 
-            DataList.Add(new HistoryOSModel { PhoneID = phones[0].ID, VersionOSID = OSversions[3].ID }); 
+            DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[0].ID }); // Default
+            DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[1].ID }); 
+            DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[2].ID }); 
+            DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[3].ID }); 
 
             return DataList;
         }
