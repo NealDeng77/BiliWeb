@@ -17,12 +17,15 @@ namespace UnitTests.Backend
         public void Phone_Index_Get_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
 
             // Act
             var result = myBackend.Index();
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -37,14 +40,16 @@ namespace UnitTests.Backend
         public void Phone_Create_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
             var myData = new PhoneModel();
 
             // Act
             var result = myBackend.Create(myData);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -57,14 +62,16 @@ namespace UnitTests.Backend
         public void Phone_Create_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
             var myData = new PhoneModel();
 
             // Act
             var result = myBackend.Create(null);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNull(result);
@@ -79,12 +86,15 @@ namespace UnitTests.Backend
         public void Phone_Read_Get_Data_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
 
             // Act
             var result = myBackend.Read(null);
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNull(result);
@@ -97,12 +107,15 @@ namespace UnitTests.Backend
         public void Phone_Read_Get_Data_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
 
             // Act
             var result = myBackend.Read("bogus");
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNull(result);
@@ -117,7 +130,8 @@ namespace UnitTests.Backend
         public void Phone_Update_Default_Should_Pass()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
             var myData = myBackend.Index().FirstOrDefault();
 
             // Make a Copy of the Data and update an aspect of it
@@ -129,7 +143,8 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myDataCopy);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("New3", result.DeviceModel);
@@ -143,13 +158,15 @@ namespace UnitTests.Backend
         public void Phone_Update_InValid_Null_Should_Fail()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
 
             // Act
             var result = myBackend.Update(null);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual(null, result);
@@ -162,7 +179,8 @@ namespace UnitTests.Backend
         public void Phone_Update_InValid_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
             var myDataCopy = new PhoneModel
             {
                 ID = "bogus"
@@ -172,7 +190,8 @@ namespace UnitTests.Backend
             var result = myBackend.Update(myDataCopy);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual(null, result);
@@ -193,6 +212,8 @@ namespace UnitTests.Backend
             var result = myBackend.Delete(null);
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -205,12 +226,15 @@ namespace UnitTests.Backend
         public void Phone_Delete_InValid_Data_Bogus_Should_Fail()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
 
             // Act
             var result = myBackend.Delete("bogus");
 
             // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.IsNotNull(result);
@@ -229,14 +253,16 @@ namespace UnitTests.Backend
         public void Phone_Reset_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
             var dataOriginal = myBackend.Index().FirstOrDefault();
 
             // Act
             myBackend.Delete(dataOriginal.ID);
 
             // Reset
-            myBackend.Reset();
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual(dataOriginal.DeviceModel, myBackend.Index().FirstOrDefault().DeviceModel);
@@ -247,52 +273,6 @@ namespace UnitTests.Backend
         // Add Later, after Table is working and Moq is enabled
         #endregion BackupDataTests
 
-        #region Set_DataSetTests
-        /// <summary>
-        /// Call for The Demo Data Set
-        /// Then reset to the Default
-        /// Return True, because no different currently
-        /// If different sets are implemented, then verify the sets
-        /// </summary>
-        [TestMethod]
-        public void Phone_DataSetDemo_Data_Valid_Should_Pass()
-        {
-            // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
-
-            // Act
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Demo);
-
-            // Reset
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
-
-            // Assert
-            Assert.IsTrue(true);
-        }
-
-        /// <summary>
-        /// Call for The Demo Data Unit Test Set
-        /// Then reset to the Default
-        /// Return True, because no different currently
-        /// If different sets are implemented, then verify the sets
-        /// </summary>
-        [TestMethod]
-        public void Phone_DataSetUnitTest_Data_Valid_Should_Pass()
-        {
-            // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
-
-            // Act
-            myBackend.LoadDataSet(DataSourceDataSetEnum.UnitTest);
-
-            // Reset
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
-
-            // Assert
-            Assert.IsTrue(true);
-        }
-        #endregion Set_DataSetTests
-
         #region GetDataSourceStringTests
         /// <summary>
         /// String should Match the Store or Store
@@ -301,13 +281,15 @@ namespace UnitTests.Backend
         public void Phone_GetDataSourceString_Data_Valid_Should_Pass()
         {
             // Arrange
-            var myBackend = PhoneRepositoryStore.Instance;
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = DataSourceBackend.Instance.PhoneBackend;
 
             // Act
             var result = myBackend.GetDataSourceString();
 
             // Reset
-            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
 
             // Assert
             Assert.AreEqual("Store", result);
