@@ -296,5 +296,77 @@ namespace UnitTests.Backend
             Assert.AreEqual("Store", result);
         }
         #endregion GetDataSourceStringTests
+
+
+        #region Set_DataSetTests
+        /// <summary>
+        /// Call for The Default Data Data Set
+        /// Returns True, so not validation
+        /// </summary>
+        [TestMethod]
+        public void VersionApp_LoadDataSet_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = VersionAppRepositoryStore.Instance;
+
+            // Act
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+
+            // Reset
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        /// <summary>
+        /// Call for The UnitTest Data Data Set
+        /// Returns True, so not validation
+        /// </summary>
+        [TestMethod]
+        public void VersionApp_LoadDataSet_Valid_UnitTest_Should_Pass()
+        {
+            // Arrange
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = VersionAppRepositoryStore.Instance;
+
+            // Act
+            myBackend.LoadDataSet(DataSourceDataSetEnum.UnitTest);
+
+            // Reset
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        /// <summary>
+        /// Call for The Demo Data Data Set
+        /// Returns True, so not validation
+        /// </summary>
+        [TestMethod]
+        public void VersionApp_LoadDataSet_Valid_Demo_Should_Pass()
+        {
+            // Arrange
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Local);
+            var myBackend = VersionAppRepositoryStore.Instance;
+
+            // Act
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Demo);
+
+            // Reset
+            myBackend.LoadDataSet(DataSourceDataSetEnum.Default);
+            DataSourceBackend.Instance.Reset();
+            DataSourceBackend.Instance.SetDataSource(DataSourceEnum.Mock);
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+        #endregion Set_DataSetTests
+
     }
 }
