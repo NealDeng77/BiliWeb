@@ -89,6 +89,29 @@ namespace BiliWeb.Backend
             // Add YourName Above Here #4
         }
 
+        /// <summary>
+        /// Changes the data source, does not call for a reset, that allows for how swapping but keeping the original data in place
+        /// </summary>
+        public void SetDataSource(DataSourceEnum dataSourceEnum)
+        {
+            // Set the Global DataSourceEnum Value
+            SystemGlobalsModel.SetDataSourceEnum(dataSourceEnum);
+
+            ExampleBackend.SetDataSource(dataSourceEnum);
+            PhotoBackend.SetDataSource(dataSourceEnum);
+            ClinicBackend.SetDataSource(dataSourceEnum);
+            ResultLogBackend.SetDataSource(dataSourceEnum);
+            ResultDataBackend.SetDataSource(dataSourceEnum);
+            PhoneBackend.SetDataSource(dataSourceEnum);
+            TechnicianBackend.SetDataSource(dataSourceEnum);
+            InventoryBackend.SetDataSource(dataSourceEnum);
+            VersionOSBackend.SetDataSource(dataSourceEnum);
+            VersionAppBackend.SetDataSource(dataSourceEnum);
+            HistoryOSBackend.SetDataSource(dataSourceEnum);
+            HistoryAppBackend.SetDataSource(dataSourceEnum);
+            // Add YourName Above Here #5
+        }
+
         #region hide
 
         /// <summary>
@@ -116,15 +139,6 @@ namespace BiliWeb.Backend
 
                 return instance;
             }
-        }
-
-        /// <summary>
-        /// Changes the data source, does not call for a reset, that allows for how swapping but keeping the original data in place
-        /// </summary>
-        public void SetDataSource(DataSourceEnum dataSourceEnum)
-        {
-            // Set the Global DataSourceEnum Value
-            SystemGlobalsModel.SetDataSourceEnum(dataSourceEnum);
         }
 
         public static bool GetTestingMode()
