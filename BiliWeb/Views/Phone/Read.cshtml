@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
@@ -84,7 +84,10 @@
                                     Current App Version
                                 </div>
                                 <div class="col">
-                                    4.0
+                                    @{
+                                        var appVersionID = BiliWeb.Backend.VersionAppBackend.Instance.Index().Last().ID;
+                                        <span class="highlight-text"><a asp-controller="VersionApp" asp-action="Read" asp-route-id="@appVersionID">4.0</a></span>
+                                    }
                                 </div>
                             </div>
                         </div>
