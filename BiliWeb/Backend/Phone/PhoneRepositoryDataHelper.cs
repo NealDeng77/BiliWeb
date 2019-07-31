@@ -56,10 +56,10 @@ namespace BiliWeb.Backend
             ClinicBackend ClinicData = ClinicBackend.Instance;
             List<ClinicModel> clinics = ClinicData.Index();
 
-            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 7", SerialNumber = "1234abcd",ID = "f85345ba-e35c-43c2-8a44-635839d8ecb9"}); // Default, force a guid
-            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 8", SerialNumber = "5678qwer" }); 
-            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "DROID RAZR M", SerialNumber = "7890tyui" }); 
-            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 7", SerialNumber = "1170nfle" }); 
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 7", SerialNumber = "1234abcd", ID = "f85345ba-e35c-43c2-8a44-635839d8ecb9"}); // Default, force a guid
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 8", SerialNumber = "Q24D38HTDEX" }); 
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "DROID RAZR M", SerialNumber = "W97A68JGKTS" }); 
+            DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung J7 V", SerialNumber = "H66B49KILQT" }); 
 
             return DataList;
         }
