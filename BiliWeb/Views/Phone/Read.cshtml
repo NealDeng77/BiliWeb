@@ -85,8 +85,17 @@
                                 </div>
                                 <div class="col">
                                     @{
-                                        var appVersionID = BiliWeb.Backend.VersionAppBackend.Instance.Index().Last().ID;
-                                        <span class="highlight-text"><a asp-controller="VersionApp" asp-action="Read" asp-route-id="@appVersionID">4.0</a></span>
+                                        // check if any VersionApp records exist before linking to 
+                                        // a VersionApp record's read page
+                                        if (BiliWeb.Backend.VersionAppBackend.Instance.Index().Count() != 0)
+                                        {
+                                            var appVersionID = BiliWeb.Backend.VersionAppBackend.Instance.Index().Last().ID;
+                                            <span class="highlight-text"><a asp-controller="VersionApp" asp-action="Read" asp-route-id="@appVersionID">4.0</a></span>
+                                        }
+                                        else
+                                        {
+                                            <span>Unknown</span>
+                                        }
                                     }
                                 </div>
                             </div>
@@ -98,10 +107,19 @@
                                     Current Operating System
                                 </div>
                                 <div class="col">
-                                    
-                                    @{ 
-                                        var OSVersionID = BiliWeb.Backend.VersionOSBackend.Instance.Index().Last().ID;
-                                        <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@OSVersionID">Android 4.4.4 "KitKat"</a></span>
+
+                                    @{
+                                        // Check if any VersionOS records exist before linking to 
+                                        // a VersionOS record's read page
+                                        if (BiliWeb.Backend.VersionOSBackend.Instance.Index().Count != 0)
+                                        {
+                                            var OSVersionID = BiliWeb.Backend.VersionOSBackend.Instance.Index().Last().ID;
+                                            <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@OSVersionID">Android 4.4.4 "KitKat"</a></span>
+                                        }
+                                        else
+                                        {
+                                            <span>Unknown</span>
+                                        }
                                     }
                                 </div>
                             </div>
