@@ -98,7 +98,11 @@
                                     Current Operating System
                                 </div>
                                 <div class="col">
-                                    Android 4.4.4 "KitKat"
+                                    
+                                    @{ 
+                                        var OSVersionID = BiliWeb.Backend.VersionOSBackend.Instance.Index().Last().ID;
+                                        <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@OSVersionID">Android 4.4.4 "KitKat"</a></span>
+                                    }
                                 </div>
                             </div>
                         </div>
