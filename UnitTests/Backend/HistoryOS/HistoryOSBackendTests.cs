@@ -175,8 +175,8 @@ namespace UnitTests.Backend
             myBackend.Delete(dataOriginal.ID);
 
             // Reset
-            myBackend.Reset(); 
-
+            myBackend.Reset();
+            
             // Assert
             Assert.AreEqual(dataOriginal.PhoneID, myBackend.Index().FirstOrDefault().PhoneID);
         }

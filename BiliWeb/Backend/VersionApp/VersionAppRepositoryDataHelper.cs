@@ -52,10 +52,11 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new VersionAppModel { VersionAppName = "1.0" , ReleaseNotes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " }); // Default
-            DataList.Add(new VersionAppModel { VersionAppName = "1.1", ReleaseNotes = "eiusmod tempor incididunt ut labore et dolore magna aliqua. " }); 
-            DataList.Add(new VersionAppModel { VersionAppName = "1.2", ReleaseNotes = "Ut enim ad minim veniam, quis nostrud exercitation ullamco " }); 
-            DataList.Add(new VersionAppModel { VersionAppName = "1.3", ReleaseNotes = "laboris nisi ut aliquip ex ea commodo consequat. Duis aute " }); 
+            DataList.Add(new VersionAppModel { VersionAppName = "3.0", ReleaseNotes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do " }); // Default
+            DataList.Add(new VersionAppModel { VersionAppName = "3.1", ReleaseNotes = "laboris nisi ut aliquip ex ea commodo consequat. Duis aute " });
+            DataList.Add(new VersionAppModel { VersionAppName = "3.2", ReleaseNotes = "eiusmod tempor incididunt ut labore et dolore magna aliqua. " }); 
+            DataList.Add(new VersionAppModel { VersionAppName = "3.3", ReleaseNotes = "Ut enim ad minim veniam, quis nostrud exercitation ullamco " }); 
+            DataList.Add(new VersionAppModel { VersionAppName = "4.0", ReleaseNotes = "laboris nisi ut aliquip ex ea commodo consequat. Duis aute " }); 
 
             return DataList;
         }
