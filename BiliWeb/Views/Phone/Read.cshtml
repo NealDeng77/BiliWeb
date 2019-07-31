@@ -12,65 +12,100 @@
         <br />
         <hr />
         <div class="row">
+            
             <div class="col">
                 <br />
+                <div class="row">
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-2 text-right attr-name">
-                            @Html.DisplayNameFor(model => model.ID)
+                    <!-- Example photo - DELETE when no longer needed -->
+                    <div class="col-2">
+                        <img src="~/images/samsungS7_Example.jpg" height="300" width="194"/>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.ID)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.ID)
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            @Html.DisplayFor(model => model.ID)
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.ClinicID)
+                                </div>
+                                <div class="col">
+                                    @{
+                                        var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(Model.ClinicID);
+                                        if (clinicName != "")
+                                        {
+                                            <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@Model.ClinicID"> @clinicName </a></span>
+                                        }
+                                    }
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.DeviceModel)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.DeviceModel)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.SerialNumber)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.SerialNumber)
+                                </div>
+                            </div>
+                        </div>
+
+                        @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
+
+                        @*TODO - replace following two form groups with derived data for these attributes*@
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    Current App Version
+                                </div>
+                                <div class="col">
+                                    4.0
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    Current Operating System
+                                </div>
+                                <div class="col">
+                                    Android 4.4.4 "KitKat"
+                                </div>
+                            </div>
+                        </div>
+                        @*TODO - replace above two form groups with derived data for these attributes*@
                     </div>
                 </div>
+                
+                
+               
 
-
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-2 text-right attr-name">
-                            @Html.DisplayNameFor(model => model.ClinicID)
-                        </div>
-                        <div class="col">
-                            @{
-                                var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(Model.ClinicID);
-                                if (clinicName != "")
-                                {
-                                    <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@Model.ClinicID"> @clinicName </a></span>
-                                }
-                            }
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-2 text-right attr-name">
-                            @Html.DisplayNameFor(model => model.DeviceModel)
-                        </div>
-                        <div class="col">
-                            @Html.DisplayFor(model => model.DeviceModel)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-2 text-right attr-name">
-                            @Html.DisplayNameFor(model => model.SerialNumber)
-                        </div>
-                        <div class="col">
-                            @Html.DisplayFor(model => model.SerialNumber)
-                        </div>
-                    </div>
-                </div>
-
-
-
-                @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
-                      
                 <!--Example photo of gantt chart - DELETE when no longer needed for demo -->
                 <div class="row">
                     <div class="col col-12">
