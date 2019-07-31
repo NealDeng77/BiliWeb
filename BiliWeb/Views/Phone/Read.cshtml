@@ -110,8 +110,16 @@
                     </div>
                 </div>
                 
-                
-               
+                <br />
+               <div class="row">
+                   <div class="col text-left attr-name">
+                       @{
+                           var phoneName = BiliWeb.Backend.PhoneHelper.ConvertIDtoString(@Model.ID);
+                           @phoneName
+                       }
+                       History - App Version and Operating System for
+                   </div>
+               </div>
 
                 <!--Example photo of gantt chart - DELETE when no longer needed for demo -->
                 <div class="row">
