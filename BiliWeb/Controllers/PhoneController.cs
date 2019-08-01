@@ -70,6 +70,7 @@ namespace BiliWeb.Controllers
             "ClinicID,"+
             "DeviceModel," +
             "SerialNumber," +
+            "TimeOut," +
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] PhoneModel data)
@@ -123,6 +124,7 @@ namespace BiliWeb.Controllers
             "ClinicID,"+
             "DeviceModel,"+
             "SerialNumber,"+
+            "TimeOut,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] PhoneModel data)

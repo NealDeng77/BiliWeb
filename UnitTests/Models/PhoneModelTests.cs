@@ -33,6 +33,7 @@ namespace UnitTests.Models
                 ClinicID = "Clinic",
                 DeviceModel = "Device",
                 SerialNumber = "Serial",
+                TimeOut = 1
  
             };
 
@@ -43,7 +44,8 @@ namespace UnitTests.Models
             Assert.AreEqual("Clinic", myNewData.ClinicID);
             Assert.AreEqual("Device", myNewData.DeviceModel);
             Assert.AreEqual("Serial", myNewData.SerialNumber);
-        
+            Assert.AreEqual(1, myNewData.TimeOut);
+
         }
 
         /// <summary>
@@ -75,8 +77,7 @@ namespace UnitTests.Models
                 ClinicID = "Clinic",
                 DeviceModel = "Device",
                 SerialNumber = "Serial",
-
-                // TODO:  Add your atttrbutes here
+                TimeOut = 1,
 
                 ID = myData.ID
             };
@@ -89,9 +90,9 @@ namespace UnitTests.Models
             Assert.AreEqual("Clinic", myData.ClinicID);
             Assert.AreEqual("Device", myData.DeviceModel);
             Assert.AreEqual("Serial", myData.SerialNumber);
-            // TODO:  Add an Assert for each attribute that should change
+            Assert.AreEqual(1, myData.TimeOut);
 
-            
+
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
             // TODO:  Add an Assert for each attribute that thould Not change
 
@@ -112,6 +113,7 @@ namespace UnitTests.Models
             Assert.IsNull(myData.ClinicID);
             Assert.IsNull(myData.DeviceModel);
             Assert.IsNull(myData.SerialNumber);
+            Assert.AreEqual(10000,myData.TimeOut);
 
             // TODO:  Add an Assert for each attribute
 
@@ -130,12 +132,14 @@ namespace UnitTests.Models
             myData.ClinicID = "Clinic";
             myData.DeviceModel = "Device";
             myData.SerialNumber = "Serial";
+            myData.TimeOut = 1;
             // TODO:  Add each attribute here
 
             // Assert
             Assert.AreEqual("Clinic", myData.ClinicID);
             Assert.AreEqual("Device", myData.DeviceModel);
             Assert.AreEqual("Serial", myData.SerialNumber);
+            Assert.AreEqual(1, myData.TimeOut);
 
             // TODO:  Add an Assert for each attribute
         }

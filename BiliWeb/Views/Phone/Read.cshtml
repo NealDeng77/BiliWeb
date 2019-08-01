@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
@@ -71,6 +71,18 @@
                                 </div>
                                 <div class="col">
                                     @Html.DisplayFor(model => model.SerialNumber)
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.TimeOut)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.TimeOut)
                                 </div>
                             </div>
                         </div>
@@ -98,8 +110,8 @@
                                     Current Operating System
                                 </div>
                                 <div class="col">
-                                    
-                                    @{ 
+
+                                    @{
                                         var OSVersionID = BiliWeb.Backend.VersionOSBackend.Instance.Index().Last().ID;
                                         <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@OSVersionID">Android 4.4.4 "KitKat"</a></span>
                                     }

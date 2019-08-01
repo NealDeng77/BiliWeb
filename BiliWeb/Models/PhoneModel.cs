@@ -24,6 +24,10 @@ namespace BiliWeb.Models
         [Display(Name = "Serial Number")]
         public string SerialNumber { get; set; }
 
+        // The timeout in Miliseconds for this phone
+        [Display(Name = "Timeout ms")]
+        public int TimeOut { get; set; } = 10000;
+
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -66,7 +70,8 @@ namespace BiliWeb.Models
             // Update all the other fields
             ClinicID = data.ClinicID;
             DeviceModel = data.DeviceModel;
-            SerialNumber = data.SerialNumber; 
+            SerialNumber = data.SerialNumber;
+            TimeOut = data.TimeOut;
 
             return true;
         }
