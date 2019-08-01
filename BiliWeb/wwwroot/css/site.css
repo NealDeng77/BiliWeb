@@ -176,6 +176,10 @@ th {
     right: 0px;
 }
 
+.dropdown-menu .nav-link:hover {
+    background-color: var(--highlight-color);
+}
+
 /* CRUDI pages */
 .crudi-page {
     margin: 2em;
