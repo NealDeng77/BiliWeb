@@ -67,19 +67,19 @@ namespace BiliWeb.Backend
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[3].ID });
 
             // phone 1
-            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[0].ID }); 
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[1].ID });
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[2].ID });
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[3].ID });
 
             // phone 2
-            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[0].ID }); 
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[1].ID });
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[2].ID });
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[3].ID });
 
             // phone 3
-            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[0].ID }); 
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[1].ID });
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[2].ID });
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[3].ID });
