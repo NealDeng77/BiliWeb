@@ -102,6 +102,9 @@ namespace BiliWeb.Controllers
                 return NotFound();
             }
 
+            ViewData["PhoneIDList"] = BiliWeb.Backend.PhoneHelper.ToSelectListItems(BiliWeb.Backend.PhoneBackend.Instance.Index(), null);
+            ViewData["VersionAppIDList"] = BiliWeb.Backend.VersionAppHelper.ToSelectListItems(BiliWeb.Backend.VersionAppBackend.Instance.Index(), null);
+
             return View(data);
         }
 
