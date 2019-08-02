@@ -32,6 +32,8 @@ namespace BiliWeb.Models
         // Email of the clinic
         public string Email { get; set; }
 
+        public string WhatsApp { get; set; }
+
         // Notes of the clinic
         public string Notes { get; set; }
 
@@ -82,6 +84,7 @@ namespace BiliWeb.Models
             Contact = data.Contact;
             Phone = data.Phone;
             Email = data.Email;
+            WhatsApp = data.WhatsApp;
             Notes = data.Notes;
 
             return true;
