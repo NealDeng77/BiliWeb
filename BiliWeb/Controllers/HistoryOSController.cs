@@ -52,6 +52,8 @@ namespace BiliWeb.Controllers
         public IActionResult Create()
         {
             var data = new HistoryOSModel();
+            ViewData["PhoneIDList"] = BiliWeb.Backend.PhoneHelper.ToSelectListItems(BiliWeb.Backend.PhoneBackend.Instance.Index(), null);
+            ViewData["VersionOSIDList"] = BiliWeb.Backend.VersionOSHelper.ToSelectListItems(BiliWeb.Backend.VersionOSBackend.Instance.Index(), null);
             return View(data);
         }
 

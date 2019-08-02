@@ -27,7 +27,7 @@
                                 <label asp-for="PhoneID" class="control-label"></label>
                             </div>
                             <div class="col">
-                                <input asp-for="PhoneID" class="form-control" />
+                                @Html.DropDownListFor(m => m.PhoneID, ViewData["PhoneIDList"] as IEnumerable<SelectListItem>, "Select Phone")
                                 <span asp-validation-for="PhoneID" class="text-danger"></span>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                                 <label asp-for="VersionOSID" class="control-label"></label>
                             </div>
                             <div class="col">
-                                <input asp-for="VersionOSID" class="form-control" />
+                                @Html.DropDownListFor(m => m.VersionOSID, ViewData["VersionOSIDList"] as IEnumerable<SelectListItem>, "Select OS Version")
                                 <span asp-validation-for="VersionOSID" class="text-danger"></span>
                             </div>
                         </div>
