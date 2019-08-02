@@ -24,6 +24,18 @@ namespace BiliWeb.Models
         [Display(Name = "Serial Number")]
         public string SerialNumber { get; set; }
 
+        // The model number of this phone
+        public string ModelNumber { get; set; }
+
+        // The last time this phone was heard from 
+        public DateTime LastUsed { get; set; } = DateTime.Now;
+
+        // The description of this phone 
+        public string Description { get; set; } 
+
+        // the current status of this phone 
+        public PhoneStatusEnum Status { get; set; } = PhoneStatusEnum.Active; // set default status to active
+
         // The timeout in Miliseconds for this phone
         [Display(Name = "Timeout ms")]
         public int TimeOut { get; set; } = 10000;
