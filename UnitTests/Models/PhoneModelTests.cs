@@ -34,7 +34,9 @@ namespace UnitTests.Models
                 DeviceModel = "Device",
                 SerialNumber = "Serial",
                 TimeOut = 1,
-                ReadingCaptureCount = 1
+                ReadingCaptureCount = 1,
+                TransmitSuccessImage = true,
+                TransmitFailImage = true
             };
 
             // Act
@@ -46,6 +48,8 @@ namespace UnitTests.Models
             Assert.AreEqual("Serial", myNewData.SerialNumber);
             Assert.AreEqual(1, myNewData.TimeOut);
             Assert.AreEqual(1, myNewData.ReadingCaptureCount);
+            Assert.AreEqual(true, myNewData.TransmitSuccessImage);
+            Assert.AreEqual(true, myNewData.TransmitFailImage);
         }
 
         /// <summary>
@@ -79,6 +83,8 @@ namespace UnitTests.Models
                 SerialNumber = "Serial",
                 TimeOut = 1,
                 ReadingCaptureCount = 1,
+                TransmitFailImage = true,
+                TransmitSuccessImage = true,
 
                 ID = myData.ID
             };
@@ -93,7 +99,9 @@ namespace UnitTests.Models
             Assert.AreEqual("Serial", myData.SerialNumber);
             Assert.AreEqual(1, myData.TimeOut);
             Assert.AreEqual(1, myData.ReadingCaptureCount);
-            
+            Assert.AreEqual(true, myData.TransmitSuccessImage);
+            Assert.AreEqual(true, myData.TransmitFailImage);
+
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
             // TODO:  Add an Assert for each attribute that thould Not change
         }
@@ -115,6 +123,8 @@ namespace UnitTests.Models
             Assert.IsNull(myData.SerialNumber);
             Assert.AreEqual(10000,myData.TimeOut);
             Assert.AreEqual(1, myData.ReadingCaptureCount);
+            Assert.AreEqual(false, myData.TransmitSuccessImage);
+            Assert.AreEqual(false, myData.TransmitFailImage);
 
             // TODO:  Add an Assert for each attribute
 
@@ -135,6 +145,8 @@ namespace UnitTests.Models
             myData.SerialNumber = "Serial";
             myData.TimeOut = 1;
             myData.ReadingCaptureCount = 1;
+            myData.TransmitSuccessImage = true;
+            myData.TransmitFailImage = true;
             // TODO:  Add each attribute here
 
             // Assert
@@ -143,6 +155,8 @@ namespace UnitTests.Models
             Assert.AreEqual("Serial", myData.SerialNumber);
             Assert.AreEqual(1, myData.TimeOut);
             Assert.AreEqual(1, myData.ReadingCaptureCount);
+            Assert.AreEqual(true, myData.TransmitSuccessImage);
+            Assert.AreEqual(true, myData.TransmitFailImage);
 
             // TODO:  Add an Assert for each attribute
         }
