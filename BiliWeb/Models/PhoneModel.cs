@@ -32,6 +32,15 @@ namespace BiliWeb.Models
         [Display(Name = "Number of Readings")]
         public int ReadingCaptureCount { get; set; } = 1;
 
+        // Flag to Transmit Success Image to server or not
+        [Display(Name = "Upload Success Image")]
+        public bool TransmitSuccessImage { get; set; } = false;
+
+        // Flag to Transmit Fail Image to server or not
+        [Display(Name = "Upload Fail Image")]
+        public bool TransmitFailImage { get; set; } = false;
+
+
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -77,6 +86,8 @@ namespace BiliWeb.Models
             SerialNumber = data.SerialNumber;
             TimeOut = data.TimeOut;
             ReadingCaptureCount = data.ReadingCaptureCount;
+            TransmitSuccessImage = data.TransmitSuccessImage;
+            TransmitFailImage = data.TransmitFailImage;
 
             return true;
         }

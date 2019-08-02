@@ -34,7 +34,15 @@ namespace BiliWeb.Models
         // The guid to the photo set for this record, created here and passed back to the phone, and thus used for storing the photos
         [Display(Name = "Photo ID")]
         public string PhotoID { get; set; } = System.Guid.NewGuid().ToString("D");
-        
+
+        // Some readings are duplicates of a parent reading.  This is to help with calibration.  This field tracks if there is a Parent or not for this reading
+        [Display(Name = "Parent Reading")]
+        public string ParentReadingID { get; set; } = null;
+
+        // Reading Sequence tracks which sequence of image is this one, default is 1, but if there are more than 1 image, say 3, then it would be 1, 2, 3
+        [Display(Name = "Reading Sequence")]
+        public int ReadingSequence { get; set; } = 1;
+
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -80,6 +88,8 @@ namespace BiliWeb.Models
             PhoneID = data.PhoneID;
             UserID = data.UserID;
             PhotoID = data.PhotoID;
+            ParentReadingID = data.ParentReadingID;
+            ReadingSequence = data.ReadingSequence;
 
             return true;
         }

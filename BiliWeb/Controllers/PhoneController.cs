@@ -72,6 +72,9 @@ namespace BiliWeb.Controllers
             "SerialNumber," +
             "TimeOut," +
             "ReadingCaptureCount," +
+            "TransmitSuccessImage,"+
+            "TransmitFailImage,"+
+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] PhoneModel data)
@@ -127,6 +130,9 @@ namespace BiliWeb.Controllers
             "SerialNumber,"+
             "TimeOut,"+
             "ReadingCaptureCount," +
+            "TransmitSuccessImage,"+
+            "TransmitFailImage,"+
+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] PhoneModel data)
