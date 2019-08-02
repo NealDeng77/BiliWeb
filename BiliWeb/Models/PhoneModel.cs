@@ -28,13 +28,13 @@ namespace BiliWeb.Models
         public string ModelNumber { get; set; }
 
         // The last time this phone was heard from 
-        public DateTime LastUsed { get; set; } = DateTime.Now;
+        public DateTime LastUsed { get; set; } 
 
         // The description of this phone 
-        public string Description { get; set; } 
+        public string Description { get; set; }
 
         // the current status of this phone 
-        public PhoneStatusEnum Status { get; set; } = PhoneStatusEnum.Active; // set default status to active
+        public PhoneStatusEnum Status { get; set; } = PhoneStatusEnum.Active;
 
         // The timeout in Miliseconds for this phone
         [Display(Name = "Timeout ms")]
@@ -96,6 +96,10 @@ namespace BiliWeb.Models
             ClinicID = data.ClinicID;
             DeviceModel = data.DeviceModel;
             SerialNumber = data.SerialNumber;
+            Description = data.Description;
+            ModelNumber = data.ModelNumber;
+            LastUsed = data.LastUsed;
+            Status = data.Status;
             TimeOut = data.TimeOut;
             ReadingCaptureCount = data.ReadingCaptureCount;
             TransmitSuccessImage = data.TransmitSuccessImage;

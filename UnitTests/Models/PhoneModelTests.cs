@@ -36,7 +36,11 @@ namespace UnitTests.Models
                 TimeOut = 1,
                 ReadingCaptureCount = 1,
                 TransmitSuccessImage = true,
-                TransmitFailImage = true
+                TransmitFailImage = true,
+                Description = "Joe's Samsung 8",
+                ModelNumber = "abcdefg",
+                LastUsed = new System.DateTime(1995, 01, 01, 1, 1, 1),
+                Status = PhoneStatusEnum.Inactive
             };
 
             // Act
@@ -50,6 +54,10 @@ namespace UnitTests.Models
             Assert.AreEqual(1, myNewData.ReadingCaptureCount);
             Assert.AreEqual(true, myNewData.TransmitSuccessImage);
             Assert.AreEqual(true, myNewData.TransmitFailImage);
+            Assert.AreEqual("Joe's Samsung 8", myNewData.Description);
+            Assert.AreEqual("abcdefg", myNewData.ModelNumber);
+            Assert.AreEqual(new System.DateTime(1995, 01, 01, 1, 1, 1), myNewData.LastUsed);
+            Assert.AreEqual(PhoneStatusEnum.Inactive, myNewData.Status);
         }
 
         /// <summary>
@@ -85,7 +93,10 @@ namespace UnitTests.Models
                 ReadingCaptureCount = 1,
                 TransmitFailImage = true,
                 TransmitSuccessImage = true,
-
+                Description = "Joe's Samsung 8",
+                ModelNumber = "abcdefg",
+                LastUsed = new System.DateTime(1995, 01, 01, 1, 1, 1),
+                Status = PhoneStatusEnum.Inactive,
                 ID = myData.ID
             };
 
@@ -101,7 +112,10 @@ namespace UnitTests.Models
             Assert.AreEqual(1, myData.ReadingCaptureCount);
             Assert.AreEqual(true, myData.TransmitSuccessImage);
             Assert.AreEqual(true, myData.TransmitFailImage);
-
+            Assert.AreEqual("Joe's Samsung 8", myData.Description);
+            Assert.AreEqual("abcdefg", myData.ModelNumber);
+            Assert.AreEqual(new System.DateTime(1995, 01, 01, 1, 1, 1), myData.LastUsed);
+            Assert.AreEqual(PhoneStatusEnum.Inactive, myData.Status);
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
             // TODO:  Add an Assert for each attribute that thould Not change
         }
@@ -125,7 +139,10 @@ namespace UnitTests.Models
             Assert.AreEqual(1, myData.ReadingCaptureCount);
             Assert.AreEqual(false, myData.TransmitSuccessImage);
             Assert.AreEqual(false, myData.TransmitFailImage);
-
+            Assert.IsNull(myData.Description);
+            Assert.IsNull(myData.ModelNumber);
+            Assert.AreEqual(new System.DateTime(), myData.LastUsed);
+            Assert.AreEqual(PhoneStatusEnum.Active, myData.Status);
             // TODO:  Add an Assert for each attribute
 
         }
@@ -147,6 +164,10 @@ namespace UnitTests.Models
             myData.ReadingCaptureCount = 1;
             myData.TransmitSuccessImage = true;
             myData.TransmitFailImage = true;
+            myData.Description = "Joe's Samsung 8";
+            myData.ModelNumber = "abcdefg";
+            myData.LastUsed = new System.DateTime(1995, 01, 01, 1, 1, 1);
+            myData.Status = PhoneStatusEnum.Inactive;
             // TODO:  Add each attribute here
 
             // Assert
@@ -157,7 +178,10 @@ namespace UnitTests.Models
             Assert.AreEqual(1, myData.ReadingCaptureCount);
             Assert.AreEqual(true, myData.TransmitSuccessImage);
             Assert.AreEqual(true, myData.TransmitFailImage);
-
+            Assert.AreEqual("Joe's Samsung 8", myData.Description);
+            Assert.AreEqual("abcdefg", myData.ModelNumber);
+            Assert.AreEqual(new System.DateTime(1995, 01, 01, 1, 1, 1), myData.LastUsed);
+            Assert.AreEqual(PhoneStatusEnum.Inactive, myData.Status);
             // TODO:  Add an Assert for each attribute
         }
     }
