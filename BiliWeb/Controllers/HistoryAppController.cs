@@ -52,6 +52,8 @@ namespace BiliWeb.Controllers
         public IActionResult Create()
         {
             var data = new HistoryAppModel();
+            ViewData["PhoneIDList"] = BiliWeb.Backend.PhoneHelper.ToSelectListItems(BiliWeb.Backend.PhoneBackend.Instance.Index(), null);
+            ViewData["VersionAppIDList"] = BiliWeb.Backend.PhoneHelper.ToSelectListItems(BiliWeb.Backend.PhoneBackend.Instance.Index(), null);
             return View(data);
         }
 
