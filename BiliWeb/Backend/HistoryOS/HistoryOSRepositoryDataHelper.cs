@@ -62,7 +62,7 @@ namespace BiliWeb.Backend
             VersionOSBackend VersionOSData = VersionOSBackend.Instance;
             List<VersionOSModel> OSversions = VersionOSData.Index(); 
 
-            DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[0].ID }); // Default
+            DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[0].ID, ID = "9b02b4fc-8c3a-469d-9d63-e85ae2cb1c87" }); // Default
             DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[1].ID }); 
             DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[2].ID }); 
             DataList.Add(new HistoryOSModel { PhoneID = myPhoneId, VersionOSID = OSversions[3].ID }); 

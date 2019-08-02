@@ -61,7 +61,7 @@ namespace BiliWeb.Backend
             List<VersionAppModel> VersionAppList = VersionAppBackend.Index(); 
 
             // phone 0
-            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[0].ID, ID = "1cfe60ec-a6b2-4721-9fd6-978aa7bc0882" }); // Default
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[1].ID }); 
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[2].ID }); 
             DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[3].ID });

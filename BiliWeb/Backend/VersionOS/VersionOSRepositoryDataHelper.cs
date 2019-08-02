@@ -52,7 +52,7 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.1 \"KitKat\"" }); // Default
+            DataList.Add(new VersionOSModel { ID = "6826c063-bc60-47f7-9edc-8e23e4344675", VersionOSName = "Android 4.4.1 \"KitKat\"" }); // Default
             DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.2 \"KitKat\"" }); 
             DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.3 \"KitKat\"" }); 
             DataList.Add(new VersionOSModel { VersionOSName = "Android 4.4.4 \"KitKat\"" }); 
