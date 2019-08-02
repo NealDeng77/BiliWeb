@@ -141,6 +141,37 @@ namespace UnitTests.Backend
             // Assert
             Assert.AreEqual(0, resultCount);
         }
+
+        /// <summary>
+        /// Verify that only the Sequence 1 items are returned
+        /// </summary>
+        [TestMethod]
+        public void ResultLogHelper_ToSelectListItemsTests_Valid_Only_Sequence_1_Should_Pass()
+        {
+            // Arrange
+            // Add an item with sequence more than 1
+            var newData = new ResultLogModel
+            {
+                ReadingSequence = 2,
+                ID = "id"
+            };
+            DataSourceBackend.Instance.ResultLogBackend.Create(newData);
+
+            var data = DataSourceBackend.Instance.ResultLogBackend.Index();
+
+            // Act
+            var result = ResultLogHelper.ToSelectListItems(data, null);
+            var myItem = result.ToList().Find(m => m.Value == "id");
+
+            // Reset
+            DataSourceBackend.Instance.Reset();
+            
+            // Assert
+
+            // Should not be in the list
+            Assert.AreEqual(null, myItem);
+
+        }
         #endregion ToSelectListItemsTests
     }
 }
