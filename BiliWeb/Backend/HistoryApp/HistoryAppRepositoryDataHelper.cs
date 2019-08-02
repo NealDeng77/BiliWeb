@@ -52,10 +52,37 @@ namespace BiliWeb.Backend
         {
             DataList.Clear();
 
-            DataList.Add(new HistoryAppModel { PhoneID = "A", VersionAppID = "1" }); // Default
-            DataList.Add(new HistoryAppModel { PhoneID = "B", VersionAppID = "2" }); 
-            DataList.Add(new HistoryAppModel { PhoneID = "C", VersionAppID = "3" }); 
-            DataList.Add(new HistoryAppModel { PhoneID = "D", VersionAppID = "4" }); 
+            // get list of phones
+            PhoneBackend PhoneBackend = PhoneBackend.Instance;
+            List<PhoneModel> PhoneList = PhoneBackend.Index();
+
+            // get list of app versions 
+            VersionAppBackend VersionAppBackend = VersionAppBackend.Instance;
+            List<VersionAppModel> VersionAppList = VersionAppBackend.Index(); 
+
+            // phone 0
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[1].ID }); 
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[2].ID }); 
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[0].ID, VersionAppID = VersionAppList[3].ID });
+
+            // phone 1
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[1].ID });
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[2].ID });
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[1].ID, VersionAppID = VersionAppList[3].ID });
+
+            // phone 2
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[1].ID });
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[2].ID });
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[2].ID, VersionAppID = VersionAppList[3].ID });
+
+            // phone 3
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[0].ID }); // Default
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[1].ID });
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[2].ID });
+            DataList.Add(new HistoryAppModel { PhoneID = PhoneList[3].ID, VersionAppID = VersionAppList[3].ID });
 
             return DataList;
         }
