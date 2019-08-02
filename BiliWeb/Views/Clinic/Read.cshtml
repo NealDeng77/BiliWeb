@@ -4,152 +4,170 @@
     ViewData["Title"] = "Read";
 }
 
-<h2>Read</h2>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin="" />
 
-<h4>Clinic record</h4>
-<hr />
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
 
-<div class="row">
+<div class="crudi-page">
+    <h2>Read</h2>
+    <h4>Clinic record</h4>
+    <hr />
 
-    <div class="col">
-        <div class="form-group">
-            <div class="row">
-                <div class="col-5">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.ID)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.ID)
+    <div class="row">
+        <div class="col">
+            <br />
+            <div class="form-group">
+                <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.ID)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.ID)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.Name)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.Name)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.Name)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.Address)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.Address)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.Address)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.City)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.City)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.City)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.City)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.Country)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.Country)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.Country)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.Country)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.Contact)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.Contact)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.Contact)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.Contact)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.Phone)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.Phone)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.Phone)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.Phone)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.Email)
-                            </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.Email)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.Email)
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-2 text-right attr-name">
-                                @Html.DisplayNameFor(model => model.Notes)
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.WhatsApp)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.WhatsApp)
+                                </div>
                             </div>
-                            <div class="col">
-                                @Html.DisplayFor(model => model.Notes)
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-2 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.Notes)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.Notes)
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-info">Back</a>
+                        <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-secondary">Update</a>
+                        <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
+        <div class="col">
+            <div class="form-group">
+                <div id="mapid" style="width: 600px; height: 400px;"></div>
+                <script>
+                var mymap = L.map('mapid').setView([@Html.DisplayFor(model => model.Latitude), @Html.DisplayFor(model => model.Longitude)], 15);
 
-        <div class="form-group">
-            <div class="row">
-                <div class="col-1"></div>
-                <div class="col">
-                    <a asp-action="Index" class="btn btn-info">Back</a>
-                    <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-secondary">Update</a>
-                    <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
-                </div>
+                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                    maxZoom: 18,
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    id: 'mapbox.streets'
+                }).addTo(mymap);
+
+                L.marker([@Html.DisplayFor(model => model.Latitude), @Html.DisplayFor(model => model.Longitude)]).addTo(mymap).bindPopup("<b>@Html.DisplayFor(model => model.Name)</b>").openPopup();
+                </script>
             </div>
         </div>
     </div>
-
-    <div class="col">
-         <div class="form-group">
-            <iframe frameborder="0" style="border:0; width:400px; height:400px"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCBFngdBBzxJognW7Fa2NRy2rQF7xQnJ_0&q=@Html.DisplayFor(m => m.Address),@Html.DisplayFor(m => m.City)+@Html.DisplayFor(m => m.Country)"></iframe>
-            @*<div class="row">
-                <div id="floating-panel">
-                    <button onclick="toggleHeatmap()">Toggle Heatmap</button>
-                    <button onclick="changeGradient()">Change gradient</button>
-                    <button onclick="changeRadius()">Change radius</button>
-                    <button onclick="changeOpacity()">Change opacity</button>
-                </div>
-            </div>
-            <div id="map" style="height:300px; width:500px"></div>
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKmwh3sfpUFM01boOHIUdUHLoYcOV3Yqs&libraries=visualization&callback=initMap">
-            </script>*@
-        </div>
-    </div>
-
-
-
-
+</div>

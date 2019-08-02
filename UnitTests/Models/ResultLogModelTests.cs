@@ -66,19 +66,27 @@ namespace UnitTests.Models
             var myData = new ResultLogModel();
             var myDataNew = new ResultLogModel
             {
+                ID = myData.ID,
                 BilirubinValue = 2,
                 ClinicID = "New",
                 PhoneID = "Phone",
                 UserID = "User",
                 PhotoID = "Photo",
-                ID = myData.ID
+                ParentReadingID = "Parent",
+                ReadingSequence = 5,
             };
 
             // Act
             myData.Update(myDataNew);
 
             // Assert
+            Assert.AreEqual(2, myData.BilirubinValue);
             Assert.AreEqual("New", myData.ClinicID);
+            Assert.AreEqual("Phone", myData.PhoneID);
+            Assert.AreEqual("User", myData.UserID);
+            Assert.AreEqual("Photo", myData.PhotoID);
+            Assert.AreEqual("Parent", myData.ParentReadingID);
+            Assert.AreEqual(5, myData.ReadingSequence);
         }
 
         /// <summary>
@@ -106,10 +114,22 @@ namespace UnitTests.Models
             var myData = new ResultLogModel();
 
             // Act
+            myData.BilirubinValue = 2;
             myData.ClinicID = "New";
+            myData.PhoneID = "Phone";
+            myData.UserID = "User";
+            myData.PhotoID = "Photo";
+            myData.ParentReadingID = "Parent";
+            myData.ReadingSequence = 5;
 
             // Assert
+            Assert.AreEqual(2, myData.BilirubinValue);
             Assert.AreEqual("New", myData.ClinicID);
+            Assert.AreEqual("Phone", myData.PhoneID);
+            Assert.AreEqual("User", myData.UserID);
+            Assert.AreEqual("Photo", myData.PhotoID);
+            Assert.AreEqual("Parent", myData.ParentReadingID);
+            Assert.AreEqual(5, myData.ReadingSequence);
         }
     }
 }

@@ -33,7 +33,10 @@ namespace UnitTests.Models
                 ClinicID = "Clinic",
                 DeviceModel = "Device",
                 SerialNumber = "Serial",
- 
+                TimeOut = 1,
+                ReadingCaptureCount = 1,
+                TransmitSuccessImage = true,
+                TransmitFailImage = true
             };
 
             // Act
@@ -43,7 +46,10 @@ namespace UnitTests.Models
             Assert.AreEqual("Clinic", myNewData.ClinicID);
             Assert.AreEqual("Device", myNewData.DeviceModel);
             Assert.AreEqual("Serial", myNewData.SerialNumber);
-        
+            Assert.AreEqual(1, myNewData.TimeOut);
+            Assert.AreEqual(1, myNewData.ReadingCaptureCount);
+            Assert.AreEqual(true, myNewData.TransmitSuccessImage);
+            Assert.AreEqual(true, myNewData.TransmitFailImage);
         }
 
         /// <summary>
@@ -75,8 +81,10 @@ namespace UnitTests.Models
                 ClinicID = "Clinic",
                 DeviceModel = "Device",
                 SerialNumber = "Serial",
-
-                // TODO:  Add your atttrbutes here
+                TimeOut = 1,
+                ReadingCaptureCount = 1,
+                TransmitFailImage = true,
+                TransmitSuccessImage = true,
 
                 ID = myData.ID
             };
@@ -89,12 +97,13 @@ namespace UnitTests.Models
             Assert.AreEqual("Clinic", myData.ClinicID);
             Assert.AreEqual("Device", myData.DeviceModel);
             Assert.AreEqual("Serial", myData.SerialNumber);
-            // TODO:  Add an Assert for each attribute that should change
+            Assert.AreEqual(1, myData.TimeOut);
+            Assert.AreEqual(1, myData.ReadingCaptureCount);
+            Assert.AreEqual(true, myData.TransmitSuccessImage);
+            Assert.AreEqual(true, myData.TransmitFailImage);
 
-            
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
             // TODO:  Add an Assert for each attribute that thould Not change
-
         }
 
         /// <summary>
@@ -112,6 +121,10 @@ namespace UnitTests.Models
             Assert.IsNull(myData.ClinicID);
             Assert.IsNull(myData.DeviceModel);
             Assert.IsNull(myData.SerialNumber);
+            Assert.AreEqual(10000,myData.TimeOut);
+            Assert.AreEqual(1, myData.ReadingCaptureCount);
+            Assert.AreEqual(false, myData.TransmitSuccessImage);
+            Assert.AreEqual(false, myData.TransmitFailImage);
 
             // TODO:  Add an Assert for each attribute
 
@@ -130,12 +143,20 @@ namespace UnitTests.Models
             myData.ClinicID = "Clinic";
             myData.DeviceModel = "Device";
             myData.SerialNumber = "Serial";
+            myData.TimeOut = 1;
+            myData.ReadingCaptureCount = 1;
+            myData.TransmitSuccessImage = true;
+            myData.TransmitFailImage = true;
             // TODO:  Add each attribute here
 
             // Assert
             Assert.AreEqual("Clinic", myData.ClinicID);
             Assert.AreEqual("Device", myData.DeviceModel);
             Assert.AreEqual("Serial", myData.SerialNumber);
+            Assert.AreEqual(1, myData.TimeOut);
+            Assert.AreEqual(1, myData.ReadingCaptureCount);
+            Assert.AreEqual(true, myData.TransmitSuccessImage);
+            Assert.AreEqual(true, myData.TransmitFailImage);
 
             // TODO:  Add an Assert for each attribute
         }

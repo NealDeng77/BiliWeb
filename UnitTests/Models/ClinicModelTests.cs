@@ -37,8 +37,10 @@ namespace UnitTests.Models
                 Contact = "John Appleseed",
                 Phone = "+14254254252",
                 Email = "jappleseed@gmail.com",
-                Notes = "Newly opened"
-            };
+                Notes = "Newly opened",
+                Latitude = "6.2117902",
+                Longitude = "6.7115102"
+        };
 
             // Act
             var myNewData = new ClinicModel(myData);
@@ -52,6 +54,8 @@ namespace UnitTests.Models
             Assert.AreEqual("+14254254252", myNewData.Phone);
             Assert.AreEqual("jappleseed@gmail.com", myNewData.Email);
             Assert.AreEqual("Newly opened", myNewData.Notes);
+            Assert.AreEqual("6.2117902", myNewData.Latitude);
+            Assert.AreEqual("6.7115102", myNewData.Longitude);
         }
 
         /// <summary>
@@ -88,6 +92,8 @@ namespace UnitTests.Models
                 Phone = "+14254254252",
                 Email = "jappleseed@gmail.com",
                 Notes = "Newly opened",
+                Latitude = "6.2117902",
+                Longitude = "6.7115102",
                 ID = myData.ID
             };
 
@@ -104,6 +110,8 @@ namespace UnitTests.Models
             Assert.AreEqual("+14254254252", myData.Phone);
             Assert.AreEqual("jappleseed@gmail.com", myData.Email);
             Assert.AreEqual("Newly opened", myData.Notes);
+            Assert.AreEqual("6.2117902", myData.Latitude);
+            Assert.AreEqual("6.7115102", myData.Longitude);
 
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
         }
@@ -128,6 +136,8 @@ namespace UnitTests.Models
             Assert.IsNull(myData.Phone);
             Assert.IsNull(myData.Email);
             Assert.IsNull(myData.Notes);
+            Assert.IsNull(myData.Latitude);
+            Assert.IsNull(myData.Longitude);
 
         }
 
@@ -149,6 +159,8 @@ namespace UnitTests.Models
             myData.Phone = "+14254254252";
             myData.Email = "jappleseed@gmail.com";
             myData.Notes = "Newly opened";
+            myData.Latitude = "6.2117902";
+            myData.Longitude = "6.7115102";
 
             // Assert
             Assert.AreEqual("Bellevue Hospital", myData.Name);
@@ -159,6 +171,8 @@ namespace UnitTests.Models
             Assert.AreEqual("+14254254252", myData.Phone);
             Assert.AreEqual("jappleseed@gmail.com", myData.Email);
             Assert.AreEqual("Newly opened", myData.Notes);
+            Assert.AreEqual("6.2117902", myData.Latitude);
+            Assert.AreEqual("6.7115102", myData.Longitude);
 
             // TODO:  Add an Assert for each attribute
         }

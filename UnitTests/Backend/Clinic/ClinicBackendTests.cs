@@ -111,6 +111,8 @@ namespace UnitTests.Backend
             myDataCopy.Phone = "+12062554444";
             myDataCopy.Email = "jdoe@uw.edu";
             myDataCopy.Notes = "N/A";
+            myDataCopy.Latitude = "6.2117902";
+            myDataCopy.Longitude = "6.7115102";
 
             // Act
             myBackend.Update(myDataCopy);
@@ -128,6 +130,8 @@ namespace UnitTests.Backend
             Assert.AreEqual("+12062554444", result.Phone);
             Assert.AreEqual("jdoe@uw.edu", result.Email);
             Assert.AreEqual("N/A", result.Notes);
+            Assert.AreEqual("6.2117902", result.Latitude);
+            Assert.AreEqual("6.7115102", result.Longitude);
 
         }
         #endregion UpdateTests

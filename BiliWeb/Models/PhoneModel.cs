@@ -24,6 +24,23 @@ namespace BiliWeb.Models
         [Display(Name = "Serial Number")]
         public string SerialNumber { get; set; }
 
+        // The timeout in Miliseconds for this phone
+        [Display(Name = "Timeout ms")]
+        public int TimeOut { get; set; } = 10000;
+
+        // The number of readings the phone should take, default is 1 reading, 1 picture
+        [Display(Name = "Number of Readings")]
+        public int ReadingCaptureCount { get; set; } = 1;
+
+        // Flag to Transmit Success Image to server or not
+        [Display(Name = "Upload Success Image")]
+        public bool TransmitSuccessImage { get; set; } = false;
+
+        // Flag to Transmit Fail Image to server or not
+        [Display(Name = "Upload Fail Image")]
+        public bool TransmitFailImage { get; set; } = false;
+
+
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -66,7 +83,11 @@ namespace BiliWeb.Models
             // Update all the other fields
             ClinicID = data.ClinicID;
             DeviceModel = data.DeviceModel;
-            SerialNumber = data.SerialNumber; 
+            SerialNumber = data.SerialNumber;
+            TimeOut = data.TimeOut;
+            ReadingCaptureCount = data.ReadingCaptureCount;
+            TransmitSuccessImage = data.TransmitSuccessImage;
+            TransmitFailImage = data.TransmitFailImage;
 
             return true;
         }

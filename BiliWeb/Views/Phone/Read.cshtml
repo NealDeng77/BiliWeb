@@ -34,8 +34,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
@@ -52,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
@@ -75,6 +73,50 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.TimeOut)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.TimeOut)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.ReadingCaptureCount)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.ReadingCaptureCount)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.TransmitSuccessImage)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.TransmitSuccessImage)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 text-right attr-name">
+                                    @Html.DisplayNameFor(model => model.TransmitFailImage)
+                                </div>
+                                <div class="col">
+                                    @Html.DisplayFor(model => model.TransmitFailImage)
+                                </div>
+                            </div>
+                        </div>
+
                         @*TODO Copy the Form Group from Above and Change the "Name" attributes to the attribute to edit.  The entire block of form group is needed for each attribute*@
 
                         @*TODO - replace following two form groups with derived data for these attributes*@
@@ -85,17 +127,8 @@
                                 </div>
                                 <div class="col">
                                     @{
-                                        // check if any VersionApp records exist before linking to 
-                                        // a VersionApp record's read page
-                                        if (BiliWeb.Backend.VersionAppBackend.Instance.Index().Count() != 0)
-                                        {
-                                            var appVersionID = BiliWeb.Backend.VersionAppBackend.Instance.Index().Last().ID;
-                                            <span class="highlight-text"><a asp-controller="VersionApp" asp-action="Read" asp-route-id="@appVersionID">4.0</a></span>
-                                        }
-                                        else
-                                        {
-                                            <span>Unknown</span>
-                                        }
+                                        var appVersionID = BiliWeb.Backend.VersionAppBackend.Instance.Index().Last().ID;
+                                        <span class="highlight-text"><a asp-controller="VersionApp" asp-action="Read" asp-route-id="@appVersionID">4.0</a></span>
                                     }
                                 </div>
                             </div>
@@ -109,17 +142,8 @@
                                 <div class="col">
 
                                     @{
-                                        // Check if any VersionOS records exist before linking to 
-                                        // a VersionOS record's read page
-                                        if (BiliWeb.Backend.VersionOSBackend.Instance.Index().Count != 0)
-                                        {
-                                            var OSVersionID = BiliWeb.Backend.VersionOSBackend.Instance.Index().Last().ID;
-                                            <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@OSVersionID">Android 4.4.4 "KitKat"</a></span>
-                                        }
-                                        else
-                                        {
-                                            <span>Unknown</span>
-                                        }
+                                        var OSVersionID = BiliWeb.Backend.VersionOSBackend.Instance.Index().Last().ID;
+                                        <span class="highlight-text"><a asp-controller="VersionOS" asp-action="Read" asp-route-id="@OSVersionID">Android 4.4.4 "KitKat"</a></span>
                                     }
                                 </div>
                             </div>

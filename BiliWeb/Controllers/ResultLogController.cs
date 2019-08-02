@@ -76,6 +76,8 @@ namespace BiliWeb.Controllers
             "UserID,"+
             "PhoneID,"+
             "PhotoID,"+
+            "ParentReadingID,"+
+            "ReadingSequence,"+
 
             "")] ResultLogModel data)
         {
@@ -109,11 +111,11 @@ namespace BiliWeb.Controllers
             }
 
 
-            ViewData["ResultLogIDList"] = BiliWeb.Backend.ResultLogHelper.ToSelectListItems(Backend.Index(), null);
-            ViewData["ClinicIDList"] = BiliWeb.Backend.ClinicHelper.ToSelectListItems(ClinicData.Index(), null);
-            ViewData["PhoneIDList"] = BiliWeb.Backend.PhoneHelper.ToSelectListItems(PhoneData.Index(), null);
-            ViewData["UserIDList"] = BiliWeb.Backend.TechnicianHelper.ToSelectListItems(UserData.Index(), null);
-            ViewData["PhotoIDList"] = BiliWeb.Backend.PhotoHelper.ToSelectListItems(PhotoData.Index(), null);
+            ViewData["ResultLogIDList"] = ResultLogHelper.ToSelectListItems(Backend.Index(), null);
+            ViewData["ClinicIDList"] = ClinicHelper.ToSelectListItems(ClinicData.Index(), null);
+            ViewData["PhoneIDList"] = PhoneHelper.ToSelectListItems(PhoneData.Index(), null);
+            ViewData["UserIDList"] = TechnicianHelper.ToSelectListItems(UserData.Index(), null);
+            ViewData["PhotoIDList"] = PhotoHelper.ToSelectListItems(PhotoData.Index(), null);
 
             return View(data);
         }
@@ -135,6 +137,8 @@ namespace BiliWeb.Controllers
             "UserID,"+
             "PhoneID,"+
             "PhotoID,"+
+            "ParentReadingID,"+
+            "ReadingSequence,"+
 
             "")] ResultLogModel data)
         {
