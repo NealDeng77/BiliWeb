@@ -62,6 +62,7 @@ namespace BiliWeb.Backend
                 ID = "f85345ba-e35c-43c2-8a44-635839d8ecb9",
                 TransmitSuccessImage = true,
                 TransmitFailImage = true,
+                ReadingCaptureCount = 2
             }); // Default, force a guid, and Transfer Images for the Default Phone
 
             DataList.Add(new PhoneModel { ClinicID = clinics[0].ID,  DeviceModel = "Samsung 8", SerialNumber = "Q24D38HTDEX" }); 
