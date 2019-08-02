@@ -28,6 +28,10 @@ namespace BiliWeb.Models
         [Display(Name = "Timeout ms")]
         public int TimeOut { get; set; } = 10000;
 
+        // The number of readings the phone should take, default is 1 reading, 1 picture
+        [Display(Name = "Number of Readings")]
+        public int ReadingCaptureCount { get; set; } = 1;
+
         /// <summary>
         /// Simple Constructor
         /// </summary>
@@ -72,6 +76,7 @@ namespace BiliWeb.Models
             DeviceModel = data.DeviceModel;
             SerialNumber = data.SerialNumber;
             TimeOut = data.TimeOut;
+            ReadingCaptureCount = data.ReadingCaptureCount;
 
             return true;
         }

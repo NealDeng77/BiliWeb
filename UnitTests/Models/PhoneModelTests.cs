@@ -33,8 +33,8 @@ namespace UnitTests.Models
                 ClinicID = "Clinic",
                 DeviceModel = "Device",
                 SerialNumber = "Serial",
-                TimeOut = 1
- 
+                TimeOut = 1,
+                ReadingCaptureCount = 1
             };
 
             // Act
@@ -45,7 +45,7 @@ namespace UnitTests.Models
             Assert.AreEqual("Device", myNewData.DeviceModel);
             Assert.AreEqual("Serial", myNewData.SerialNumber);
             Assert.AreEqual(1, myNewData.TimeOut);
-
+            Assert.AreEqual(1, myNewData.ReadingCaptureCount);
         }
 
         /// <summary>
@@ -78,6 +78,7 @@ namespace UnitTests.Models
                 DeviceModel = "Device",
                 SerialNumber = "Serial",
                 TimeOut = 1,
+                ReadingCaptureCount = 1,
 
                 ID = myData.ID
             };
@@ -91,11 +92,10 @@ namespace UnitTests.Models
             Assert.AreEqual("Device", myData.DeviceModel);
             Assert.AreEqual("Serial", myData.SerialNumber);
             Assert.AreEqual(1, myData.TimeOut);
-
-
+            Assert.AreEqual(1, myData.ReadingCaptureCount);
+            
             Assert.AreNotEqual(myData.Date, myDataNew.Date);
             // TODO:  Add an Assert for each attribute that thould Not change
-
         }
 
         /// <summary>
@@ -114,6 +114,7 @@ namespace UnitTests.Models
             Assert.IsNull(myData.DeviceModel);
             Assert.IsNull(myData.SerialNumber);
             Assert.AreEqual(10000,myData.TimeOut);
+            Assert.AreEqual(1, myData.ReadingCaptureCount);
 
             // TODO:  Add an Assert for each attribute
 
@@ -133,6 +134,7 @@ namespace UnitTests.Models
             myData.DeviceModel = "Device";
             myData.SerialNumber = "Serial";
             myData.TimeOut = 1;
+            myData.ReadingCaptureCount = 1;
             // TODO:  Add each attribute here
 
             // Assert
@@ -140,6 +142,7 @@ namespace UnitTests.Models
             Assert.AreEqual("Device", myData.DeviceModel);
             Assert.AreEqual("Serial", myData.SerialNumber);
             Assert.AreEqual(1, myData.TimeOut);
+            Assert.AreEqual(1, myData.ReadingCaptureCount);
 
             // TODO:  Add an Assert for each attribute
         }
