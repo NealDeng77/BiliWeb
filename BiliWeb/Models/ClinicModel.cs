@@ -32,10 +32,17 @@ namespace BiliWeb.Models
         // Email of the clinic
         public string Email { get; set; }
 
+        // WhatsApp contact
         public string WhatsApp { get; set; }
 
         // Notes of the clinic
         public string Notes { get; set; }
+
+        // Latitude of the Location
+        public string Latitude { get; set; }
+
+        // Longitude of the Location
+        public string Longitude { get; set; }
 
         /// <summary>
         /// Simple Constructor
@@ -86,6 +93,8 @@ namespace BiliWeb.Models
             Email = data.Email;
             WhatsApp = data.WhatsApp;
             Notes = data.Notes;
+            Latitude = data.Latitude;
+            Longitude = data.Longitude;
 
             return true;
         }

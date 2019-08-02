@@ -75,6 +75,8 @@ namespace BiliWeb.Controllers
             "Email,"+
             "WhatsApp,"+
             "Notes,"+
+            "Latitude," +
+            "Longitude,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
             "")] ClinicModel data)
@@ -131,6 +133,8 @@ namespace BiliWeb.Controllers
             "Email,"+
             "WhatsApp,"+
             "Notes,"+
+            "Latitude," +
+            "Longitude,"+
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
             "")] ClinicModel data)
