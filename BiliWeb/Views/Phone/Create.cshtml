@@ -24,8 +24,8 @@
                             <div class="col-1 text-right">
                                 <label asp-for="ClinicID" class="control-label"></label>
                             </div>
-                            <div class="col">
-                                <input asp-for="ClinicID" class="form-control" />
+                            <div class="col"> 
+                                @Html.DropDownListFor(m => m.ClinicID, ViewData["ClinicIDList"] as IEnumerable<SelectListItem>, "Select Clinic")
                                 <span asp-validation-for="ClinicID" class="text-danger"></span>
                             </div>
                         </div>

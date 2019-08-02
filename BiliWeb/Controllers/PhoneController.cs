@@ -52,6 +52,7 @@ namespace BiliWeb.Controllers
         public IActionResult Create()
         {
             var data = new PhoneModel();
+            ViewData["ClinicIDList"] = BiliWeb.Backend.ClinicHelper.ToSelectListItems(BiliWeb.Backend.ClinicBackend.Instance.Index(), null);
             return View(data);
         }
 
