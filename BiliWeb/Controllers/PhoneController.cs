@@ -75,6 +75,10 @@ namespace BiliWeb.Controllers
             "ReadingCaptureCount," +
             "TransmitSuccessImage,"+
             "TransmitFailImage,"+
+            "ModelNumber," +
+            "Description,"+
+            "Status,"+
+            "LastUsed,"+
 
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
             
@@ -133,6 +137,10 @@ namespace BiliWeb.Controllers
             "ReadingCaptureCount," +
             "TransmitSuccessImage,"+
             "TransmitFailImage,"+
+            "ModelNumber," +
+            "Description,"+
+            "Status,"+
+            "LastUsed,"+
 
             // TODO, Add your attributes here.  Make sure to include the comma , after the attribute name
 
