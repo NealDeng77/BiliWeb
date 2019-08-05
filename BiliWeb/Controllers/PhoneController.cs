@@ -35,7 +35,7 @@ namespace BiliWeb.Controllers
             }
 
             //Look up the ID
-            var data = Backend.Read(id);
+            var data = Backend.GetPhoneReportViewModel(id);
             if (data == null)
             {
                 return NotFound();
