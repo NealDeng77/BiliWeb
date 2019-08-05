@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using BiliWeb.Models;
 using BiliWeb.Backend;
+using BiliWeb.Backend.Phone;
 
 namespace BiliWeb.Backend
 {
@@ -90,6 +91,34 @@ namespace BiliWeb.Backend
         {
             var data = repository.GetDataSourceString();
             return data;
+        }
+
+        /// <summary>
+        /// Retrieves the phone report view model for the 
+        /// given id. 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>The PhoneReportViewModel for phone with given id</returns>
+        public PhoneReportViewModel GetPhoneReportViewModel(string id)
+        {
+            var phone = repository.Read(id);
+
+            // set attributes of PhoneReportViewModel
+            var data = new PhoneReportViewModel
+            {
+                PhoneModel = phone,
+                CurrentOSVersion = PhoneReportHelper.GetCurrentOSVersion(phone.ID),
+                CurrentAppVersion = PhoneReportHelper.GetCurrentAppVersion(phone.ID),
+                PhoneOSHistory = PhoneReportHelper.GetPhoneHistoryOS(phone.ID),
+                PhoneAppHistory = PhoneReportHelper.GetPhoneHistoryApp(phone.ID),
+                InitialInstall = PhoneReportHelper.GetInitialInstallDate(phone.ID), 
+                // LastHeardFrom = PhoneReportHelper.GetLastHeardDate(phone.ID),
+                // TODO - uncomment line above when GetLastHeardDate() implemented
+                
+                // TODO - set more attributes as they are added to PhoneReportVIewModel
+            };
+
+            return data; 
         }
 
         /// <summary>
