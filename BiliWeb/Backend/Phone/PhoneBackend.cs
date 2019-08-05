@@ -102,6 +102,10 @@ namespace BiliWeb.Backend
         public PhoneReportViewModel GetPhoneReportViewModel(string id)
         {
             var phone = repository.Read(id);
+            if (phone == null)
+            {
+                return null; 
+            }
 
             // set attributes of PhoneReportViewModel
             var data = new PhoneReportViewModel
