@@ -216,7 +216,71 @@
                 </div>
                 <!--Example photo pf gantt chart - DELETE when no longer needed for demo-->
 
-
+                <br />
+                <div class="row">
+                    <div class="col-6 test-left attr-name">
+                        App Version History
+                    </div>
+                    <div class="col-6 test-left attr-name">
+                        OS Version History
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <table class="table">
+                            <thead class="attr-name">
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                        App Version ID
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.PhoneAppHistory)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Date)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-6">
+                        <table class="table">
+                            <thead class="attr-name">
+                                <tr>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                        OS Version ID
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.PhoneOSHistory)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Date)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <br />
