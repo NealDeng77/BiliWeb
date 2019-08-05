@@ -1,4 +1,5 @@
-﻿@model BiliWeb.Models.PhoneModel
+﻿@model BiliWeb.Models.PhoneReportViewModel
+
 
 @{
     ViewData["Title"] = "Read";
@@ -26,10 +27,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.ID)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.ID)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.ID)
+                                    @Html.DisplayFor(model => model.PhoneModel.ID)
                                 </div>
                             </div>
                         </div>
@@ -37,14 +38,14 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.ClinicID)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.ID)
                                 </div>
                                 <div class="col">
                                     @{
-                                        var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(Model.ClinicID);
+                                        var clinicName = BiliWeb.Backend.ClinicHelper.ConvertIDtoString(Model.PhoneModel.ClinicID);
                                         if (clinicName != "")
                                         {
-                                            <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@Model.ClinicID"> @clinicName </a></span>
+                                            <span class="highlight-text"><a asp-controller="Clinic" asp-action="Read" asp-route-id="@Model.PhoneModel.ClinicID"> @clinicName </a></span>
                                         }
                                     }
                                 </div>
@@ -54,10 +55,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.DeviceModel)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.DeviceModel)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.DeviceModel)
+                                    @Html.DisplayFor(model => model.PhoneModel.DeviceModel)
                                 </div>
                             </div>
                         </div>
@@ -65,10 +66,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.ModelNumber)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.ModelNumber)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.ModelNumber)
+                                    @Html.DisplayFor(model => model.PhoneModel.ModelNumber)
                                 </div>
                             </div>
                         </div>
@@ -76,10 +77,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.SerialNumber)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.SerialNumber)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.SerialNumber)
+                                    @Html.DisplayFor(model => model.PhoneModel.SerialNumber)
                                 </div>
                             </div>
                         </div>
@@ -87,10 +88,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.Description)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.Description)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.Description)
+                                    @Html.DisplayFor(model => model.PhoneModel.Description)
                                 </div>
                             </div>
                         </div>
@@ -98,10 +99,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.Status)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.Status)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.Status)
+                                    @Html.DisplayFor(model => model.PhoneModel.Status)
                                 </div>
                             </div>
                         </div>
@@ -109,10 +110,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.LastUsed)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.LastUsed)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.LastUsed)
+                                    @Html.DisplayFor(model => model.PhoneModel.LastUsed)
                                 </div>
                             </div>
                         </div>
@@ -120,10 +121,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.TimeOut)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.TimeOut)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.TimeOut)
+                                    @Html.DisplayFor(model => model.PhoneModel.TimeOut)
                                 </div>
                             </div>
                         </div>
@@ -131,10 +132,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.ReadingCaptureCount)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.ReadingCaptureCount)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.ReadingCaptureCount)
+                                    @Html.DisplayFor(model => model.PhoneModel.ReadingCaptureCount)
                                 </div>
                             </div>
                         </div>
@@ -142,10 +143,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.TransmitSuccessImage)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.TransmitSuccessImage)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.TransmitSuccessImage)
+                                    @Html.DisplayFor(model => model.PhoneModel.TransmitSuccessImage)
                                 </div>
                             </div>
                         </div>
@@ -153,10 +154,10 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-3 text-right attr-name">
-                                    @Html.DisplayNameFor(model => model.TransmitFailImage)
+                                    @Html.DisplayNameFor(model => model.PhoneModel.TransmitFailImage)
                                 </div>
                                 <div class="col">
-                                    @Html.DisplayFor(model => model.TransmitFailImage)
+                                    @Html.DisplayFor(model => model.PhoneModel.TransmitFailImage)
                                 </div>
                             </div>
                         </div>
@@ -200,7 +201,7 @@
                <div class="row">
                    <div class="col text-left attr-name">
                        @{
-                           var phoneName = BiliWeb.Backend.PhoneHelper.ConvertIDtoString(@Model.ID);
+                           var phoneName = BiliWeb.Backend.PhoneHelper.ConvertIDtoString(@Model.PhoneModel.ID);
                            @phoneName
                        }
                        History - App Version and Operating System
@@ -215,14 +216,16 @@
                 </div>
                 <!--Example photo pf gantt chart - DELETE when no longer needed for demo-->
 
+
+
                 <div class="form-group">
                     <br />
                     <div class="row">
                         <div class="col-1"></div>
                         <div class="col">
                             <a asp-action="Index" class="btn btn-info">Back</a>
-                            <a asp-action="Update" asp-route-id="@Model.ID" class="btn btn-secondary">Update</a>
-                            <a asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-danger">Delete</a>
+                            <a asp-action="Update" asp-route-id="@Model.PhoneModel.ID" class="btn btn-secondary">Update</a>
+                            <a asp-action="Delete" asp-route-id="@Model.PhoneModel.ID" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>
