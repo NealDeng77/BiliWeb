@@ -89,6 +89,38 @@ namespace UnitTests.Backend
         }
         #endregion ReadTests
 
+        #region PhoneReportTests
+
+        /// <summary>
+        /// Ensure that GetPhoneReportViewModel() returns null
+        /// when null passed as parameter. 
+        /// </summary>
+        [TestMethod]
+        public void Phone_GetPhoneReportViewModel_Data_Invalid_Null_Should_Fail()
+        {
+            var backend = PhoneBackend.Instance;
+
+            var result = backend.GetPhoneReportViewModel(null);
+
+            Assert.IsNull(result);
+        }
+
+        /// <summary>
+        /// Ensure that GetPhoneReportViewModel() returns null
+        /// when a bogus id is passed as a parameter. 
+        /// </summary>
+        [TestMethod]
+        public void Phone_GetPhoneReportViewModel_Data_Bogus_Should_Fail()
+        {
+            var backend = PhoneBackend.Instance;
+
+            var result = backend.GetPhoneReportViewModel("bogus");
+
+            Assert.IsNull(result);
+        }
+
+        #endregion
+
         #region UpdateTests
         /// <summary>
         /// Ensure the Update Method Post on the controller returns and is not null
